@@ -10,6 +10,8 @@ This folder contains three different experiments meant to align the [French Crop
     - use the EPPO API to match FCU's crops names with EPPO codes, and get the corresponding full scientific names.
     - lowercase exact match of EPPO's full scientific names with TAXREF-LD's full scientific names
     
+The table below gives the results of each method in terms of number of FCU crops aligned with TAXREF-LD taxa. Column "Intermediate source" means GEVES in method 2 and EPPO in method 3.
+
 
 | Alignment method   | FCU concepts | Intermediate source | TAXREF-LD taxa | Taxonomic ranks |
 | :-- |       :--:   |         :--: |           :--: | :--: |
