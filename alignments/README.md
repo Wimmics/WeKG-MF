@@ -1,4 +1,4 @@
-# Aligement of French Crop Usage with TAXREF-LD using 3 methods
+# Aligement of French Crop Usage with TAXREF-LD
 
 This folder contains three different experiments meant to align the [French Crop Usage](http://ontology.irstea.fr/pmwiki.php/Site/FrenchCropUsage) theaurus (FCU) with [TAXREF-LD](https://github.com/frmichel/taxref-ld/), the Linked Data representation of the french taxonomic registry, [TAXREF](https://inpn.mnhn.fr/programme/referentiel-taxonomique-taxref?lg=en).
 
