@@ -1,0 +1,11 @@
+.idea
+.cache
+.classpath
+.project
+.settings/
+.metadata/
+.DS_Store
+.ipynb*
+*~
+_do_not_commit/
+*.bak
