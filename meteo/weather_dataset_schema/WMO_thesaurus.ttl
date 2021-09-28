@@ -1,0 +1,67 @@
+
+@prefix dcterms: <http://purl.org/dcterms/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901> a skos:Collection ;
+skos:member <http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/0> ,
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/1> ,
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/2>, 
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/3>,
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/4> , 
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/5>,
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/6>,
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/7>, 
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/8>, 
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/9> . 
+
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/0> a skos:Concept, 
+rdf:value 0 ;
+dcterms:description "Surface of ground dry (without cracks and no appreciable amount of dust or loose sand)";
+rdfs:isDefinedBy <https://library.wmo.int/> .
+
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/1> a skos:Concept, 
+rdf:value 1;
+dcterms:description "Surface of ground moist";
+rdfs:isDefinedBy <https://library.wmo.int/> .
+
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/2> a skos:Concept, 
+rdf:value 2;
+dcterms:description "Surface of ground wet (standing water in small or large pools on surface)";
+rdfs:isDefinedBy <https://library.wmo.int/> .
+
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/3> a skos:Concept, 
+rdf:value 3;
+dcterms:description "Flooded";
+rdfs:isDefinedBy <https://library.wmo.int/> .
+
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/4> a skos:Concept, 
+rdf:value 4;
+dcterms:description "Surface of ground frozen";
+rdfs:isDefinedBy <https://library.wmo.int/> .
+
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/5> a skos:Concept, 
+rdf:value 5;
+dcterms:description "Glaze on ground";
+rdfs:isDefinedBy <https://library.wmo.int/> .
+
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/6> a skos:Concept, 
+rdf:value 6;
+dcterms:description "Loose dry dust or sand not covering ground completely";
+rdfs:isDefinedBy <https://library.wmo.int/> .
+
+
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/7> a skos:Concept, 
+rdf:value 7;
+dcterms:description "Thin cover of loose dry dust or sand covering ground completely";
+rdfs:isDefinedBy <https://library.wmo.int/> .
+
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/8> a skos:Concept, 
+rdf:value 8;
+dcterms:description "Moderate or thick cover of loose dry dust or sand covering ground completely";
+rdfs:isDefinedBy <https://library.wmo.int/> .
+
+<http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/9> a skos:Concept, 
+rdf:value 9;
+dcterms:description "Extremely dry with cracks";
+rdfs:isDefinedBy <https://library.wmo.int/> .

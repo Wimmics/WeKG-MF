@@ -1,0 +1,205 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix weo: <http://ns.inria.fr/meteo/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix wep: <http://ns.inria.fr/meteo/ontology/property/> .  
+
+
+<http://ns.inria.fr/meteo/ontology/featureOfInterest/wind>
+  a <http://ns.inria.fr/meteo/ontology/MeteorologicalFeature>, skos:Concept ;
+  skos:exactMatch <http://ontology.irstea.fr/weather/resource/featureOfInterest/wind> ;
+  ssn:hasProperty <http://ns.inria.fr/meteo/ontology/weatherproperty/windAverageSpeed>, 
+  <http://ns.inria.fr/meteo/ontology/weatherproperty/windAverageDirection> .
+
+<http://ns.inria.fr/meteo/ontology/featureOfInterest/gust>
+  a <http://ns.inria.fr/meteo/ontology/MeteorologicalFeature>, skos:Concept ;
+  ssn:hasProperty <http://ns.inria.fr/meteo/ontology/weatherproperty/gustSpeed> .
+
+<http://ns.inria.fr/meteo/ontology/featureOfInterest/precipitation>
+  a <http://ns.inria.fr/meteo/ontology/MeteorologicalFeature>, skos:Concept ;
+  skos:exactMatch <http://ontology.irstea.fr/weather/resource/featureOfInterest/precipitation> ;
+  ssn:hasProperty <http://ns.inria.fr/meteo/ontology/weatherproperty/precipitationAmount> .
+
+<http://ns.inria.fr/meteo/ontology/featureOfInterest/air>
+  a <http://ns.inria.fr/meteo/ontology/MeteorologicalFeature>, skos:Concept ;
+  skos:exactMatch <http://ontology.irstea.fr/weather/resource/featureOfInterest/air> ;
+  ssn:hasProperty <http://ns.inria.fr/meteo/ontology/weatherproperty/airTemperature>, <http://ns.inria.fr/meteo/ontology/weatherproperty/dewPointTemperature>, <http://ns.inria.fr/meteo/ontology/weatherproperty/minAirTemperature>, <http://ns.inria.fr/meteo/ontology/weatherproperty/maxAirTemperature>, <http://ns.inria.fr/meteo/ontology/weatherproperty/wetBulbTemperature>, <http://ns.inria.fr/meteo/ontology/weatherproperty/airRelativeHumidity>, <http://ns.inria.fr/meteo/ontology/weatherproperty/stationPressure>, <http://ns.inria.fr/meteo/ontology/weatherproperty/differentialPressure>, <http://ns.inria.fr/meteo/ontology/weatherproperty/seaLevelPressure> .
+
+<http://ns.inria.fr/meteo/ontology/featureOfInterest/cloud>
+  a <http://ns.inria.fr/meteo/ontology/MeteorologicalFeature>, skos:Concept ;
+  ssn:hasProperty <http://ns.inria.fr/meteo/ontology/weatherproperty/totalCloudCover>, <http://ns.inria.fr/meteo/ontology/weatherproperty/cloudBaseAltitude>, <http://ns.inria.fr/meteo/ontology/weatherproperty/lowCloudCover> .
+
+<http://ns.inria.fr/meteo/ontology/featureOfInterest/ground>
+  a <http://ns.inria.fr/meteo/ontology/MeteorologicalFeature>, skos:Concept ;
+  ssn:hasProperty <http://ns.inria.fr/meteo/ontology/weatherproperty/soilMinTemperature>, 
+  <http://ns.inria.fr/meteo/ontology/weatherproperty/freshSnowDepth>, 
+  <http://ns.inria.fr/meteo/ontology/weatherproperty/totalCoverHeight>, 
+  <http://ns.inria.fr/meteo/ontology/weatherproperty/stateGround>, 
+  <http://ns.inria.fr/meteo/ontology/weatherproperty/horizontalVisibility> .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/windAverageSpeed>
+  a <http://ns.inria.fr/meteo/ontology/WeatherProperty>, <http://qudt.org/schema/qudt/QuantityKind> ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/wind> ;
+  skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0038/> ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/M-PER-SEC> ;
+  rdfs:label "Vitesse moyenne du vent 10mn"@fr ;
+  wep:hasAbbreviation "ff"^^xsd:string.
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/windAverageDirection>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/wind> ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/DEG> ;
+  rdfs:label "Direction du vent moyen 10mn"@fr ;
+  wep:hasAbbreviation "dd"^^xsd:string .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/horizontalVisibility>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/ground> ;
+  skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0061/> ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/M> ;
+  rdfs:label "Visibilité horizontale"@fr ;
+  wep:hasAbbreviation "vv" .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/gustSpeed>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/gust> ;
+  skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0039/> ;
+  rdfs:label "Rafales sur les 10 dernières minutes"@fr ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/M-PER-SEC> ;
+  wep:hasAbbreviation "raf10" .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/airRelativeHumidity>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
+  skos:exactMatch <http://ontology.irstea.fr/weather/resource/observableProperty/air_relativeHumidity> ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/PERCENT> ;
+  rdfs:label "Humidité@fr" ;
+  wep:hasAbbreviation "u"^^xsd:string .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/airTemperature>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
+  skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/>, <http://ontology.irstea.fr/weather/resource/observableProperty/air_temperature> ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/K> ;
+  rdfs:label "Température"@fr ;
+  wep:hasAbbreviation "t"^^xsd:string .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/dewPointTemperature>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/K> ;
+  skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0723/> ;
+  rdfs:label "Point de rosée"@fr ;
+  wep:hasAbbreviation "td"^^xsd:string .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/minAirTemperature>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/K> ;
+  skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/> ;
+  rdfs:label "Température minimale sur N heures"@fr ;
+  wep:hasAbbreviation "tnN"^^xsd:string .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/maxAirTemperature>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/K> ;
+  skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/> ;
+  rdfs:label "Température maximale sur N heures"@fr ;
+  wep:hasAbbreviation "txN"^^xsd:string .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/wetBulbTemperature>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/K> ;
+  skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0035/> ;
+  rdfs:label "Température du thermomètre mouillé"@fr ;
+  wep:hasAbbreviation "tw"^^xsd:string .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/stationPressure>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0015/>, <http://ontology.irstea.fr/weather/resource/observableProperty/air_pressure> ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/PA> ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
+  rdfs:label "Pression Station"@fr ;
+  wep:hasAbbreviation "pres"^^xsd:string .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/soilMinTemperature>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/surface> ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/K> ;
+  skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0354/> ;
+  rdfs:label "Température minimale du sol sur 12 heures"@fr ;
+  wep:hasAbbreviation "tminsol"^^xsd:string .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/seaLevelPressure>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/PA> ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
+  rdfs:label "Pression au niveau mer"@fr ;
+  wep:hasAbbreviation "pmer"^^xsd:string .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/differentialPressure>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/PA> ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
+  rdfs:label "Variation de Pression en N heures"@fr ;
+  wep:hasAbbreviation "tend"^^xsd:string .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/precipitationAmount>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/precipitation> ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/MilliM-PER-HR> ;
+  skos:exactMatch <http://ontology.irstea.fr/weather/page/resource/observableProperty/precipitation_amount>, <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0452/> ;
+  rdfs:label "Précipitations dans les N dernières heures"@fr ;
+  wep:hasAbbreviation "rrN"^^xsd:string .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/totalCloudCover>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/cloud> ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/PERCENT> ;
+  rdfs:label "Nebulosité totale"@fr ;
+  wep:hasAbbreviation "n"^^xsd:string .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/cloudBaseAltitude>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/cloud> ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/M> ;
+  skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0747/> ;
+  rdfs:label "Hauteur de la base des nuages de l'étage inférieur"@fr ;
+  wep:hasAbbreviation "hbas"^^xsd:string .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/lowCloudCover>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/cloud> ;
+  qudt:applicableUnit <http://ns.inria.fr/meteo/ontology/unit/okta>;
+  rdfs:label "Nebulosité des nuages de l'étage inférieur"@fr ;
+  wep:hasAbbreviation "nbas"^^xsd:string .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/freshSnowDepth>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/ground> ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/M> ;
+  rdfs:label "Hauteur de la neige fraîche"@fr ;
+  wep:hasAbbreviation "ssfrai"^^xsd:string .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/totalCoverHeight>
+  a weo:WeatherProperty, qudt:QuantityKind ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/ground> ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/M> ;
+  rdfs:label "Hauteur totale de la couche de neige, glace, autre au sol"@fr ;
+  wep:hasAbbreviation "ht_neige"^^xsd:string .
+
+<http://ns.inria.fr/meteo/ontology/weatherproperty/stateGround>
+  a weo:WeatherProperty ;
+  ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/ground> ;
+  rdfs:label "Etat du sol"@fr ;
+  weo:hasAbbreviation "etat_sol" .
+
+<http://ns.inria.fr/meteo/ontology/unit/okta>
+  a qudt:Unit ;
+  qudt:plainTextDescription "In meteorology, an okta is a unit of measurement used to describe the amount of cloud cover at any given location such as a weather station." ;
+  qudt:ucumCode "okta"^^qudt:UCUMcs ;
+  rdfs:label "Okta"@en, "Octa"@fr .

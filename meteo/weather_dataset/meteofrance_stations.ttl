@@ -10,13 +10,14 @@
 @prefix geo2:    <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix geosparql:  <http://www.opengis.net/ont/geosparql#> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix dct:  <http://purl.org/dc/terms/> .
 @prefix xrr:     <http://i3s.unice.fr/xr2rml#> .
 @prefix foaf:    <http://xmlns.com/foaf/0.1/> .
 
 <http://ns.inria.fr/meteo/weatherstation/07761>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "AJACCIO" ;
+      dct:spatial <http://www.wikidata.org/entity/Q40104> ;
       weo:stationID "07761" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -29,6 +30,7 @@
 <http://ns.inria.fr/meteo/weatherstation/81401>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "SAINT LAURENT" ;
+      dct:spatial <http://www.wikidata.org/entity/Q319959> ;
       weo:stationID "81401" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -41,6 +43,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07434>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "LIMOGES-BELLEGARDE" ;
+      dct:spatial <http://www.wikidata.org/entity/Q764655>, <http://www.wikidata.org/entity/Q45656> ;
       weo:stationID "07434" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -53,6 +56,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07190>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "STRASBOURG-ENTZHEIM" ;
+      dct:spatial <http://www.wikidata.org/entity/Q1165367>, <http://www.wikidata.org/entity/Q22438> ;
       weo:stationID "07190" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -65,6 +69,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07255>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "BOURGES" ;
+      dct:spatial <http://www.wikidata.org/entity/Q132404> ;
       weo:stationID "07255" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -77,6 +82,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07037>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "ROUEN-BOOS" ;
+      dct:spatial <http://www.wikidata.org/entity/Q1146471>, <http://www.wikidata.org/entity/Q384105> ;
       weo:stationID "07037" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -89,6 +95,7 @@
 <http://ns.inria.fr/meteo/weatherstation/61976>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "TROMELIN" ;
+      dct:spatial <http://www.wikidata.org/entity/Q234208>, <http://www.wikidata.org/entity/Q190571> ;
       weo:stationID "61976" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -101,6 +108,7 @@
 <http://ns.inria.fr/meteo/weatherstation/61980>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "GILLOT-AEROPORT" ;
+      dct:spatial <http://www.wikidata.org/entity/Q17430>, <http://www.wikidata.org/entity/Q662942> ;
       weo:stationID "61980" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -113,6 +121,7 @@
 <http://ns.inria.fr/meteo/weatherstation/78894>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "ST-BARTHELEMY METEO" ;
+      dct:spatial <http://www.wikidata.org/entity/Q25362> ;
       weo:stationID "78894" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -125,6 +134,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07110>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "BREST-GUIPAVAS" ;
+  	dct:spatial <http://www.wikidata.org/entity/Q1191525>, <http://www.wikidata.org/entity/Q325889> ;
       weo:stationID "07110" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -137,6 +147,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07607>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "MONT-DE-MARSAN" ;
+      dct:spatial <http://www.wikidata.org/entity/Q188033> ;
       weo:stationID "07607" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -149,6 +160,7 @@
 <http://ns.inria.fr/meteo/weatherstation/71805>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "ST-PIERRE" ;
+      dct:spatial <http://www.wikidata.org/entity/Q34617> ;
       weo:stationID "71805" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -161,6 +173,7 @@
 <http://ns.inria.fr/meteo/weatherstation/67005>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "PAMANDZI" ;
+      dct:spatial <http://www.wikidata.org/entity/Q1010634> ;
       weo:stationID "67005" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -173,6 +186,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07222>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "NANTES-BOUGUENAIS" ;
+      dct:spatial <http://www.wikidata.org/entity/Q291197> ;
       weo:stationID "07222" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -185,6 +199,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07149>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "ORLY" ;
+      dct:spatial <http://www.wikidata.org/entity/Q236058> ;
       weo:stationID "07149" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -197,6 +212,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07072>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "REIMS-PRUNAY" ;
+       dct:spatial <http://www.wikidata.org/entity/Q1221970> ;      
       weo:stationID "07072" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -209,6 +225,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07747>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "PERPIGNAN" ;
+      dct:spatial <http://www.wikidata.org/entity/Q6730> ;
       weo:stationID "07747" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -221,6 +238,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07020>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "PTE DE LA HAGUE" ;
+      dct:spatial <http://www.wikidata.org/entity/Q1798855>, <http://www.wikidata.org/entity/Q12589> ;
       weo:stationID "07020" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -233,6 +251,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07630>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "TOULOUSE-BLAGNAC" ;
+      dct:spatial <http://www.wikidata.org/entity/Q372615>, <http://www.wikidata.org/entity/Q271068> ;
       weo:stationID "07630" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -245,6 +264,7 @@
 <http://ns.inria.fr/meteo/weatherstation/81415>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "MARIPASOULA" ;
+      dct:spatial <http://www.wikidata.org/entity/Q846239> ;
       weo:stationID "81415" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -257,6 +277,7 @@
 <http://ns.inria.fr/meteo/weatherstation/78897>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "LE RAIZET AERO" ;
+      dct:spatial <http://www.wikidata.org/entity/Q1156872>, <http://www.wikidata.org/entity/Q13636> ;
       weo:stationID "78897" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -270,6 +291,7 @@
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "LILLE-LESQUIN" ;
       weo:stationID "07015" ;
+      dct:spatial <http://www.wikidata.org/entity/Q1431888>, <http://www.wikidata.org/entity/Q696996> ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
                 geosparql:asWKT "POINT(3.0975 50.57)"^^geosparql:wktLiteral
@@ -281,6 +303,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07027>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "CAEN-CARPIQUET" ;
+      dct:spatial <http://www.wikidata.org/entity/Q1431038>, <http://www.wikidata.org/entity/Q839827> ;
       weo:stationID "07027" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -293,6 +316,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07790>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "BASTIA" ;
+      dct:spatial <http://www.wikidata.org/entity/Q134698> ;      
       weo:stationID "07790" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -305,6 +329,7 @@
 <http://ns.inria.fr/meteo/weatherstation/61970>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "JUAN DE NOVA" ;
+      dct:spatial <http://www.wikidata.org/entity/Q237034> ;
       weo:stationID "61970" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -317,6 +342,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07314>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "PTE DE CHASSIRON" ;
+      dct:spatial <http://www.wikidata.org/entity/Q954613>, <http://www.wikidata.org/entity/Q1079263> ;
       weo:stationID "07314" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -329,6 +355,7 @@
 <http://ns.inria.fr/meteo/weatherstation/78925>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "LAMENTIN-AERO" ;
+      dct:spatial <http://www.wikidata.org/entity/Q651330>, <http://www.wikidata.org/entity/Q1014790> ;
       weo:stationID "78925" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -341,6 +368,7 @@
 <http://ns.inria.fr/meteo/weatherstation/61997>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "CROZET" ;
+      dct:spatial <http://www.wikidata.org/entity/Q163699> ;
       weo:stationID "61997" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -353,6 +381,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07240>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "TOURS" ;
+      dct:spatial <http://www.wikidata.org/entity/Q288> ;
       weo:stationID "07240" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -365,6 +394,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07591>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "EMBRUN" ;
+      dct:spatial <http://www.wikidata.org/entity/Q207610> ;
       weo:stationID "07591" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -377,6 +407,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07139>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "ALENCON" ;
+      dct:spatial <http://www.wikidata.org/entity/Q181269> ;
       weo:stationID "07139" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -389,6 +420,7 @@
 <http://ns.inria.fr/meteo/weatherstation/81405>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "CAYENNE-MATOURY" ;
+      dct:spatial <http://www.wikidata.org/entity/Q816739> ;
       weo:stationID "81405" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -401,6 +433,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07535>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "GOURDON" ;
+      dct:spatial <http://www.wikidata.org/entity/Q175525> ;
       weo:stationID "07535" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -413,6 +446,7 @@
 <http://ns.inria.fr/meteo/weatherstation/89642>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "DUMONT D'URVILLE" ;
+      dct:spatial <http://www.wikidata.org/entity/Q403901> ;
       weo:stationID "89642" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -425,6 +459,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07299>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "BALE-MULHOUSE" ;
+      dct:spatial <http://www.wikidata.org/entity/Q156971>, <http://www.wikidata.org/entity/Q384516> ;
       weo:stationID "07299" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -437,6 +472,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07005>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "ABBEVILLE" ;
+      dct:spatial <http://www.wikidata.org/entity/Q28520> ;
       weo:stationID "07005" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -449,6 +485,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07481>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "LYON-ST EXUPERY" ;
+      dct:spatial <http://www.wikidata.org/entity/Q1547>, <http://www.wikidata.org/entity/Q752476> ;
       weo:stationID "07481" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -461,6 +498,7 @@
 <http://ns.inria.fr/meteo/weatherstation/61968>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "GLORIEUSES" ;
+      dct:spatial <http://www.wikidata.org/entity/Q236601>, <http://www.wikidata.org/entity/Q190571> ;
       weo:stationID "61968" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -473,6 +511,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07207>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "BELLE ILE-LE TALUT" ;
+      dct:spatial <http://www.wikidata.org/entity/Q815838>, <http://www.wikidata.org/entity/Q128745> ;
       weo:stationID "07207" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -485,6 +524,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07558>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "MILLAU" ;
+      dct:spatial <http://www.wikidata.org/entity/Q203278> ;
       weo:stationID "07558" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -497,6 +537,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07130>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "RENNES-ST JACQUES" ;
+      dct:spatial <http://www.wikidata.org/entity/Q1432593>, <http://www.wikidata.org/entity/Q535371> ;
       weo:stationID "07130" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -509,6 +550,7 @@
 <http://ns.inria.fr/meteo/weatherstation/61996>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "NOUVELLE AMSTERDAM" ;
+      dct:spatial <http://www.wikidata.org/entity/Q194215>, <http://www.wikidata.org/entity/Q1681727> ;
       weo:stationID "61996" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -521,6 +563,7 @@
 <http://ns.inria.fr/meteo/weatherstation/78890>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "LA DESIRADE METEO" ;
+      dct:spatial <http://www.wikidata.org/entity/Q3208509> ;
       weo:stationID "78890" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -533,6 +576,7 @@
 <http://ns.inria.fr/meteo/weatherstation/61972>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "EUROPA" ;
+      dct:spatial <http://www.wikidata.org/entity/Q193089>, <http://www.wikidata.org/entity/Q190571> ;
       weo:stationID "61972" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -545,6 +589,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07510>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "BORDEAUX-MERIGNAC" ;
+      dct:spatial <http://www.wikidata.org/entity/Q612731>, <http://www.wikidata.org/entity/Q205551> ;
       weo:stationID "07510" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -557,6 +602,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07643>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "MONTPELLIER" ;
+      dct:spatial <http://www.wikidata.org/entity/Q6441> ;
       weo:stationID "07643" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -569,6 +615,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07627>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "ST GIRONS" ;
+      dct:spatial <http://www.wikidata.org/entity/Q210776> ;
       weo:stationID "07627" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -581,6 +628,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07181>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "NANCY-OCHEY" ;
+      dct:spatial <http://www.wikidata.org/entity/Q2886478>, <http://www.wikidata.org/entity/Q12626> ;
       weo:stationID "07181" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -593,6 +641,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07650>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "MARIGNANE" ;
+      dct:spatial <http://www.wikidata.org/entity/Q243317> ;
       weo:stationID "07650" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -605,6 +654,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07117>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "PLOUMANAC'H" ;
+      dct:spatial <http://www.wikidata.org/entity/Q239943>, <http://www.wikidata.org/entity/Q2084981> ;
       weo:stationID "07117" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -617,6 +667,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07460>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "CLERMONT-FD" ;
+      dct:spatial <http://www.wikidata.org/entity/Q42168> ;
       weo:stationID "07460" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -629,6 +680,8 @@
 <http://ns.inria.fr/meteo/weatherstation/07690>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "NICE" ;
+      dct:spatial <http://www.wikidata.org/entity/Q33959> ;
+
       weo:stationID "07690" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -641,6 +694,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07577>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "MONTELIMAR" ;
+      dct:spatial <http://www.wikidata.org/entity/Q234270> ;
       weo:stationID "07577" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -653,6 +707,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07335>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "POITIERS-BIARD" ;
+      dct:spatial <http://www.wikidata.org/entity/Q1432405>, <http://www.wikidata.org/entity/Q1440798> ;      
       weo:stationID "07335" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -665,6 +720,7 @@
 <http://ns.inria.fr/meteo/weatherstation/78922>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "TRINITE-CARAVEL" ;
+      dct:spatial <http://www.wikidata.org/entity/Q3378291>, <http://www.wikidata.org/entity/Q671787> ;
       weo:stationID "78922" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -677,6 +733,7 @@
 <http://ns.inria.fr/meteo/weatherstation/61998>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "KERGUELEN" ;
+      dct:spatial <http://www.wikidata.org/entity/Q46772> ;
       weo:stationID "61998" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -689,6 +746,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07661>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "CAP CEPET" ;
+      dct:spatial <http://www.wikidata.org/entity/Q34826897>, <http://www.wikidata.org/entity/Q15104> ;
       weo:stationID "07661" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -701,6 +759,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07471>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "LE PUY-LOUDES" ;
+      dct:spatial <http://www.wikidata.org/entity/Q2876024>, <http://www.wikidata.org/entity/Q274791> ;
       weo:stationID "07471" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -713,6 +772,7 @@
 <http://ns.inria.fr/meteo/weatherstation/81408>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "SAINT GEORGES" ;
+      dct:spatial <http://www.wikidata.org/entity/Q731606> ;
       weo:stationID "81408" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -725,6 +785,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07621>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "TARBES-OSSUN" ;
+      dct:spatial <http://www.wikidata.org/entity/Q1431952>, <http://www.wikidata.org/entity/Q777902> ;
       weo:stationID "07621" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -737,6 +798,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07168>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "TROYES-BARBEREY" ;
+      dct:spatial <http://www.wikidata.org/entity/Q2875971>, <http://www.wikidata.org/entity/Q1085398> ;
       weo:stationID "07168" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;
@@ -749,6 +811,7 @@
 <http://ns.inria.fr/meteo/weatherstation/07280>
       a       geosparql:Feature , weo:WeatherStation ;
       rdfs:label "DIJON-LONGVIC" ;
+      dct:spatial <http://www.wikidata.org/entity/Q20321> ;
       weo:stationID "07280" ;
       geosparql:hasGeometry
               [ a       geosparql:Geometry ;

@@ -1,0 +1,21 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix weo: <http://ns.inria.fr/meteo/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix wep: <http://ns.inria.fr/meteo/ontology/property/> .  
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+
+select ?stationID  ?n ((avg(?v)- 273.15) as ?avgws)   where {
+  ?obs a  <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation>; 
+sosa:observedProperty
+              <http://ns.inria.fr/meteo/ontology/weatherproperty/airTemperature> ;
+sosa:hasResult [ qudt:numericValue ?v]; 
+wep:madeByStation ?station ;
+sosa:resultTime ?t .
+?station rdfs:label ?n ; weo:stationID ?stationID
+}
+GROUP BY ?station
+ORDER BY ?avgws
+

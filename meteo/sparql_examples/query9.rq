@@ -1,0 +1,3 @@
+select (count( ?obs) as ?nombreObs) where {
+  ?obs a <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation>
+}

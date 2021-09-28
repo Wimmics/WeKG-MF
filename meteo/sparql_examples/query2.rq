@@ -1,0 +1,4 @@
+@prefix weo: <http://ns.inria.fr/meteo/ontology/> .
+select * where {
+  ?x  a  weo:WeatherProperty
+}
