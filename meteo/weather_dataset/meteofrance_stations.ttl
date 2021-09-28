@@ -1,18 +1,15 @@
-@prefix rr:      <http://www.w3.org/ns/r2rml#> .
+
 @prefix weo:     <http://ns.inria.fr/meteo/ontology/> .
-@prefix schema:  <http://schema.org/> .
-@prefix mo:      <http://purl.org/ontology/mo/> .
 @prefix owl:     <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dbo:     <http://dbpedia.org/ontology/> .
-@prefix rml:     <http://semweb.mmlab.be/ns/rml#> .
 @prefix geo2:    <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix geosparql:  <http://www.opengis.net/ont/geosparql#> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix dct:      <http://purl.org/dc/terms/> .
 @prefix xrr:     <http://i3s.unice.fr/xr2rml#> .
 @prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+
 
 <http://ns.inria.fr/meteo/weatherstation/07761>
       a       geosparql:Feature , weo:WeatherStation ;

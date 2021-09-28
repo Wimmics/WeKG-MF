@@ -5,7 +5,7 @@
 @prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix dcterms: <http://purl.org/dcterms/terms/> .
+@prefix dct: <http://purl.org/dcterms/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix ssn: <http://www.w3.org/ns/ssn/> .
 @prefix time: <http://www.w3.org/2006/time#> .
@@ -21,7 +21,7 @@
   geo:lat xsd:double ;
   geo:long xsd:double ;
   geo:alt xsd:int ;
-  dcterms:spatial <http://www.wikidata.org/entity/Q2221906> .
+  dct:spatial <http://www.wikidata.org/entity/Q2221906> .
 
 <http://ns.inria.fr/meteo/ontology/WeatherProperty>
   a owl:Class, rdfs:Class ;
@@ -44,8 +44,7 @@
   owl:equivalentClass [
     a owl:Restriction ;
     owl:onProperty ssn:hasProperty ;
-    owl:minQualifiedCardinality "1"^^xsd:int ;
-    owl:onClass <http://ns.inria.fr/meteo/ontology/WeatherProperty>
+    owl:minCardinality "1"^^xsd:int 
   ] ;
   rdfs:comment "For each Meteorological feature such as wind or precipitations, at least one property (precipitation amount) need to be defined "@en .
 
