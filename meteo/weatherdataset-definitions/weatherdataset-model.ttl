@@ -106,10 +106,8 @@
 
 <http://ns.inria.fr/meteo/ontology/property/stationID>
   a owl:DatatypeProperty ;
-  rdfs:domain <http://ns.inria.fr/meteo/ontology/WeatherStation> ;
-  rdfs:range xsd:string .
+  rdfs:domain <http://ns.inria.fr/meteo/ontology/WeatherStation> .
 
 <http://ns.inria.fr/meteo/ontology/property/hasAbbreviation>
   a owl:DatatypeProperty ;
-  rdfs:range <http://ns.inria.fr/meteo/ontology/WeatherProperty> ;
-  rdfs:domain xsd:string .
+  rdfs:range <http://ns.inria.fr/meteo/ontology/WeatherProperty> .
