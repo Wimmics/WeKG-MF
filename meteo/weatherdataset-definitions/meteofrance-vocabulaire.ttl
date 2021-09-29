@@ -75,7 +75,7 @@
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
   skos:exactMatch <http://ontology.irstea.fr/weather/resource/observableProperty/air_relativeHumidity> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/PERCENT> ;
-  rdfs:label "Humidité@fr" ;
+  rdfs:label "Humidité"@fr ;
   wep:hasAbbreviation "u"^^xsd:string .
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/airTemperature>
