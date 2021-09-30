@@ -1,5 +1,5 @@
-@prefix weo: <http://ns.inria.fr/meteo/ontology/> .
-@prefix ssn: <http://www.w3.org/ns/ssn/> .
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
 select * where {
   ?x  ssn:isPropertyOf  ?y
 }

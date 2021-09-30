@@ -1,7 +1,5 @@
-@prefix weo: <http://ns.inria.fr/meteo/ontology/> .
-@prefix ssn: <http://www.w3.org/ns/ssn/> .
-@prefix qudt: <http://qudt.org/schema/qudt/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 select * where {
   ?x  qudt:applicableUnit  ?y.
   ?x rdfs:label ?l .

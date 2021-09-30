@@ -1,4 +1,3 @@
-@prefix weo: <http://ns.inria.fr/meteo/ontology/> .
 select * where {
-  ?x  a  weo:MeteorologicalFeature
+  ?x  a  <http://ns.inria.fr/meteo/ontology/MeteorologicalFeature>
 }

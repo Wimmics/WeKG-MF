@@ -17,7 +17,7 @@
     a geosparql:Geometry ;
     geosparql:asWKT geosparql:wktLiteral
   ] ;
-  rdfs:label xsd:string ;
+  rdfs:label "Station Meteo"@fr ;
   geo:lat xsd:double ;
   geo:long xsd:double ;
   geo:alt xsd:int ;
