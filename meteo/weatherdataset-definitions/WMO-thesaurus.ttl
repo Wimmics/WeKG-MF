@@ -17,7 +17,7 @@ skos:member <http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/0> ,
 
 <http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/0> a skos:Concept; 
 rdf:value 0 ;
-dcterms:description "Surface of ground dry (without cracks and no appreciable amount of dust or loose sand)";
+skos:definition "Surface of ground dry (without cracks and no appreciable amount of dust or loose sand)";
 rdfs:isDefinedBy <https://library.wmo.int/> .
 
 <http://ns.inria.fr/meteo/ontology/weatherpropery/wmocode/0901/1> a skos:Concept;
