@@ -54,14 +54,14 @@
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/wind> ;
   skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0038/> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/M-PER-SEC> ;
-  skos:PrefLabel "Vitesse moyenne du vent 10mn"@fr ;
+  skos:prefLabel "Vitesse moyenne du vent 10mn"@fr ;
   wep:hasAbbreviation "ff".
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/windAverageDirection>
   a weo:WeatherProperty, qudt:QuantityKind ;
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/wind> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/DEG> ;
-  skos:PrefLabel "Direction du vent moyen 10mn"@fr ;
+  skos:prefLabel "Direction du vent moyen 10mn"@fr ;
   wep:hasAbbreviation "dd" .
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/horizontalVisibility>
@@ -69,14 +69,14 @@
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/ground> ;
   skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0061/> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/M> ;
-  skos:PrefLabel "Visibilité horizontale"@fr ;
+  skos:prefLabel "Visibilité horizontale"@fr ;
   wep:hasAbbreviation "vv" .
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/gustSpeed>
   a weo:WeatherProperty, qudt:QuantityKind ;
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/gust> ;
   skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0039/> ;
-  skos:PrefLabel "Rafales sur les 10 dernières minutes"@fr ;
+  skos:prefLabel "Rafales sur les 10 dernières minutes"@fr ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/M-PER-SEC> ;
   wep:hasAbbreviation "raf10".
 
@@ -85,7 +85,7 @@
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
   skos:exactMatch <http://ontology.irstea.fr/weather/resource/observableProperty/air_relativeHumidity> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/PERCENT> ;
-  skos:PrefLabel "Humidité"@fr ;
+  skos:prefLabel "Humidité"@fr ;
   wep:hasAbbreviation "u" .
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/airTemperature>
@@ -94,7 +94,7 @@
   skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/>, 
   <http://ontology.irstea.fr/weather/resource/observableProperty/air_temperature> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/K> ;
-  skos:PrefLabel "Température"@fr ;
+  skos:prefLabel "Température"@fr ;
   wep:hasAbbreviation "t" .
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/dewPointTemperature>
@@ -102,7 +102,7 @@
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/K> ;
   skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0723/> ;
-  skos:PrefLabel "Point de rosée"@fr ;
+  skos:prefLabel "Point de rosée"@fr ;
   wep:hasAbbreviation "td" .
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/minAirTemperature>
@@ -110,7 +110,7 @@
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/K> ;
   skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/> ;
-  skos:PrefLabel "Température minimale sur N heures"@fr ;
+  skos:prefLabel "Température minimale sur N heures"@fr ;
   wep:hasAbbreviation "tnN".
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/maxAirTemperature>
@@ -118,7 +118,7 @@
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/K> ;
   skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/> ;
-  skos:PrefLabel "Température maximale sur N heures"@fr ;
+  skos:prefLabel "Température maximale sur N heures"@fr ;
   wep:hasAbbreviation "txN".
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/wetBulbTemperature>
@@ -126,7 +126,7 @@
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/K> ;
   skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0035/> ;
-  skos:PrefLabel "Température du thermomètre mouillé"@fr ;
+  skos:prefLabel "Température du thermomètre mouillé"@fr ;
   wep:hasAbbreviation "tw".
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/stationPressure>
@@ -135,7 +135,7 @@
   <http://ontology.irstea.fr/weather/resource/observableProperty/air_pressure> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/PA> ;
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
-  skos:PrefLabel "Pression Station"@fr ;
+  skos:prefLabel "Pression Station"@fr ;
   wep:hasAbbreviation "pres" .
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/soilMinTemperature>
@@ -143,21 +143,21 @@
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/ground> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/K> ;
   skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0354/> ;
-  skos:PrefLabel "Température minimale du sol sur 12 heures"@fr ;
+  skos:prefLabel "Température minimale du sol sur 12 heures"@fr ;
   wep:hasAbbreviation "tminsol".
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/seaLevelPressure>
   a weo:WeatherProperty, qudt:QuantityKind ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/PA> ;
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
-  skos:PrefLabel "Pression au niveau mer"@fr ;
+  skos:prefLabel "Pression au niveau mer"@fr ;
   wep:hasAbbreviation "pmer".
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/differentialPressure>
   a weo:WeatherProperty, qudt:QuantityKind ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/PA> ;
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/air> ;
-  skos:PrefLabel "Variation de Pression en N heures"@fr ;
+  skos:prefLabel "Variation de Pression en N heures"@fr ;
   wep:hasAbbreviation "tend".
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/precipitationAmount>
@@ -165,14 +165,14 @@
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/precipitation> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/MilliM-PER-HR> ;
   skos:exactMatch <http://ontology.irstea.fr/weather/page/resource/observableProperty/precipitation_amount>, <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0452/> ;
-  skos:PrefLabel "Précipitations dans les N dernières heures"@fr ;
+  skos:prefLabel "Précipitations dans les N dernières heures"@fr ;
   wep:hasAbbreviation "rrN".
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/totalCloudCover>
   a weo:WeatherProperty, qudt:QuantityKind ;
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/cloud> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/PERCENT> ;
-  skos:PrefLabel "Nebulosité totale"@fr ;
+  skos:prefLabel "Nebulosité totale"@fr ;
   wep:hasAbbreviation "n".
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/cloudBaseAltitude>
@@ -180,38 +180,38 @@
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/cloud> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/M> ;
   skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0747/> ;
-  skos:PrefLabel "Hauteur de la base des nuages de l'étage inférieur"@fr ;
+  skos:prefLabel "Hauteur de la base des nuages de l'étage inférieur"@fr ;
   wep:hasAbbreviation "hbas" .
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/lowCloudCover>
   a weo:WeatherProperty, qudt:QuantityKind ;
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/cloud> ;
   qudt:applicableUnit <http://ns.inria.fr/meteo/ontology/unit/okta>;
-  skos:PrefLabel "Nebulosité des nuages de l'étage inférieur"@fr ;
+  skos:prefLabel "Nebulosité des nuages de l'étage inférieur"@fr ;
   wep:hasAbbreviation "nbas".
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/freshSnowDepth>
   a weo:WeatherProperty, qudt:QuantityKind ;
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/ground> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/M> ;
-  skos:PrefLabel "Hauteur de la neige fraîche"@fr ;
+  skos:prefLabel "Hauteur de la neige fraîche"@fr ;
   wep:hasAbbreviation "ssfrai".
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/totalCoverHeight>
   a weo:WeatherProperty, qudt:QuantityKind ;
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/ground> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/M> ;
-  skos:PrefLabel "Hauteur totale de la couche de neige, glace, autre au sol"@fr ;
+  skos:prefLabel "Hauteur totale de la couche de neige, glace, autre au sol"@fr ;
   wep:hasAbbreviation "ht_neige".
 
 <http://ns.inria.fr/meteo/ontology/weatherproperty/stateGround>
   a weo:WeatherProperty, qudt:QuantityKind;
   ssn:isPropertyOf <http://ns.inria.fr/meteo/ontology/featureOfInterest/ground> ;
-  skos:PrefLabel "Etat du sol"@fr ;
+  skos:prefLabel "Etat du sol"@fr ;
   wep:hasAbbreviation "etat_sol".
 
 <http://ns.inria.fr/meteo/ontology/unit/okta>
   a qudt:Unit ;
   qudt:plainTextDescription "In meteorology, an okta is a unit of measurement used to describe the amount of cloud cover at any given location such as a weather station." ;
   qudt:ucumCode "okta"^^qudt:UCUMcs ;
-  skos:PrefLabel "Okta"@en, "Octa"@fr .
+  skos:prefLabel "Okta"@en, "Octa"@fr .
