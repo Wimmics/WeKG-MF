@@ -1,3 +1,22 @@
-select (count( ?obs) as ?nombreObs) where {
-  ?obs a <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation>
+#calculate average wind speed at each station for the week of August 2th
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
+
+
+select ?stationID  ?n (avg(?v) as ?avg_speed_wind)   where {
+  ?obs a  <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation>; 
+sosa:observedProperty
+              <http://ns.inria.fr/meteo/ontology/weatherproperty/windAverageSpeed> ;
+sosa:hasResult [ qudt:numericValue ?v]; 
+wep:madeByStation ?station ;
+sosa:resultTime ?t .
+FILTER (?jour >= 2 && ?jour < (?jour +7))
+BIND (day(?t) AS ?jour) 
+?station rdfs:label ?n ; weo:stationID ?stationID
 }
+GROUP BY ?stationID ?n
+
+

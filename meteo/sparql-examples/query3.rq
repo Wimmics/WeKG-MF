@@ -1,3 +1,4 @@
+#lists all meteorological features and their corresponding weather properties
 PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
 PREFIX ssn: <http://www.w3.org/ns/ssn/>
 select * where {

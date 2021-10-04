@@ -1,20 +1,27 @@
-PREFIX sosa: <http://www.w3.org/ns/sosa/>
-PREFIX qudt: <http://qudt.org/schema/qudt/>
-PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
+#look for the weather station located in Alpes-Maritimes department
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
+PREFIX wd:   <http://www.wikidata.org/entity/>
+prefix weo:  <http://ns.inria.fr/meteo/ontology/> 
+prefix dct:  <http://purl.org/dc/terms/> 
+prefix wdt:  <http://www.wikidata.org/prop/direct/> 
+prefix wikibase: <http://wikiba.se/ontology#> 
+prefix bd: <http://www.bigdata.com/rdf#> 
 
-
-select ?stationID  ?n ((avg(?v)- 273.15) as ?avgws)   where {
-  ?obs a  <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation>; 
-sosa:observedProperty
-              <http://ns.inria.fr/meteo/ontology/weatherproperty/airTemperature> ;
-sosa:hasResult [ qudt:numericValue ?v]; 
-wep:madeByStation ?station ;
-sosa:resultTime ?t .
-FILTER (?jour >= 2 && ?jour < (?jour +7))
-BIND (day(?t) AS ?jour) 
-?station rdfs:label ?n ; weo:stationID ?stationID
+select ?x ?l ?deptLabel where {
+  ?x a weo:WeatherStation . 
+  ?x rdfs:label ?l .
+  ?x dct:spatial ?e .
+  
+  SERVICE <https://query.wikidata.org/sparql> {     
+    SELECT ?e ?dept ?deptLabel 
+    WHERE
+	{
+    ?e wdt:P131* ?dept .
+    ?dept wdt:P31 wd:Q6465 . 
+    ?dept rdfs:label ?deptLabel .
+    FILTER (lang(?deptLabel) = "fr")
+    FILTER (CONTAINS(?deptLabel, 'Alpes-Maritimes')) .
+  	SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],fr" . }  
+}    
 }
-GROUP BY ?stationID ?n
-ORDER BY ?avgws
+}
