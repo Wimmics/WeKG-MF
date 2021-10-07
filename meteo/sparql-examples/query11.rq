@@ -9,7 +9,6 @@ select * where {
   ?x dct:spatial ?e.
   SERVICE <http://query.wikidata.org/sparql> 
      {  Select * where {    
-         ?e wdt:P131 ?c .
-      }
-   }
-}}
+         ?e wdt:P131 ?c .}
+     }
+} 
