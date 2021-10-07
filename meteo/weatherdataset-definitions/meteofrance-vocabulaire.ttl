@@ -5,25 +5,27 @@
 @prefix weo: <http://ns.inria.fr/meteo/ontology/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix wep: <http://ns.inria.fr/meteo/ontology/property/> .  
+@prefix vom: <http://ns.inria.fr/meteo/vocab/meteorologicalfeature/> . 
+
 
 
 <http://ns.inria.fr/meteo/vocab/meteorologicalfeature/wind>
-  a <http://ns.inria.fr/meteo/ontology/MeteorologicalFeature>, skos:Concept ;
+  a weo:MeteorologicalFeature, skos:Concept ;
   skos:exactMatch <http://ontology.irstea.fr/weather/resource/featureOfInterest/wind> ;
   ssn:hasProperty <http://ns.inria.fr/meteo/vocab/weatherproperty/windAverageSpeed>, 
   <http://ns.inria.fr/meteo/vocab/weatherproperty/windAverageDirection> .
 
 <http://ns.inria.fr/meteo/vocab/meteorologicalfeature/gust>
-  a <http://ns.inria.fr/meteo/ontology/MeteorologicalFeature>, skos:Concept ;
+  a weo:MeteorologicalFeature, skos:Concept ;
   ssn:hasProperty <http://ns.inria.fr/meteo/vocab/weatherproperty/gustSpeed> .
 
 <http://ns.inria.fr/meteo/vocab/meteorologicalfeature/precipitation>
-  a <http://ns.inria.fr/meteo/ontology/MeteorologicalFeature>, skos:Concept ;
+  a weo:MeteorologicalFeature, skos:Concept ;
   skos:exactMatch <http://ontology.irstea.fr/weather/resource/featureOfInterest/precipitation> ;
   ssn:hasProperty <http://ns.inria.fr/meteo/vocab/weatherproperty/precipitationAmount> .
 
 <http://ns.inria.fr/meteo/vocab/meteorologicalfeature/air>
-  a <http://ns.inria.fr/meteo/ontology/MeteorologicalFeature>, skos:Concept ;
+  a weo:MeteorologicalFeature, skos:Concept ;
   skos:exactMatch <http://ontology.irstea.fr/weather/resource/featureOfInterest/air> ;
   ssn:hasProperty <http://ns.inria.fr/meteo/vocab/weatherproperty/airTemperature>, 
   <http://ns.inria.fr/meteo/vocab/weatherproperty/dewPointTemperature>, 
