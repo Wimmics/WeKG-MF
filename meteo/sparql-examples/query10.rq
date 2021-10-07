@@ -1,3 +1,4 @@
+#query average temperature between 02 august and 8 august
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
