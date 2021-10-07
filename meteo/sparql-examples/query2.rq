@@ -1,4 +1,5 @@
-PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
+#retrieve all weather observable properties in our vocabulary
+PREFIX wvo: <http://ns.inria.fr/meteo/vocab/>
 select * where {
-  ?x  a  weo:WeatherProperty
+  ?x  a  wvo:WeatherProperty
 }
