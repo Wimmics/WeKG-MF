@@ -1,28 +1,15 @@
-
-#list temperature and humidity per station and date. The query takes some time to return #results
+#query admnistrative location of weather stations
+PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX wd: <http://www.wikidata.org/entity/>
-PREFIX sosa: <http://www.w3.org/ns/sosa/>
-PREFIX qudt: <http://qudt.org/schema/qudt/>
-prefix wep: <http://ns.inria.fr/meteo/ontology/property/>
-prefix weo: <http://ns.inria.fr/meteo/ontology/>
-prefix dct: <http://purl.org/dc/terms/>
-prefix wdt: <http://www.wikidata.org/prop/direct/>
-prefix wikibase: <http://wikiba.se/ontology#>
-prefix bd: <http://www.bigdata.com/rdf#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX wd: <http://www.wikidata.org/entity/>
-
-select ?x ?t (sample(?vt) as ?temperatureKelvin) (sample(?vh) as ?humidity) where {
-?obs a  <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation> .
-?obs sosa:observedProperty <http://ns.inria.fr/meteo/ontology/weatherproperty/airTemperature>.
-?obs sosa:hasResult [ qudt:numericValue ?vt].
-?obs sosa:resultTime ?t .
-?obs wep:madeByStation ?x .
-?obs1 sosa:observedProperty <http://ns.inria.fr/meteo/ontology/weatherproperty/airRelativeHumidity> .
-?obs1 sosa:hasResult [ qudt:numericValue ?vh].
-?obs1 sosa:resultTime ?t .
-?obs1 wep:madeByStation ?x .
-
-   
-} group by ?x ?t 
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+select * where {
+  ?x a weo:WeatherStation . 
+  ?x rdfs:label ?l .
+  ?x dct:spatial ?e.
+  SERVICE <http://query.wikidata.org/sparql> 
+     {  Select * where {    
+         ?e wdt:P131 ?c .
+           }
+   }
+}}
