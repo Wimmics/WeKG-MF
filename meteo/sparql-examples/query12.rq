@@ -1,3 +1,4 @@
+#retrieve weather stations located in alpes-maritimes department
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX wd: <http://www.wikidata.org/entity/>
 prefix weo:  <http://ns.inria.fr/meteo/ontology/> 
