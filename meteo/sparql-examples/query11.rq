@@ -1,4 +1,4 @@
-#query admnistrative location of weather stations
+#query administrative location of weather stations
 PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dct: <http://purl.org/dc/terms/>
@@ -10,6 +10,6 @@ select * where {
   SERVICE <http://query.wikidata.org/sparql> 
      {  Select * where {    
          ?e wdt:P131 ?c .
-           }
+      }
    }
 }}

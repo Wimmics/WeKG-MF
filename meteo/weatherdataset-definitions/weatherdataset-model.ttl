@@ -62,6 +62,7 @@ weo:Interval6h
   owl:equivalentClass [owl:intersectionOf(
       time:Interval 
       [a owl:Restriction; owl:onProperty time:hasDuration; owl:allValuesFrom 
+      [owl:intersectionOf (time:Duration [a owl:Restriction; owl:onProperty time:numericDuration; owl:hasValue 6.0 ]
       [a owl:Restriction; owl:onProperty time:unitType; owl:hasValue time:unitHour])]
       ])].
 

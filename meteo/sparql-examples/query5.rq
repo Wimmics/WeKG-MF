@@ -4,6 +4,6 @@ prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix weo: <http://ns.inria.fr/meteo/ontology/> 
 select * where {
   ?x a weo:WeatherProperty
-  ?x skos:PrefLabel ?l
+  ?x skos:prefLabel ?l
   OPTIONAL {?x qudt:applicableUnit ?u}
 }

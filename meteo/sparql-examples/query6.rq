@@ -1,4 +1,5 @@
 #return mean temperature in Celsius for the station "07690" for the month of August
+#for this query, we need to load the 'observations-aout2021' and 'meteofrance-station.ttl'
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
