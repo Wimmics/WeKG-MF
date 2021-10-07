@@ -24,7 +24,7 @@ weo:WeatherProperty
   rdfs:label "Weather Property"@en ;
   skos:definition "An observable quality (property, characteristic) of a meterological feature of interest. A weather property can be measured (e.g. wind speed) or observed (cloud cover)"@en ;
   owl:equivalentClass [ owl:intersectionOf (sosa:ObservableProperty
-  [ a owl:Restriction ; owl:onProperty ssn:isPropertyOf ; owl:Cardinality "1"^^xsd:int ]
+  [ a owl:Restriction ; owl:onProperty ssn:isPropertyOf ; owl:minCardinality "1"^^xsd:int ]
   [ a owl:Restriction ; owl:onProperty ssn:isPropertyOf ; owl:allValuesFrom weo:MeteorologicalFeature ])] ;
   rdfs:comment "A weather Property is an observable property of exactly one Meterological feature of interest."@en .
 
