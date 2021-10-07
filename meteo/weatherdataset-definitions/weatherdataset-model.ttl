@@ -57,6 +57,25 @@ weo:Interval3h
       [a owl:Restriction; owl:onProperty time:unitType; owl:hasValue time:unitHour])]
       ])].
 
+weo:Interval6h
+  a owl:Class ;
+  owl:equivalentClass [owl:intersectionOf(
+      time:Interval 
+      [a owl:Restriction; owl:onProperty time:hasDuration; owl:allValuesFrom 
+      [owl:intersectionOf (time:Duration [a owl:Restriction; owl:onProperty time:numericDuration; owl:hasValue 6.0 ]
+      [a owl:Restriction; owl:onProperty time:unitType; owl:hasValue time:unitHour])]
+      ])].
+
+weo:Interval12h
+  a owl:Class ;
+  owl:equivalentClass [owl:intersectionOf(
+      time:Interval 
+      [a owl:Restriction; owl:onProperty time:hasDuration; owl:allValuesFrom 
+      [owl:intersectionOf (time:Duration [a owl:Restriction; owl:onProperty time:numericDuration; owl:hasValue 12.0 ]
+      [a owl:Restriction; owl:onProperty time:unitType; owl:hasValue time:unitHour])]
+      ])].
+
+
 weo:Interval24h
   a owl:Class ;
   owl:equivalentClass [owl:intersectionOf(
