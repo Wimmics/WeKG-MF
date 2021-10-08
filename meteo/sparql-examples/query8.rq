@@ -1,0 +1,20 @@
+#mean temperature for the 27th of august 2021 at each station
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+
+
+select ?stationID  ?n ((avg(?v)- 273.15) as ?avgws)  ?mois where {
+  ?obs a  weo:MeteorologicalObservation; 
+  sosa:observedProperty
+              <http://ns.inria.fr/meteo/vocab/weatherproperty/airTemperature> ;
+sosa:hasResult [ qudt:numericValue ?v]; 
+wep:madeByStation ?station ;
+sosa:resultTime ?t .
+BIND(month(?t) AS ?mois)
+?station rdfs:label ?n ; weo:stationID ?stationID
+}
+GROUP BY ?stationID ?n ?mois

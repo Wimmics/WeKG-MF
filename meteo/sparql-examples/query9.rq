@@ -1,4 +1,4 @@
-#calculate average wind speed at each station for the week of August 2th
+#calculate average wind speed at each station for each month
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
@@ -6,17 +6,16 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
 
 
-select ?stationID  ?n (avg(?v) as ?avg_speed_wind)   where {
+select ?stationID  ?n ?mois (avg(?v) as ?avg_speed_wind)   where {
   ?obs a  <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation>; 
 sosa:observedProperty
-              <http://ns.inria.fr/meteo/ontology/weatherproperty/windAverageSpeed> ;
+  <http://ns.inria.fr/meteo/vocab/weatherproperty/windAverageSpeed>  ;
 sosa:hasResult [ qudt:numericValue ?v]; 
 wep:madeByStation ?station ;
 sosa:resultTime ?t .
-FILTER (?jour >= 2 && ?jour < (?jour +7))
 BIND (day(?t) AS ?jour) 
+BIND(month(?t) as ?mois)
 ?station rdfs:label ?n ; weo:stationID ?stationID
 }
-GROUP BY ?stationID ?n
-
+GROUP BY ?stationID ?n ?mois
 
