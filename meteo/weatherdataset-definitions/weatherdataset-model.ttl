@@ -15,14 +15,12 @@
 weo:WeatherStation
   a owl:Class ;
   rdfs:subclassof sosa:Platform, geosparql:Feature ;
-  geosparql:hasGeometry geosparql:Geometry ;
-  rdfs:label "Station Météo France" ;
-  dct:spatial <http://www.wikidata.org/entity/Q2221906> .
+  rdfs:label "Meteo France Synop Weather Station" .
 
 weo:WeatherProperty
   a owl:Class;
   rdfs:label "Weather Property"@en ;
-  skos:definition "An observable quality (property, characteristic) of a meterological feature of interest. A weather property can be measured (e.g. wind speed) or observed (cloud cover)"@en ;
+  skos:definition "An observable quality (property, characteristic) of a meterological feature of interest. A weather property can be measured (e.g. wind speed) or observed (cloud cover)."@en ;
   owl:equivalentClass [ owl:intersectionOf (sosa:ObservableProperty
   [ a owl:Restriction ; owl:onProperty ssn:isPropertyOf ; owl:minCardinality "1"^^xsd:nonNegativeInteger ]
   [ a owl:Restriction ; owl:onProperty ssn:isPropertyOf ; owl:allValuesFrom weo:MeteorologicalFeature ])] ;
@@ -40,7 +38,7 @@ weo:MeteorologicalFeature
 weo:MeteorologicalObservation
   a owl:Class ;
   rdfs:label "Meterological Observation"@en ;
-  skos:definition "Act of carrying out a procedure to estimate a value of a property of a Meterological feature."@en ;
+  skos:definition "Result of carrying out a procedure to estimate a value of a property of a Meterological feature."@en ;
   owl:equivalentClass [ owl:intersectionOf (sosa:Observation 
   [ a owl:Restriction ; owl:onProperty sosa:observedProperty ; owl:allValuesFrom weo:WeatherProperty] 
   [ a owl:Restriction ; owl:onProperty sosa:observedProperty ; owl:cardinality "1"^^xsd:nonNegativeInteger]
@@ -49,55 +47,90 @@ weo:MeteorologicalObservation
   rdfs:comment " A meterological observation is an observation which is linked to exactly one weather property and one meteorological feature."@en .
 
 weo:Interval3h
-  a owl:Class ;
-  owl:equivalentClass [owl:intersectionOf(
-      time:Interval 
-      [a owl:Restriction; owl:onProperty time:hasDuration; owl:allValuesFrom 
-      [owl:intersectionOf (time:Duration [a owl:Restriction; owl:onProperty time:numericDuration; owl:hasValue 3.0 ]
-      [a owl:Restriction; owl:onProperty time:unitType; owl:hasValue time:unitHour])]
-      ])].
+    a owl:Class ;
+    owl:equivalentClass [ owl:intersectionOf (
+        time:Interval
+        [   a owl:Restriction;
+            owl:onProperty time:hasDuration;
+            owl:allValuesFrom  [
+                owl:intersectionOf (
+                    time:Duration
+                    [ a owl:Restriction; owl:onProperty time:numericDuration; owl:hasValue 3.0 ]
+                    [ a owl:Restriction; owl:onProperty time:unitType; owl:hasValue time:unitHour]
+                )
+            ]
+        ]    
+    )].
+
 
 weo:Interval6h
-  a owl:Class ;
-  owl:equivalentClass [owl:intersectionOf(
-      time:Interval 
-      [a owl:Restriction; owl:onProperty time:hasDuration; owl:allValuesFrom 
-      [owl:intersectionOf (time:Duration [a owl:Restriction; owl:onProperty time:numericDuration; owl:hasValue 6.0 ]
-      [a owl:Restriction; owl:onProperty time:unitType; owl:hasValue time:unitHour])]
-      ])].
+    a owl:Class ;
+    owl:equivalentClass [ owl:intersectionOf (
+        time:Interval
+        [   a owl:Restriction;
+            owl:onProperty time:hasDuration;
+            owl:allValuesFrom  [
+                owl:intersectionOf (
+                    time:Duration
+                    [ a owl:Restriction; owl:onProperty time:numericDuration; owl:hasValue 6.0 ]
+                    [ a owl:Restriction; owl:onProperty time:unitType; owl:hasValue time:unitHour]
+                )
+            ]
+        ]    
+    )].
 
 weo:Interval12h
-  a owl:Class ;
-  owl:equivalentClass [owl:intersectionOf(
-      time:Interval 
-      [a owl:Restriction; owl:onProperty time:hasDuration; owl:allValuesFrom 
-      [owl:intersectionOf (time:Duration [a owl:Restriction; owl:onProperty time:numericDuration; owl:hasValue 12.0 ]
-      [a owl:Restriction; owl:onProperty time:unitType; owl:hasValue time:unitHour])]
-      ])].
-
+    a owl:Class ;
+    owl:equivalentClass [ owl:intersectionOf (
+        time:Interval
+        [   a owl:Restriction;
+            owl:onProperty time:hasDuration;
+            owl:allValuesFrom  [
+                owl:intersectionOf (
+                    time:Duration
+                    [ a owl:Restriction; owl:onProperty time:numericDuration; owl:hasValue 12.0 ]
+                    [ a owl:Restriction; owl:onProperty time:unitType; owl:hasValue time:unitHour]
+                )
+            ]
+        ]    
+    )].
 
 weo:Interval24h
-  a owl:Class ;
-  owl:equivalentClass [owl:intersectionOf(
-      time:Interval 
-      [a owl:Restriction; owl:onProperty time:hasDuration; owl:allValuesFrom 
-      [ owl:intersectionOf (time:Duration [a owl:Restriction; owl:onProperty time:numericDuration; owl:hasValue 24.0 ]
-      [a owl:Restriction; owl:onProperty time:unitType; owl:hasValue time:unitHour])]
-      ])].
+    a owl:Class ;
+    owl:equivalentClass [ owl:intersectionOf (
+        time:Interval
+        [   a owl:Restriction;
+            owl:onProperty time:hasDuration;
+            owl:allValuesFrom  [
+                owl:intersectionOf (
+                    time:Duration
+                    [ a owl:Restriction; owl:onProperty time:numericDuration; owl:hasValue 24.0 ]
+                    [ a owl:Restriction; owl:onProperty time:unitType; owl:hasValue time:unitHour]
+                )
+            ]
+        ]    
+    )].
 
 
 weo:Interval10m
-  a owl:Class ;
-  owl:equivalentClass [owl:intersectionOf(
-      time:Interval 
-      [a owl:Restriction; owl:onProperty time:hasDuration; owl:allValuesFrom 
-      [ owl:intersectionOf (time:Duration [a owl:Restriction; owl:onProperty time:numericDuration; owl:hasValue 10.0 ]
-      [a owl:Restriction; owl:onProperty time:unitType; owl:hasValue time:unitMinute])]
-      ])].
+    a owl:Class ;
+    owl:equivalentClass [ owl:intersectionOf (
+        time:Interval
+        [   a owl:Restriction;
+            owl:onProperty time:hasDuration;
+            owl:allValuesFrom  [
+                owl:intersectionOf (
+                    time:Duration
+                    [ a owl:Restriction; owl:onProperty time:numericDuration; owl:hasValue 10.0 ]
+                    [ a owl:Restriction; owl:onProperty time:unitType; owl:hasValue time:unitMinute]
+                )
+            ]
+        ]    
+    )].
 
     
 wep:madeByStation
-  a owl:ObjectProperty ;
+  a owl:ObjectProperty ; 
   rdfs:domain <http://ns.inria.fr/meteo/ontology/WeatherStation> ;
   rdfs:range <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation> .
  
@@ -109,4 +142,4 @@ wep:stationID
 wep:hasAbbreviation
   a owl:DatatypeProperty ;
   skos:prefLabel "Mnémonique"@fr;
-  rdfs:range <http://ns.inria.fr/meteo/ontology/WeatherProperty> .
+  rdfs:domain <http://ns.inria.fr/meteo/ontology/WeatherProperty> .
