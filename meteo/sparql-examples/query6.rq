@@ -10,7 +10,7 @@ SELECT ((avg(?v) - 273.15) as ?average_temperature)  where {
   ?obs a  <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation>; 
 sosa:observedProperty
               <http://ns.inria.fr/meteo/vocab/weatherproperty/airTemperature> ;
-sosa:hasResult [ qudt:numericValue ?v]; 
+sosa:hasSimpleResult  ?v; 
 wep:madeByStation ?station ;
 sosa:resultTime ?t .
 ?station rdfs:label ?n ;  weo:stationID ?stationID

@@ -11,7 +11,7 @@ select ?stationID  ?n ((avg(?v)- 273.15) as ?avgws)  ?mois where {
   ?obs a  weo:MeteorologicalObservation; 
   sosa:observedProperty
               <http://ns.inria.fr/meteo/vocab/weatherproperty/airTemperature> ;
-sosa:hasResult [ qudt:numericValue ?v]; 
+sosa:hasSimpleResult  ?v; 
 wep:madeByStation ?station ;
 sosa:resultTime ?t .
 BIND(month(?t) AS ?mois)
