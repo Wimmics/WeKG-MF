@@ -1,20 +1,20 @@
-#mean temperature for the 27th of august 2021 at each station
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
+#calculate average wind speed at each station for each month
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
-PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
 
-
-select ?stationID  ?n ((avg(?v)- 273.15) as ?avgws)  ?mois where {
-  ?obs a  weo:MeteorologicalObservation; 
-  sosa:observedProperty
-              <http://ns.inria.fr/meteo/vocab/weatherproperty/airTemperature> ;
-sosa:hasResult [ qudt:numericValue ?v]; 
+select ?stationID  ?n ?mois (CONCAT((avg(?v)  as ?avg), " ", "m/s") AS ?avg_speed_wind)  where {
+  ?obs a  <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation>; 
+sosa:observedProperty
+  <http://ns.inria.fr/meteo/vocab/weatherproperty/windAverageSpeed>  ;
+sosa:hasSimpleResult  ?v; 
 wep:madeByStation ?station ;
 sosa:resultTime ?t .
-BIND(month(?t) AS ?mois)
+BIND (day(?t) AS ?jour) 
+BIND(month(?t) as ?mois)
 ?station rdfs:label ?n ; weo:stationID ?stationID
 }
 GROUP BY ?stationID ?n ?mois
+} GROUP BY ?n ?month ?year

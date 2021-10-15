@@ -1,25 +1,24 @@
-#query average temperature for the period between 02 august and 8 august
+#calculate average temperature during the first week of February
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX wd:   <http://www.wikidata.org/entity/>
 prefix weo:  <http://ns.inria.fr/meteo/ontology/> 
-prefix dct:  <http://purl.org/dc/terms/> 
-prefix wdt:  <http://www.wikidata.org/prop/direct/> 
-prefix wikibase: <http://wikiba.se/ontology#> 
-prefix bd: <http://www.bigdata.com/rdf#> 
 
-
-select ?stationID  ?n ((avg(?v)- 273.15) as ?avgws)   where {
+select ?stationID  ?n ((avg(?v)- 273.15) as ?avgws) where 
+{
   ?obs a  <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation>; 
 sosa:observedProperty
               <http://ns.inria.fr/meteo/vocab/weatherproperty/airTemperature> ;
-sosa:hasResult [ qudt:numericValue ?v]; 
+sosa:hasSimpleResult ?v; 
 wep:madeByStation ?station ;
 sosa:resultTime ?t .
-FILTER (?jour >= 2 && ?jour < (?jour +7))
-BIND (day(?t) AS ?jour) 
-?station rdfs:label ?n ; weo:stationID ?stationID
+?station rdfs:label ?n ; weo:stationID ?stationID .
+FILTER(?t>= xsd:date("2021-02-01") && ?t < xsd:date("2021-02-07"))
 }
 group by ?stationID ?n

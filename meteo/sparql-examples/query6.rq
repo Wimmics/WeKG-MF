@@ -1,19 +1,19 @@
-#return mean temperature in Celsius for the station "07690" for the month of August
-#for this query, we need to load the 'observations-aout2021' and 'meteofrance-station.ttl'
+#return mean temperature in Celsius for the station "07690" by month
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
 
-SELECT ((avg(?v) - 273.15) as ?average_temperature)  where {
+SELECT  ?n  (CONCAT(?month, "-", ?year) AS ?date) ((avg(?v) - 273.15) as ?average_temperature)  where {
   ?obs a  <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation>; 
 sosa:observedProperty
               <http://ns.inria.fr/meteo/vocab/weatherproperty/airTemperature> ;
-sosa:hasResult [ qudt:numericValue ?v]; 
+sosa:hasSimpleResult  ?v; 
 wep:madeByStation ?station ;
 sosa:resultTime ?t .
 ?station rdfs:label ?n ;  weo:stationID ?stationID
-FILTER (?stationID = "07690" && month(?t) = 8)
-BIND (day(?t) AS ?jour) 
-} GROUP BY ?jour
+FILTER (?stationID = "07690")
+BIND (month(?t) AS ?month) 
+BIND (year(?t) AS ?year)
+} GROUP BY ?n ?month ?year
