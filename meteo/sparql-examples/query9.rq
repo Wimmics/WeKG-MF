@@ -9,7 +9,7 @@ select ?stationID  ?n ?mois (avg(?v) as ?avg_speed_wind)   where {
   ?obs a  <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation>; 
 sosa:observedProperty
   <http://ns.inria.fr/meteo/vocab/weatherproperty/windAverageSpeed>  ;
-sosa:hasSimpleResult  ?v; 
+sosa:hasSimpleResult ?v; 
 wep:madeByStation ?station ;
 sosa:resultTime ?t .
 BIND (day(?t) AS ?jour) 
