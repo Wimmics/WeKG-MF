@@ -11,10 +11,13 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix wep: <http://ns.inria.fr/meteo/ontology/property/> .
 
+#Template file: replace placeholders
+#- {{collection}}: the MongoDB collection to query, e.g. synop_observations_2021
+
 <#pmer_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ 
-    xrr:query """db.SynopWeather10.find({"pmer": {$ne: "mq"}})"""; 
+    xrr:query """db.{{collection}}.find({"pmer": {$ne: "mq"}})"""; 
     xrr:format xrr:JSON 
     ];
     
@@ -69,7 +72,7 @@
 <#temp_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ 
-        xrr:query """db.SynopWeather10.find({"t": {$ne: "mq"}})"""; 
+        xrr:query """db.{{collection}}.find({"t": {$ne: "mq"}})"""; 
         xrr:format xrr:JSON;
      ];
     
@@ -124,7 +127,7 @@
 
 <#dewPoint_Observation>
     a rr:TriplesMap;
-    xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"td": {$ne: "mq"}})""" ];
+    xrr:logicalSource [ xrr:query """db.{{collection}}.find({"td": {$ne: "mq"}})""" ];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/td";
@@ -176,7 +179,7 @@
 
 <#humidity_Observation>
     a rr:TriplesMap;
-    xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"u": {$ne: "mq"}})""" ];
+    xrr:logicalSource [ xrr:query """db.{{collection}}.find({"u": {$ne: "mq"}})""" ];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/u";
@@ -228,7 +231,7 @@
 
 <#hvisibility_Observation>
     a rr:TriplesMap;
-    xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"vv": {$ne: "mq"}})""" ];
+    xrr:logicalSource [ xrr:query """db.{{collection}}.find({"vv": {$ne: "mq"}})""" ];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/vv";
@@ -281,7 +284,7 @@
 
 <#tend_Observation>
     a rr:TriplesMap;
-    xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"tend": {$ne: "mq"}})""" ];
+    xrr:logicalSource [ xrr:query """db.{{collection}}.find({"tend": {$ne: "mq"}})""" ];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/tend";
@@ -343,7 +346,7 @@
 
 <#tendObservationPT>
   a rr:TriplesMap;
-   xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"tend": {$ne: "mq"}})""" ];
+   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"tend": {$ne: "mq"}})""" ];
 
    rr:subjectMap [
     rr:template "obs_at_{$.date}_{$.numer_sta}/tend_PhenomenonTime";
@@ -360,7 +363,7 @@
 
 <#tendObservation_PT_end>
   a rr:TriplesMap;
-   xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"tend": {$ne: "mq"}})""" ];
+   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"tend": {$ne: "mq"}})""" ];
 
    rr:subjectMap [
     rr:template "obs_at_{$.date}_{$.numer_sta}/tend_PhenomenonTime_endTime";
@@ -377,7 +380,7 @@
 
 <#ff_Observation>
     a rr:TriplesMap;
-    xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"ff": {$ne: "mq"}})""" ];
+    xrr:logicalSource [ xrr:query """db.{{collection}}.find({"ff": {$ne: "mq"}})""" ];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/ff";
@@ -437,7 +440,7 @@
 
 <#ffObservationPT>
   a rr:TriplesMap;
-   xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"ff": {$ne: "mq"}})""" ];
+   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"ff": {$ne: "mq"}})""" ];
 
    rr:subjectMap [
     rr:template "obs_at_{$.date}_{$.numer_sta}/ff_PhenomenonTime";
@@ -455,7 +458,7 @@
      .
 <#tendObservation_FF_end>
   a rr:TriplesMap;
-   xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"ff": {$ne: "mq"}})""" ];
+   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"ff": {$ne: "mq"}})""" ];
 
    rr:subjectMap [
     rr:template "obs_at_{$.date}_{$.numer_sta}/ff_PhenomenonTime_endTime";
@@ -472,7 +475,7 @@
 
 <#dd_Observation>
     a rr:TriplesMap;
-    xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"dd": {$ne: "mq"}})""" ];
+    xrr:logicalSource [ xrr:query """db.{{collection}}.find({"dd": {$ne: "mq"}})""" ];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/dd";
@@ -531,7 +534,7 @@
 
 <#ddObservationPT>
   a rr:TriplesMap;
-   xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"dd": {$ne: "mq"}})""" ];
+   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"dd": {$ne: "mq"}})""" ];
 
    rr:subjectMap [
     rr:template "obs_at_{$.date}_{$.numer_sta}/dd_PhenomenonTime";
@@ -550,7 +553,7 @@
 <#etatsol_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ 
-        xrr:query """db.SynopWeather10.find({"etat_sol": {$ne: "mq"}})"""; 
+        xrr:query """db.{{collection}}.find({"etat_sol": {$ne: "mq"}})"""; 
         xrr:format xrr:JSON;  
     ];
     
@@ -601,7 +604,7 @@
 
 <#nebulosite_Observation>
     a rr:TriplesMap;
-    xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"n": {$ne: "mq"}})""" ];
+    xrr:logicalSource [ xrr:query """db.{{collection}}.find({"n": {$ne: "mq"}})""" ];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/n";
@@ -653,7 +656,7 @@
 
 <#nebulositecloud1_Observation>
     a rr:TriplesMap;
-    xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"nbas": {$ne: "mq"}})""" ];
+    xrr:logicalSource [ xrr:query """db.{{collection}}.find({"nbas": {$ne: "mq"}})""" ];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/nbas";
@@ -708,7 +711,7 @@
 
 <#tend24_Observation>
     a rr:TriplesMap;
-    xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"tend24": {$ne: "mq"}})""" ];
+    xrr:logicalSource [ xrr:query """db.{{collection}}.find({"tend24": {$ne: "mq"}})""" ];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/tend24";
@@ -769,7 +772,7 @@
 
 <#tend24ObservationPT>
   a rr:TriplesMap;
-   xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"tend24": {$ne: "mq"}})""" ];
+   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"tend24": {$ne: "mq"}})""" ];
    rr:subjectMap [
     rr:template "obs_at_{$.date}_{$.numer_sta}/tend24_PhenomenonTime";
     rr:class weo:Interval24h ;
@@ -786,7 +789,7 @@
 
 <#hauteurbase_Observation>
     a rr:TriplesMap;
-    xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"hbas": {$ne: "mq"}})""" ];
+    xrr:logicalSource [ xrr:query """db.{{collection}}.find({"hbas": {$ne: "mq"}})""" ];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/hbas";
@@ -839,7 +842,7 @@
 
 <#rr24_Observation>
     a rr:TriplesMap;
-    xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"rr24": {$ne: "mq"}})""" ];
+    xrr:logicalSource [ xrr:query """db.{{collection}}.find({"rr24": {$ne: "mq"}})""" ];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/rr24";
@@ -899,7 +902,7 @@
 
 <#rr24ObservationPT>
   a rr:TriplesMap;
-   xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"rr24": {$ne: "mq"}})""" ];
+   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"rr24": {$ne: "mq"}})""" ];
    rr:subjectMap [
     rr:template "obs_at_{$.date}_{$.numer_sta}/rr24_PhenomenonTime";
     rr:class weo:Interval24h ;
@@ -916,7 +919,7 @@
 
 <#pressure_Observation>
     a rr:TriplesMap;
-    xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"pres": {$ne: "mq"}})""" ];
+    xrr:logicalSource [ xrr:query """db.{{collection}}.find({"pres": {$ne: "mq"}})""" ];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/pres";
@@ -969,7 +972,7 @@
 <#tn12_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ 
-        xrr:query """db.SynopWeather10.find({"tn12": {$ne: "mq"}})""" ];
+        xrr:query """db.{{collection}}.find({"tn12": {$ne: "mq"}})""" ];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/tn12";
@@ -1030,7 +1033,7 @@
 
 <#tn12ObservationPT>
   a rr:TriplesMap;
-   xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"tn12": {$ne: "mq"}})""" ];
+   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"tn12": {$ne: "mq"}})""" ];
    rr:subjectMap [
     rr:template "obs_at_{$.date}_{$.numer_sta}/tn12_PhenomenonTime";
     rr:class weo:Interval12h ;
@@ -1049,7 +1052,7 @@
 <#tx12_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ 
-        xrr:query """db.SynopWeather10.find({"tx12": {$ne: "mq"}})"""; 
+        xrr:query """db.{{collection}}.find({"tx12": {$ne: "mq"}})"""; 
         xrr:format xrr:JSON;
      ];
     
@@ -1112,7 +1115,7 @@
 
 <#tx12ObservationPT>
   a rr:TriplesMap;
-   xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"tx12": {$ne: "mq"}})""" ];
+   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"tx12": {$ne: "mq"}})""" ];
    rr:subjectMap [
     rr:template "obs_at_{$.date}_{$.numer_sta}/tx12_PhenomenonTime";
     rr:class weo:Interval12h ;
@@ -1130,7 +1133,7 @@
 <#tn24_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ 
-        xrr:query """db.SynopWeather10.find({"tn24": {$ne: "mq"}})""" ];
+        xrr:query """db.{{collection}}.find({"tn24": {$ne: "mq"}})""" ];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/tn24";
@@ -1191,7 +1194,7 @@
 
 <#tn24ObservationPT>
   a rr:TriplesMap;
-   xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"tn24": {$ne: "mq"}})""" ];
+   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"tn24": {$ne: "mq"}})""" ];
    rr:subjectMap [
     rr:template "obs_at_{$.date}_{$.numer_sta}/tn24_PhenomenonTime";
     rr:class weo:Interval24h ;
@@ -1209,7 +1212,7 @@
 <#tx24_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ 
-        xrr:query """db.SynopWeather10.find({"tx24": {$ne: "mq"}})"""];
+        xrr:query """db.{{collection}}.find({"tx24": {$ne: "mq"}})"""];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/tx24";
@@ -1270,7 +1273,7 @@
 
 <#tx24ObservationPT>
   a rr:TriplesMap;
-   xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"tx24": {$ne: "mq"}})""" ];
+   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"tx24": {$ne: "mq"}})""" ];
    rr:subjectMap [
     rr:template "obs_at_{$.date}_{$.numer_sta}/tx24_PhenomenonTime";
     rr:class weo:Interval24h ;
@@ -1288,7 +1291,7 @@
 <#raf10_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ 
-        xrr:query """db.SynopWeather10.find({"raf10": {$ne: "mq"}})"""];
+        xrr:query """db.{{collection}}.find({"raf10": {$ne: "mq"}})"""];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/raf10";
@@ -1349,7 +1352,7 @@
 
 <#raf10ObservationPT>
   a rr:TriplesMap;
-   xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"raf10": {$ne: "mq"}})""" ];
+   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"raf10": {$ne: "mq"}})""" ];
    rr:subjectMap [
     rr:template "obs_at_{$.date}_{$.numer_sta}/raf10_PhenomenonTime";
     rr:class weo:Interval10m ;
@@ -1368,7 +1371,7 @@
 <#tminsol_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ 
-        xrr:query """db.SynopWeather10.find({"tminsol": {$ne: "mq"}})"""];
+        xrr:query """db.{{collection}}.find({"tminsol": {$ne: "mq"}})"""];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/tminsol";
@@ -1429,7 +1432,7 @@
 
 <#tminsolObservationPT>
   a rr:TriplesMap;
-   xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"tminsol": {$ne: "mq"}})""" ];
+   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"tminsol": {$ne: "mq"}})""" ];
    rr:subjectMap [
     rr:template "obs_at_{$.date}_{$.numer_sta}/tminsol_PhenomenonTime";
     rr:class weo:Interval12h ;
@@ -1446,7 +1449,7 @@
 
 <#CoverHeight_Observation>
     a rr:TriplesMap;
-    xrr:logicalSource [ xrr:query """db.SynopWeather10.find({"ht_neige": {$ne: "mq"}})""" ];
+    xrr:logicalSource [ xrr:query """db.{{collection}}.find({"ht_neige": {$ne: "mq"}})""" ];
     
     rr:subjectMap [
         rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/ht_neige";
@@ -1499,7 +1502,7 @@
 <#tendency_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ 
-        xrr:query """db.SynopWeather10.find({"code_tend": {$ne: "mq"}})"""; 
+        xrr:query """db.{{collection}}.find({"code_tend": {$ne: "mq"}})"""; 
         xrr:format xrr:JSON;  
     ];
     
