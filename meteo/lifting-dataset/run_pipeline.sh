@@ -25,7 +25,7 @@ if [[ -z "$collection" ]] ; then help; fi
 dirpath=$2
 if [[ -z "$dirpath" ]] ; then help; fi
 
-python uploadMongoDB.py $collection $dirpath
+python3 uploadMongoDB.py $collection $dirpath
 
 cd xr2rml 
 
