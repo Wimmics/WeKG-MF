@@ -368,6 +368,7 @@
    rr:subjectMap [
     rr:template "obs_at_{$.date}_{$.numer_sta}/tend_PhenomenonTime_endTime";
     rr:class time:Instant ;
+    rr:termType rr:BlankNode;
     ];
      rr:predicateObjectMap [
         rr:predicate time:inXSDDateTimeStamp;
@@ -463,6 +464,7 @@
    rr:subjectMap [
     rr:template "obs_at_{$.date}_{$.numer_sta}/ff_PhenomenonTime_endTime";
     rr:class time:Instant ;
+    rr:termType rr:BlankNode;
     ];
      rr:predicateObjectMap [
         rr:predicate time:inXSDDateTimeStamp;

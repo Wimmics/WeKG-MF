@@ -1,0 +1,34 @@
+PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX igeo:<http://rdf.insee.fr/def/geo#>
+
+select * where {
+    SERVICE <http://ontology.inrae.fr/bsv/sparql> 
+     {  
+   	    SELECT ?document ?region ?regionName ?code ?inseeR where 
+     	{
+           ?document a <http://ontology.irstea.fr/bsv/ontology/Bulletin> .
+           ?document dct:spatial ?region .  
+           ?region rdfs:label ?regionName.
+           #?region owl:sameAs ?inseeR . 
+      	   #FILTER CONTAINS(STR(?inseeR), "http://id.insee.fr/geo/region/")
+       	   SERVICE <http://rdf.insee.fr/sparql>  
+           {
+      	     SELECT * WHERE {
+	            ?r a igeo:Region .
+	            ?r igeo:nom ?regionName .
+                ?r igeo:codeINSEE ?code .
+              }
+      
+      
+           } 
+    }
+     }
+  	} 
+LIMIT 100
+  

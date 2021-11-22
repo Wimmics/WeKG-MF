@@ -1,0 +1,3 @@
+ . ../Lifting-dataset/env.sh
+
+ ipython uploadMongoDB.ipynb

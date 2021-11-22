@@ -13,7 +13,6 @@ sosa:hasSimpleResult  ?v;
 wep:madeByStation ?station ;
 sosa:resultTime ?t .
 ?station rdfs:label ?n ;  weo:stationID ?stationID
-FILTER (?stationID = "07690")
 BIND (month(?t) AS ?month) 
 BIND (year(?t) AS ?year)
 } GROUP BY ?n ?month ?year

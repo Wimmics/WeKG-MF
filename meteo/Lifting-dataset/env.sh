@@ -7,7 +7,7 @@ export DATASET_VERSION_DASH=1-0
 export DATASET_DATE=2021-01-01
 
 # MongoDB database
-export DB=d2kab
+export DB=Meteo-France
 
 # Dataset id (end of the dataset URI)
 export DATASET_ID=dataset-${DATASET_VERSION_DASH}
