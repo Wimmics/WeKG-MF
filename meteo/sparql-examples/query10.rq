@@ -10,7 +10,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX wd:   <http://www.wikidata.org/entity/>
 prefix weo:  <http://ns.inria.fr/meteo/ontology/> 
 
-select ?stationID  ?n ((avg(?v)- 273.15) as ?avgws) where 
+select ?n ((avg(?v)- 273.15) as ?avgws) where 
 {
   ?obs a  <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation>; 
 sosa:observedProperty
@@ -19,6 +19,11 @@ sosa:hasSimpleResult ?v;
 wep:madeByStation ?station ;
 sosa:resultTime ?t .
 ?station rdfs:label ?n ; weo:stationID ?stationID .
-FILTER(?t>= xsd:date("2021-02-01") && ?t < xsd:date("2021-02-07"))
+FILTER(?t>= xsd:date("2021-02-01"))
+FILTER(?t < xsd:date("2021-02-07"))
 }
-group by ?stationID ?n
+group by ?n 
+
+
+
+

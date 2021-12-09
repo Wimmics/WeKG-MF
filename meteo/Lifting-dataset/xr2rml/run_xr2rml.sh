@@ -32,7 +32,7 @@ if [[ -z "$output" ]] ; then help; fi
 
 
 # --- Init log file
-mkdir $XR2RML/logs &> /dev/null
+mkdir -p $XR2RML/logs &> /dev/null
 log=$XR2RML/logs/run_xr2rml_${collection}.log
 echo -n "" > $log
 

@@ -373,7 +373,7 @@
      rr:predicateObjectMap [
         rr:predicate time:inXSDDateTimeStamp;
           rr:objectMap [
-            xrr:reference "$.dateF";
+            xrr:reference "$.date";
             rr:termType rr:Literal;
             rr:datatype xsd:dateTimeStamp;
           ];
@@ -469,7 +469,7 @@
      rr:predicateObjectMap [
         rr:predicate time:inXSDDateTimeStamp;
           rr:objectMap [
-            xrr:reference "$.dateF";
+            xrr:reference "$.date";
             rr:termType rr:Literal;
             rr:datatype xsd:dateTimeStamp;
           ];
@@ -1552,4 +1552,3 @@
             rr:termType rr:IRI;
         ]; 
 ].
-

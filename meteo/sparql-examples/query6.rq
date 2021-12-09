@@ -1,11 +1,11 @@
-#return mean temperature in Celsius for the station "07690" by month
+#return mean temperature in Celsius per month for each weather station
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
 
-SELECT  ?n  (CONCAT(?month, "-", ?year) AS ?date) ((avg(?v) - 273.15) as ?average_temperature)  where {
+SELECT   (CONCAT(?month, "-", ?year) AS ?date) ?n  ((avg(?v) - 273.15) as ?average_temperature)  where {
   ?obs a  <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation>; 
 sosa:observedProperty
               <http://ns.inria.fr/meteo/vocab/weatherproperty/airTemperature> ;
@@ -15,4 +15,9 @@ sosa:resultTime ?t .
 ?station rdfs:label ?n ;  weo:stationID ?stationID
 BIND (month(?t) AS ?month) 
 BIND (year(?t) AS ?year)
-} GROUP BY ?n ?month ?year
+} 
+GROUP BY ?n ?month ?year
+ORDER BY ?n ?month ?year
+
+
+

@@ -6,6 +6,7 @@ prefix wep: <http://ns.inria.fr/meteo/ontology/property/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 select * where {
   ?x a weo:WeatherProperty; skos:prefLabel ?l.
-  OPTIONAL {?x qudt:applicableUnit|wep:applicableWMOcode  ?u}
+  OPTIONAL {?x qudt:applicableUnit ?u}
+  OPTIONAL {?x wep:applicableWMOcode  ?u}
 }
 

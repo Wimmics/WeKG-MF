@@ -5,16 +5,13 @@ PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
 
-select ?stationID  ?n ?mois (CONCAT((avg(?v)  as ?avg), " ", "m/s") AS ?avg_speed_wind)  where {
+select ?stationID  ?n ?t  (CONCAT((avg(?v)  as ?avg), " ", "m/s") AS ?avg_speed_wind)  where {
+?station rdfs:label ?n ; weo:stationID ?stationID.
   ?obs a  <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation>; 
 sosa:observedProperty
   <http://ns.inria.fr/meteo/vocab/weatherproperty/windAverageSpeed>  ;
 sosa:hasSimpleResult  ?v; 
 wep:madeByStation ?station ;
 sosa:resultTime ?t .
-BIND (day(?t) AS ?jour) 
-BIND(month(?t) as ?mois)
-?station rdfs:label ?n ; weo:stationID ?stationID
 }
 GROUP BY ?stationID ?n ?mois
-} GROUP BY ?n ?month ?year
