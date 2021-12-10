@@ -20,7 +20,7 @@ help()
   exe=$(basename $0)
   echo "Usage: $exe <MongoDB collection> <Path Directory> <xR2RML mapping> <output file name>"
   echo "Example:"
-  echo "   $exe  ColObservations2021  /Users/nyacaoub/Documents/Github/d2kab/meteo/Lifting-dataset/raw-weather-data/  mapping_observation.ttl  observations.ttl"
+  echo "   $exe  ColObservations2021  ~/d2kab/meteo/Lifting-dataset/raw-weather-data/  mapping_observation_tpl.ttl  observations2021.ttl"
   exit 1
 }
 
