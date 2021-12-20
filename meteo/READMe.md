@@ -43,3 +43,12 @@ RDF data files generated can be loaded in Virtuoso as separate named graphs. Scr
 ## Downloading and SPARQL querying 
 
 The dataset is downloadable as a set of RDF dumps (in Turtle syntax) from Zenodo : [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5593216.svg)](https://doi.org/10.5281/zenodo.5593216)
+
+| Named Graph  | No. of RDF triples |
+| ------------- | ------------- |
+| http://ns.inria.fr/meteo/ontology  | 193  |
+| http://ns.inria.fr/meteo/vocab | 346 |
+| http://ns.inria.fr/meteo/weatherstation | 794 |
+| http://ns.inria.fr/meteo/observation/2021 |  |
+| http://ns.inria.fr/meteo/observation/2020 |  |
+| http://ns.inria.fr/meteo/observation/2019 |  |
