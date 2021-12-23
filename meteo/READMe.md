@@ -49,6 +49,6 @@ The dataset is downloadable as a set of RDF dumps (in Turtle syntax) from Zenodo
 | http://ns.inria.fr/meteo/ontology  | 193  |
 | http://ns.inria.fr/meteo/vocab | 346 |
 | http://ns.inria.fr/meteo/weatherstation | 794 |
-| http://ns.inria.fr/meteo/observation/2021 |  |
-| http://ns.inria.fr/meteo/observation/2020 |  |
-| http://ns.inria.fr/meteo/observation/2019 |  |
+| http://ns.inria.fr/meteo/observation/2021 | 18899921 |
+| http://ns.inria.fr/meteo/observation/2020 | 20868650  |
+| http://ns.inria.fr/meteo/observation/2019 | 20832677 |
