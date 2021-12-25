@@ -1,15 +1,15 @@
-## Meteo-France Weather Dataset
+# Meteo-France Weather Dataset
 
 The Meteo-France Weather dataset is an RDF dataset that provides access to meteorological measurments provided by 62 Meteo-France weather stations located in different regions in metropolitan France and overseas departments. 
 The dataset incorporates measurements of several weather parameters such as wind direction and speed, air pressure, precipitations, humidity and temperature. 
-In total, observations  
+
+The RDF dataset is organised in different named graphs queryable through a SPARQL endpoint. 
 
 The weather dataset namespace is ```http://ns.inria.fr/meteo/```. 
 
 ## RDF data modelling 
 
-Based on a network of existing ontologies (SOSA/SSN, GeoSPARQL, Time Ontology), we define a minimal self-contained semantic model for meteorological data. 
-Thus, we extend the SOSA observation, feature of interest and observable property classes and we provide a formal OWL definition of these new classes. 
+Based on a network of existing ontologies (SOSA/SSN, GeoSPARQL, Time Ontology), we define a minimal self-contained semantic model to capture the spatio-temporal aspects of meteorological data. For this purpose, we extend the SOSA observation, feature of interest and observable property classes and we provide the OWL definitions of these new classes. 
 
 Also, we propose a SKOS vocabulary of weather observable properties and features of interest commonly used in weather reports.  
 
