@@ -40,6 +40,26 @@ Example :
 
 Generated RDF data files can be loaded in Virtuoso as separate named graphs. Scripts are provided in directory ```virtuoso```.
 
+## Prefixes of Ontologies and Vocabularies used in WeaKG-MF RDF Dataset
+
+| Prefix  | URI |
+| ------------- | ------------- |
+| geo  | http://www.w3.org/2003/01/geo/wgs84_pos#  |
+| geosparql | http://www.opengis.net/ont/geosparql# |
+| nerc | http://vocab.nerc.ac.uk/collection/P07/current/ |
+| qudt | http://qudt.org/2.0/schema/qudt |
+| qudt-unit | http://qudt.org/2.1/vocab/unit  |
+| qudtkind | http://qudt.org/vocab/quantitykind/ |
+| skos | http://www.w3.org/2004/02/skos/core#  |
+| qb | http://purl.org/linked-data/cube# |
+| sosa |http://www.w3.org/ns/sosa/  |
+| ssn | http://www.w3.org/ns/ssn/ |
+| time | http://www.w3.org/2006/time# |
+| weo | http://ns.inria.fr/meteo/ontology/ |
+| wep | http://ns.inria.fr/meteo/ontology/property/ |
+| wevp | http://ns.inria.fr/meteo/vocab/weatherproperty/ |
+| wevf | http://ns.inria.fr/meteo/vocab/meteorologicalfeature/ |
+| wes | http://ns.inria.fr/meteo/observationslice/ |
 ## Downloading and SPARQL querying 
 
 The dataset is downloadable as a set of RDF dumps (in Turtle syntax) from Zenodo : [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5593216.svg)](https://doi.org/10.5281/zenodo.5593216)
