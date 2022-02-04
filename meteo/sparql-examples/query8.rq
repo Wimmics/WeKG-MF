@@ -14,4 +14,4 @@ sosa:hasSimpleResult  ?v;
 wep:madeByStation ?station ;
 sosa:resultTime ?t .
 }
-GROUP BY ?stationID ?n ?mois
+GROUP BY ?stationID ?n ?t
