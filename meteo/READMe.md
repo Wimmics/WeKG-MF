@@ -1,6 +1,6 @@
-# Meteo-France Weather Dataset
+# Météo-France RDF Weather Dataset
 
-The Meteo-France Weather dataset is an RDF dataset that provides access to meteorological measurments provided by 62 Meteo-France weather stations located in different regions in metropolitan France and overseas departments. 
+The Météo-France RDF Weather dataset is an RDF dataset that provides access to meteorological measurments provided by 62 Météo-France weather stations located in different regions in metropolitan France and overseas departments. 
 The dataset incorporates measurements of several weather parameters such as wind direction and speed, air pressure, precipitations, humidity and temperature. 
 
 The RDF dataset is organised in different named graphs queryable through a SPARQL endpoint. 
@@ -9,7 +9,8 @@ The weather dataset namespace is ```http://ns.inria.fr/meteo/```.
 
 ## RDF data modelling 
 
-Based on a network of existing ontologies (SOSA/SSN, GeoSPARQL, Time Ontology), we define a minimal self-contained semantic model to capture the spatio-temporal aspects of meteorological data. For this purpose, we extend the SOSA observation, feature of interest and observable property classes and we provide the OWL definitions of these new classes. 
+Based on a network of existing ontologies (SOSA/SSN, GeoSPARQL, Time Ontology), we define a minimal self-contained semantic model to capture the spatio-temporal aspects of meteorological data. 
+For this purpose, we extend the SOSA observation, feature of interest and observable property classes and we provide the OWL definitions of these new classes. 
 
 Also, we propose a SKOS vocabulary of weather observable properties and features of interest commonly used in weather reports.  
 
@@ -40,7 +41,7 @@ Example :
 
 Generated RDF data files can be loaded in Virtuoso as separate named graphs. Scripts are provided in directory ```virtuoso```.
 
-## Prefixes of Ontologies and Vocabularies used in WeaKG-MF RDF Dataset
+## Prefixes of Ontologies and Vocabularies used in Météo-France RDF Dataset
 
 | Prefix  | URI |
 | ------------- | ------------- |
@@ -63,6 +64,10 @@ Generated RDF data files can be loaded in Virtuoso as separate named graphs. Scr
 ## Downloading and SPARQL querying 
 
 The dataset is downloadable as a set of RDF dumps (in Turtle syntax) from Zenodo : [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5593216.svg)](https://doi.org/10.5281/zenodo.5593216)
+
+Several SPARQL queries are provided in ```sparql-examples``` directory and serves as examples of exploitation of the dataset
+
+Key statistics describing the dataset :
 
 | Named Graph  | No. of RDF triples |
 | ------------- | ------------- |
