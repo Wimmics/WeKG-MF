@@ -67,7 +67,7 @@ The dataset is downloadable as a set of RDF dumps (in Turtle syntax) from Zenodo
 
 Several SPARQL queries are provided in ```sparql-examples``` directory and serves as examples of exploitation of the dataset
 
-Key statistics describing the dataset :
+The number of triples for each named graph is provided as follows :
 
 | Named Graph  | No. of RDF triples |
 | ------------- | ------------- |
