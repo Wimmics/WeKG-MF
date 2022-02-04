@@ -10,11 +10,12 @@ prefix wdt:  <http://www.wikidata.org/prop/direct/>
 prefix wikibase: <http://wikiba.se/ontology#> 
 prefix bd: <http://www.bigdata.com/rdf#> 
 
-select  (count(?obs) as ?nbO)  ?l where 
+select  ?Property (count(?obs) as ?nbO)   where 
  {
 ?obs a  <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation>;  
 sosa:observedProperty
               ?wp .
 ?wp skos:prefLabel ?l
+BIND(str(?l) as ?Property)
 }
-group by ?wp
+group by ?Property
