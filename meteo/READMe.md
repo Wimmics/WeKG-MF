@@ -65,7 +65,7 @@ Generated RDF data files can be loaded in Virtuoso as separate named graphs. Scr
 
 The dataset is downloadable as a set of RDF dumps (in Turtle syntax) from Zenodo : [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5593216.svg)](https://doi.org/10.5281/zenodo.5593216)
 
-Several SPARQL queries are provided in ```sparql-examples``` directory and serves as examples of exploitation of the dataset
+Several SPARQL queries are provided in ```sparql-examples``` directory and serves as examples of exploitation of the dataset. A jupyter notebook '''WeKG-MFQuerying.ipynb''' is available to demonstrate how the results of some SPARQL queries can be used to generate visualizations. 
 
 The number of triples for each named graph is provided as follows :
 
