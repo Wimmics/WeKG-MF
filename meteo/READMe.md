@@ -1,18 +1,12 @@
 # Météo-France RDF Weather Dataset
 
-The Météo-France RDF Weather dataset is an RDF dataset that provides access to meteorological measurments provided by 62 Météo-France weather stations located in different regions in metropolitan France and overseas departments. 
-The dataset incorporates measurements of several weather parameters such as wind direction and speed, air pressure, precipitations, humidity and temperature. 
+The Météo-France RDF Weather dataset is an RDF dataset that provides access to meteorological measurments provided by 62 Météo-France weather stations located in different regions in metropolitan France and overseas departments. The dataset incorporates measurements of several weather parameters such as wind direction and speed, air pressure, precipitations, humidity and temperature. 
 
-The RDF dataset is organised in different named graphs queryable through a SPARQL endpoint. 
-
-The weather dataset namespace is ```http://ns.inria.fr/meteo/```. 
+The RDF dataset is organised in different named graphs. The weather dataset namespace is ```http://ns.inria.fr/meteo/```. 
 
 ## RDF data modelling 
 
-Based on a network of existing ontologies (SOSA/SSN, GeoSPARQL, Time Ontology), we define a minimal self-contained semantic model to capture the spatio-temporal aspects of meteorological data. 
-For this purpose, we extend the SOSA observation, feature of interest and observable property classes and we provide the OWL definitions of these new classes. 
-
-Also, we propose a SKOS vocabulary of weather observable properties and features of interest commonly used in weather reports.  
+Based on a network of existing ontologies (SOSA/SSN, GeoSPARQL, QUDT, OWL-Time ontology, RDF data Cube Vocabulary), we define a reusable and self-contained semantic model that semantically describes the multiple dimensions behind meteorological data.. For this purpose, we extend the SOSA observation, feature of interest and observable property classes and we provide the OWL definitions of these new classes. Also, we propose a SKOS vocabulary of weather observable properties and features of interest commonly used in weather reports.  
 
 The semantic model and SKOS vocabulary are provided in the ```weather-dataset-metadata``` directory of the project. The 'weatherdataset-model.ttl' defines the semantic model of the metereological dataset. In the SKOS vocabulary, we defined 6 features of interest (air, wind, surface, gust, cloud, precipitations) and 21 observable properties (temperature, wind speed, diffrential pressure, ...). The model and vocabulary are intended to be adopted and extended by any meteorological data provider. 
 
@@ -37,7 +31,7 @@ Example :
 
 ./run_pipeline.sh collection022021 raw-weather-data/2021/csv mapping_observation_tpl.ttl rdf-dataset-02-2021.ttl
 
-Generated RDF data files can be loaded in Virtuoso as separate named graphs. Scripts are provided in directory ```virtuoso```.
+Generated RDF data files can be loaded in Virtuoso as separate named graphs. Scripts to load turtle files in different RDF named graphs are provided in directory ```virtuoso```.
 
 ## Prefixes of Ontologies and Vocabularies used in Météo-France RDF Dataset
 
