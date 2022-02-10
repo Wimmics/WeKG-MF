@@ -1,4 +1,4 @@
-# Météo-France RDF Weather Dataset
+# WeKG-MF: Weather Knowlege Graph Météo-France
 
 The Météo-France RDF Weather dataset is an RDF dataset that provides access to meteorological measurments provided by 62 Météo-France weather stations located in different regions in metropolitan France and overseas departments. The dataset incorporates measurements of several weather parameters such as wind direction and speed, air pressure, precipitations, humidity and temperature. 
 
@@ -10,7 +10,7 @@ Based on a network of existing ontologies (SOSA/SSN, GeoSPARQL, QUDT, OWL-Time o
 
 The semantic model and SKOS vocabulary are provided in the ```weather-dataset-metadata``` directory of the project. The 'weatherdataset-model.ttl' defines the semantic model of the metereological dataset. In the SKOS vocabulary, we defined 6 features of interest (air, wind, surface, gust, cloud, precipitations) and 21 observable properties (temperature, wind speed, diffrential pressure, ...). The model and vocabulary are intended to be adopted and extended by any meteorological data provider. 
 
-## Pipeline generation 
+## Pipeline generation
 
 The pipeline generation of the weather RDF dataset involves several steps including the preprocessing and loading data in MongoDB database as JSON collections.
 Then the translation into RDF is carried out using the Morph-xr2RML tool, an implementation of the xR2RML mapping language for MongoDB databases. 
