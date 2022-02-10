@@ -14,9 +14,7 @@ For this purpose, we extend the SOSA observation, feature of interest and observ
 
 Also, we propose a SKOS vocabulary of weather observable properties and features of interest commonly used in weather reports.  
 
-The semantic model and SKOS vocabulary are provided in the ```weather-dataset-metadata``` directory of the project. 
-
-The model and vocabulary are intended to be adopted and extended by any meteorological data provider. 
+The semantic model and SKOS vocabulary are provided in the ```weather-dataset-metadata``` directory of the project. The 'weatherdataset-model.ttl' defines the semantic model of the metereological dataset. In the SKOS vocabulary, we defined 6 features of interest (air, wind, surface, gust, cloud, precipitations) and 21 observable properties (temperature, wind speed, diffrential pressure, ...). The model and vocabulary are intended to be adopted and extended by any meteorological data provider. 
 
 ## Pipeline generation 
 
@@ -61,6 +59,9 @@ Generated RDF data files can be loaded in Virtuoso as separate named graphs. Scr
 | wevp | http://ns.inria.fr/meteo/vocab/weatherproperty/ |
 | wevf | http://ns.inria.fr/meteo/vocab/meteorologicalfeature/ |
 | wes | http://ns.inria.fr/meteo/observationslice/ |
+| wes-dimension| <http://ns.inria.fr/meteo/observationslice/dimension#> |
+| wes-measure| <http://ns.inria.fr/meteo/observationslice/measure#> |
+| wes-attribute| <http://ns.inria.fr/meteo/observationslice/attribute#> |
 ## Downloading and SPARQL querying 
 
 The dataset is downloadable as a set of RDF dumps (in Turtle syntax) from Zenodo : [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5593216.svg)](https://doi.org/10.5281/zenodo.5593216)
