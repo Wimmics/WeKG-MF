@@ -39,11 +39,9 @@ weo:MeteorologicalObservation
   a owl:Class ;
   rdfs:label "Meterological Observation"@en ;
   skos:definition "Result of carrying out a procedure to estimate a value of a property of a Meterological feature."@en ;
-  owl:equivalentClass [ owl:intersectionOf (sosa:Observation 
-  [ a owl:Restriction ; owl:onProperty sosa:observedProperty ; owl:allValuesFrom weo:WeatherProperty] 
-  [ a owl:Restriction ; owl:onProperty sosa:observedProperty ; owl:cardinality "1"^^xsd:nonNegativeInteger]
-  [ a owl:Restriction ; owl:onProperty sosa:hasFeatureOfInterest; owl:allValuesFrom weo:MeteorologicalFeature]
-  [ a owl:Restriction ; owl:onProperty sosa:hasFeatureOfInterest; owl:cardinality "1"^^xsd:nonNegativeInteger])];
+  owl:equivalentClass [ owl:intersectionOf (sosa:Observation  
+  [ a owl:Restriction ; owl:onProperty sosa:observedProperty ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger; owl:onClass weo:WeatherProperty]
+  [ a owl:Restriction ; owl:onProperty sosa:hasFeatureOfInterest; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger; owl:onClass weo:MeteorologicalFeature])];
   rdfs:comment " A meterological observation is an observation which is linked to exactly one weather property and one meteorological feature."@en .
 
 weo:Interval3h
