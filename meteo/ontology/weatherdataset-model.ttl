@@ -14,7 +14,7 @@
 
 weo:WeatherStation
   a owl:Class ;
-  rdfs:subclassof sosa:Platform, geosparql:Feature ;
+  rdfs:subClassOf sosa:Platform, geosparql:Feature ;
   rdfs:label "Meteo France Synop Weather Station" .
 
 weo:WeatherProperty
