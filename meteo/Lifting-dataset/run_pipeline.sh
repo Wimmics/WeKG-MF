@@ -9,8 +9,9 @@
 # Inspired from scripts written by Franck Michel (https://github.com/frmichel)
 # Licensed under the Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
  
- . ./env.sh
+. ./ENV.sh
 
+. ./last_update.sh
 log() {
     echo "[$(date '+%F %T')] $1"
 }
@@ -30,23 +31,41 @@ echo "==========================================================================
 collection=$1
 if [[ -z "$collection" ]] ; then help; fi
 
-dirpath=$2
+dirpath=$DIR
 if [[ -z "$dirpath" ]] ; then help; fi
 
 log "Preprocessing and Importing files into MongoDB..."
 
-python3 script.py $collection $dirpath
+cd mongo
+
+python3 preprocess.py $collection $dirpath
 
 
 log "Generating RDF files..."
 
+cd ..
 cd xr2rml
 
-mappingTemplate=$3
+mappingTemplate=$2
 if [[ -z "$mappingTemplate" ]] ; then help; fi
 
-output=$4
+rm $DATASET_DIR/*
+
+output=$DATASET_DIR$3
 if [[ -z "$output" ]] ; then help; fi
 
 ./run_xr2rml.sh $collection $mappingTemplate $output 
 
+
+log "Loading in Virtuoso Triple Store"
+
+cd ..
+cd virtuoso
+
+touch import-virtuoso$LASTupdateY$LASTupdateM.sh
+
+echo 'export LASTupdateY="'$LASTupdateY'"\nexport LASTupdateM="'$LASTupdateM'"' > import-virtuoso$LASTupdateY$LASTupdateM.sh
+
+echo '/database/virtuoso-import.sh  --graph "http://ns.inria.fr/meteo/observation/'$LASTupdateY'" --path /dataset *.ttl' > import-virtuoso$LASTupdateY$LASTupdateM.sh
+
+docker exec -it weatherkg-docker bash ./import-virtuoso$LASTupdateY$LASTupdateM.sh

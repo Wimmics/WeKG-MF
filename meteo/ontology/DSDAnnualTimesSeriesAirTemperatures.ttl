@@ -1,0 +1,76 @@
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix qb4st: <http://resources.opengeospatial.org/def/qbcomponents/qb4st> .
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:            <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
+@prefix qb:             <http://purl.org/linked-data/cube#> .
+@prefix wes-dimension: <http://ns.inria.fr/meteo/observationslice/dimension#> .
+@prefix wes-attribute: <http://ns.inria.fr/meteo/observationslice/attribute#> .
+@prefix wes-measure: <http://ns.inria.fr/meteo/observationslice/measure#> .
+@prefix wes: <http://ns.inria.fr/meteo/observationslice/>  .
+@prefix wevp: <http://ns.inria.fr/meteo/vocab/weatherproperty/> .
+@prefix weo:        <http://ns.inria.fr/meteo/ontology/> . 
+@prefix dct:        <http://purl.org/dc/terms/> .
+<http://ns.inria.fr/meteo/dataset-MF/2021> a qb:DataSet;
+qb:structure wes:annualTimeSeriesTemperature;
+dct:title "2021 French Meterological Weather Data"@en;
+dct:description "Daily min/max/avg temperature in 2021"@en.
+
+
+wes:annualTimeSeriesTemperature a qb:DataStructureDefinition, qb4st:SpatioTemporalDSD; 
+    qb:component 
+        [qb:dimension wes-dimension:station; qb:order 1; qb:componentAttachment qb:Slice],
+        [qb:dimension wes-dimension:year; qb:order 2; qb:componentAttachment qb:Slice],
+        [qb:measure wes-measure:minDailyTemperature],  
+        [qb:measure wes-measure:maxDailyTemperature], 
+        [qb:measure wes-measure:avgDailyTemperature],
+        [qb:attribute wes-attribute:observationDate; qb:componentAttachment qb:Slice];
+        qb:sliceKey wes:SliceByStationAndYear .
+
+wes:sliceByStationAndYear a qb:SliceKey;
+    rdfs:label "Meterological observations Sliced by weather station and year"@en;
+    rdfs:comment "Meterological Data Slice by grouping meterological observations of the same station together by year"@en;
+    qb:componentProperty wes-dimension:station, wes-dimension:year .
+
+wes-dimension:station a rdf:Property, qb:DimensionProperty; 
+    rdfs:range weo:WeatherStation. 
+
+wes-dimension:year a rdf:Property, qb:DimensionProperty; 
+    rdfs:range time:Interval.
+
+wes-measure:minDailyTemperature a  qb:MeasureProperty; 
+    rdfs:label "Daily Minimum Temperature"@en;
+    rdfs:range xsd:decimal ;
+    qb:concept wevp:minAirTemperature . 
+
+wes-measure:maxDailyTemperature a rdf:Property, qb:MeasureProperty; 
+    rdfs:label "Daily Maximum Temperature"@en;
+    rdfs:range xsd:decimal ;
+    qb:concept wevp:maxAirTemperature .
+
+wes-measure:avgDailyTemperature a rdf:Property, qb:MeasureProperty; 
+    rdfs:label "Daily Average Temperature"@en;
+    rdfs:range xsd:decimal ; 
+    qb:concept wevp:airTemperature .
+
+wes-measure:dailyRainfall a rdf:Property, qb:MeasureProperty; 
+    rdfs:label "Daily Rainfall"@en;
+    rdfs:range xsd:decimal ; 
+    qb:concept wevp:precipitationAmount .
+
+wes-dimension:intervalCalendar  a rdf:Property, qb:DimensionProperty;
+    rdfs:range time:Interval. 
+
+wes:year2021 a time:Interval ;
+    time:hasBeginning wes:year2021_timeBeginning ;
+    time:hasEnd wes:year2021_timeEnd .
+
+wes:year2021_timeBeginning a time:Instant ;
+    time:inXSDDateTime "2021-01-01T00:00:00"^^xsd:dateTime .
+
+wes:year2021_timeEnd a time:Instant ;
+    time:inXSDDateTime "2022-01-01T00:00:00"^^xsd:dateTime .
+
+

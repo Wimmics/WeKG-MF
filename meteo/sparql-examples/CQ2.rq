@@ -1,0 +1,33 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
+prefix wevp: <http://ns.inria.fr/meteo/vocab/weatherproperty/> 
+
+SELECT ?date ?hour ?station ?temp_max
+{ 
+    {
+    SELECT ?date  ?s  (MAX(?v) as  ?temp_max) 
+    
+    WHERE 
+    {
+        ?obs a  weo:MeteorologicalObservation; 
+        sosa:observedProperty wevp:airTemperature ;
+        sosa:hasSimpleResult  ?v; 
+        wep:madeByStation ?s ;
+        sosa:resultTime ?t . 
+        BIND(xsd:date("2020-08-01") as ?date)
+        FILTER( xsd:date(?t) = ?date)
+    } 
+       GROUP BY ?s ?date 
+    } 
+    ?obs a  weo:MeteorologicalObservation; 
+    sosa:observedProperty wevp:airTemperature ;
+    sosa:hasSimpleResult  ?temp_max; 
+    wep:madeByStation ?s ;
+    sosa:resultTime ?t .
+    ?s rdfs:label ?station  .
+    FILTER(xsd:date(?t)= ?date)
+    BIND(HOURS(?t) as ?hour) 
+}

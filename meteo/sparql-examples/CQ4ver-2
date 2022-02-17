@@ -1,0 +1,35 @@
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX qb:  <http://purl.org/linked-data/cube#> 
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
+PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
+PREFIX wes: <http://ns.inria.fr/meteo/observationslice#> 
+prefix wevp: <http://ns.inria.fr/meteo/vocab/weatherproperty/> 
+PREFIX wes-dim: <http://ns.inria.fr/meteo/observationslice/dimension#> 
+PREFIX wes-mea: <http://ns.inria.fr/meteo/observationslice/measure#> 
+PREFIX wes-att: <http://ns.inria.fr/meteo/observationslice/attribute#> 
+
+
+SELECT ?date  ?station ((?temp_max+?temp_min)/2.0 as ?temp_avg) (((?temp_max+?temp_min)/2.0)-10.0 as ?GDD)
+{
+    SELECT ?date ?station (MIN(?vt) - 273.15 as ?temp_min) (MAX(?vt)- 273.15 as ?temp_max) 
+    {
+    GRAPH <http://ns.inria.fr/meteo/observation/2021> 
+    { 
+        ?obs a weo:MeteorologicalObservation;
+            sosa:observedProperty wevp:airTemperature;
+            sosa:hasSimpleResult ?vt;
+            sosa:resultTime ?t;
+            wep:madeByStation ?station.
+       BIND(xsd:date(?t) as ?date)
+       FILTER(xsd:date(?t) >= xsd:date("2021-04-01"))
+     
+     }
+}
+GROUP BY ?date ?station
+}
+ORDER BY ?date
