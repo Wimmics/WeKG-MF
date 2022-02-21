@@ -15,6 +15,6 @@ The table below gives the results of each method in terms of number of FCU crops
 
 | Alignment method   | FCU concepts | Intermediate source | TAXREF-LD taxa | Taxonomic ranks |
 | :-- |       :--:   |         :--: |           :--: | :--: |
-| 1. FCU name `-exact match->` TAXREF-LD vernacular name | 198 | | 824 | species, subspecies, varietas, forma, cultivar |
-| 2. FCU name `-exact match->` (GEVES name `->` GEVES scientific name with authority) `-substring match->` TAXREF-LD full scientific name | 64 | 89  | 87 | species, subspecies |
-| 3. FCU name `-API match->` (EPPO code `->` EPPO scientific name with authority/date) `-exact match->` TAXREF-LD full scientific name | 266 | 334 | 317 | species, subspecies, varietas, forma, cultivar |
+| 1. FCU name `-exact string match->` TAXREF-LD vernacular name | 198 | | 824 | species, subspecies, varietas, forma, cultivar |
+| 2. FCU name `-exact string match->` (GEVES name `->` GEVES scientific name with authority) `-substring match->` TAXREF-LD full scientific name | 64 | 89  | 87 | species, subspecies |
+| 3. FCU name `-API match->` (EPPO code `->` EPPO scientific name with authority/date) `-exact string match->` TAXREF-LD full scientific name | 266 | 334 | 317 | species, subspecies, varietas, forma, cultivar |

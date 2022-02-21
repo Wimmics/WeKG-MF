@@ -8,32 +8,28 @@ The RDF dataset is organised in different named graphs. The weather dataset name
 
 Based on a network of existing ontologies (SOSA/SSN, GeoSPARQL, QUDT, OWL-Time ontology, RDF data Cube Vocabulary), we define a reusable and self-contained semantic model that semantically describes the multiple dimensions behind meteorological data.. For this purpose, we extend the SOSA observation, feature of interest and observable property classes and we provide the OWL definitions of these new classes. Also, we propose a SKOS vocabulary of weather observable properties and features of interest commonly used in weather reports.  
 
-The semantic model and SKOS vocabulary are provided in the ```weather-dataset-metadata``` directory of the project. The 'weatherdataset-model.ttl' defines the semantic model of the metereological dataset. In the SKOS vocabulary, we defined 6 features of interest (air, wind, surface, gust, cloud, precipitations) and 21 observable properties (temperature, wind speed, diffrential pressure, ...). The model and vocabulary are intended to be adopted and extended by any meteorological data provider. 
+The semantic model and SKOS vocabulary are provided in the ```ontology``` directory of the project. The `weatherdataset-model.ttl` defines the semantic model of the metereological dataset. In the SKOS vocabulary, we defined 6 features of interest (air, wind, surface, gust, cloud, precipitations) and 21 observable properties (temperature, wind speed, diffrential pressure, ...). The model and vocabulary are intended to be adopted and extended by any meteorological data provider. 
 
-## Pipeline generation
 
-The pipeline generation of the weather RDF dataset involves several steps including the preprocessing and loading data in MongoDB database as JSON collections.
-Then the translation into RDF is carried out using the Morph-xr2RML tool, an implementation of the xR2RML mapping language for MongoDB databases. 
+## Downloading and SPARQL querying 
 
-Note that the pipeline generation including all steps is fully executed thanks to the ```run_pipeline.sh``` script available in ```Lifting-dataset``` directory.
+The dataset is downloadable as a set of RDF dumps (in Turtle syntax) from Zenodo : [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5925413.svg)](https://doi.org/10.5281/zenodo.5925413)
 
-The script ```run_pipeline.sh``` needs 4 arguments: 
- 
-* JSON collection name (if a collection with the same name already exists in MongoDB, it will be dropped),
+Several SPARQL queries are provided in ```sparql-examples``` directory and serves as examples of exploitation of the dataset. A Jupyter Notebook ```WeKG-MFQuerying.ipynb``` demonstrates how the results of some SPARQL queries can be used to generate visualizations. 
 
-* Path directory to the csv files, e.g., raw-weather-data/yyyy/csv
+The number of triples for each named graph is provided as follows :
 
-* Mapping rules file : e.g., mapping_observation_tpl.ttl
+| Named Graph  | No. of RDF triples |
+| ------------- | ------------- |
+| http://ns.inria.fr/meteo/ontology  | 193  |
+| http://ns.inria.fr/meteo/vocab | 346 |
+| http://ns.inria.fr/meteo/weatherstation | 794 |
+| http://ns.inria.fr/meteo/observation/2021 | 18.899.921 |
+| http://ns.inria.fr/meteo/observation/2020 | 20.868.650  |
+| http://ns.inria.fr/meteo/observation/2019 | 20.832.677 |
 
-* Output file name (e.g, ```rdf-dataset-yyyy.ttl```)
 
-Example : 
-
-./run_pipeline.sh collection022021 raw-weather-data/2021/csv mapping_observation_tpl.ttl rdf-dataset-02-2021.ttl
-
-Generated RDF data files can be loaded in Virtuoso as separate named graphs. Scripts to load turtle files in different RDF named graphs are provided in directory ```virtuoso```.
-
-## Prefixes of Ontologies and Vocabularies used in Météo-France RDF Dataset
+## Prefixes of ontologies and vocabularies used in WeKG-MF
 
 | Prefix  | URI |
 | ------------- | ------------- |
@@ -56,19 +52,30 @@ Generated RDF data files can be loaded in Virtuoso as separate named graphs. Scr
 | wes-dimension| <http://ns.inria.fr/meteo/observationslice/dimension#> |
 | wes-measure| <http://ns.inria.fr/meteo/observationslice/measure#> |
 | wes-attribute| <http://ns.inria.fr/meteo/observationslice/attribute#> |
-## Downloading and SPARQL querying 
 
-The dataset is downloadable as a set of RDF dumps (in Turtle syntax) from Zenodo : [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5593216.svg)](https://doi.org/10.5281/zenodo.5593216)
 
-Several SPARQL queries are provided in ```sparql-examples``` directory and serves as examples of exploitation of the dataset. A jupyter notebook ```WeKG-MFQuerying.ipynb``` is available to demonstrate how the results of some SPARQL queries can be used to generate visualizations. 
+## Pipeline generation
 
-The number of triples for each named graph is provided as follows :
+The pipeline generation of the weather RDF dataset involves several steps including the preprocessing and loading data in MongoDB database as JSON collections.
+Then the translation into RDF is carried out using the [Morph-xR2RML tool](https://github.com/frmichel/morph-xr2rml/), an implementation of the xR2RML mapping language for MongoDB databases. 
 
-| Named Graph  | No. of RDF triples |
-| ------------- | ------------- |
-| http://ns.inria.fr/meteo/ontology  | 193  |
-| http://ns.inria.fr/meteo/vocab | 346 |
-| http://ns.inria.fr/meteo/weatherstation | 794 |
-| http://ns.inria.fr/meteo/observation/2021 | 18.899.921 |
-| http://ns.inria.fr/meteo/observation/2020 | 20.868.650  |
-| http://ns.inria.fr/meteo/observation/2019 | 20.832.677 |
+Note that the pipeline generation including all steps is fully executed thanks to the ```run_pipeline.sh``` script available in ```Lifting-dataset``` directory.
+
+The script ```run_pipeline.sh``` needs 4 arguments: 
+ 
+* JSON collection name (if a collection with the same name already exists in MongoDB, it will be dropped),
+
+* Path directory to the csv files, e.g., raw-weather-data/yyyy/csv
+
+* Mapping rules file : e.g., mapping_observation_tpl.ttl
+
+* Output file name (e.g, ```rdf-dataset-yyyy.ttl```)
+
+Example : 
+
+```bash
+./run_pipeline.sh collection022021 raw-weather-data/2021/csv mapping_observation_tpl.ttl rdf-dataset-02-2021.ttl
+```
+
+Generated RDF data files can be loaded in Virtuoso as separate named graphs. Scripts to load turtle files in different RDF named graphs are provided in directory ```Lifting-dataset/virtuoso```.
+
