@@ -6,7 +6,7 @@ The RDF dataset is organised in different named graphs. The weather dataset name
 
 ## RDF data modelling 
 
-Based on a network of existing ontologies (SOSA/SSN, GeoSPARQL, QUDT, OWL-Time ontology, RDF data Cube Vocabulary), we define a reusable and self-contained semantic model that semantically describes the multiple dimensions behind meteorological data.. For this purpose, we extend the SOSA observation, feature of interest and observable property classes and we provide the OWL definitions of these new classes. Also, we propose a SKOS vocabulary of weather observable properties and features of interest commonly used in weather reports.  
+Based on a network of existing ontologies (SOSA/SSN, GeoSPARQL, QUDT, OWL-Time ontology, RDF data Cube Vocabulary), we define a reusable and self-contained semantic model that semantically describes the multiple dimensions behind meteorological data. For this purpose, we extend the SOSA observation, feature of interest and observable property classes and we provide the OWL definitions of these new classes. Also, we propose a SKOS vocabulary of weather observable properties and features of interest commonly used in weather reports.  
 
 The semantic model and SKOS vocabulary are provided in the ```ontology``` directory of the project. The `weatherdataset-model.ttl` defines the semantic model of the metereological dataset. In the SKOS vocabulary, we defined 6 features of interest (air, wind, surface, gust, cloud, precipitations) and 21 observable properties (temperature, wind speed, diffrential pressure, ...). The model and vocabulary are intended to be adopted and extended by any meteorological data provider. 
 
