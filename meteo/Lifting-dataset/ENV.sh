@@ -1,5 +1,5 @@
 export URL="https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop"
 
-export DIR="/Users/nyacaoub/Documents/Meteo-France/"
+export DIR="/appli/raw-files/"
 
-export DATASET_DIR="/Users/nyacaoub/Documents/GitHub/d2kab/meteo/dataset/"
+export DATASET_DIR="/appli/dataset/"
