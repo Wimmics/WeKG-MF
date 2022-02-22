@@ -13,7 +13,9 @@ The semantic model and SKOS vocabulary are provided in the ```ontology``` direct
 
 ## Downloading and SPARQL querying 
 
-The dataset is downloadable as a set of RDF dumps (in Turtle syntax) from Zenodo : [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5925413.svg)](https://doi.org/10.5281/zenodo.5925413)
+**A new version of WeKG is now available ! Please go and download RDF dumps (in Turtle syntax) from Zenodo :** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5925413.svg)](https://doi.org/10.5281/zenodo.5925413)
+
+In order to use the WeKG dataset and create a local SPARQL endpoint, we recommend you to use the [openLink Virtuoso Docker Image](https://hub.docker.com/r/openlink/virtuoso-closedsource-8). We provide scripts availabe in ```virtuoso``` to upload the downloaded WeKG dataset in different named graphs. Use the script ```import-weather-dataset``` as main entry point. 
 
 Several SPARQL queries are provided in ```sparql-examples``` directory and serves as examples of exploitation of the dataset. A Jupyter Notebook ```WeKG-MFQuerying.ipynb``` demonstrates how the results of some SPARQL queries can be used to generate visualizations. 
 
@@ -56,22 +58,21 @@ The number of triples for each named graph is provided as follows :
 
 ## Pipeline generation
 
-The pipeline generation of the weather RDF dataset involves several steps including the preprocessing and loading data in MongoDB database as JSON collections.
-Then, the generation of RDF data is carried out using the [Morph-xR2RML tool](https://github.com/frmichel/morph-xr2rml/), an implementation of the xR2RML mapping language for MongoDB databases. 
+We provide a fully automatic pipeline that enable us the maintenance and update of the WeKG graph with new weather data from the Météo-France Organism. This pipeline allowed us to generate the WeKG dataset and is then reused to update it along time. The pipeline involves several steps including the preprocessing and loading data in MongoDB database as JSON collections and then, their transformation in RDF data. The [Morph-xR2RML tool](https://github.com/frmichel/morph-xr2rml/) allows the generation of RDF data. 
  
- The script ```run_pipeline.sh``` available in ```Lifting-dataset``` directory is the main entry point.
+ The script ```run_pipeline.sh``` available in ```Lifting-dataset``` directory is the main entry point of the pipeline.
 
 The script ```run_pipeline.sh``` needs 3 arguments: 
  
-* JSON collection name (if a collection with the same name already exists in MongoDB, it will be dropped),
+* JSON collection name: the CSV files of weather report downloaded from the Meteo-France Website are loaded as JSON collection in MongoDB.
 
-* Mapping rules file : e.g., mapping_observation_tpl.ttl
+* Mapping rules file : mappings files are available in ```Lifting-dataset/xr2rml```, e.g., mapping_observation_tpl.ttl
 
-* Output file name (e.g, ```rdf-dataset-yyyy.ttl```)
+* Output file name : e.g, ```rdf-dataset-yyyy.ttl```
 
 Example : 
 
 ```bash
 ./run_pipeline.sh collection022021 mapping_observation_tpl.ttl rdf-dataset-02-2021.ttl
 ```
-
+More informations are available in ```Lifting-dataset```repository !
