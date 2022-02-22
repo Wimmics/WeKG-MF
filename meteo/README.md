@@ -57,15 +57,13 @@ The number of triples for each named graph is provided as follows :
 ## Pipeline generation
 
 The pipeline generation of the weather RDF dataset involves several steps including the preprocessing and loading data in MongoDB database as JSON collections.
-Then the translation into RDF is carried out using the [Morph-xR2RML tool](https://github.com/frmichel/morph-xr2rml/), an implementation of the xR2RML mapping language for MongoDB databases. 
+Then, the generation of RDF data is carried out using the [Morph-xR2RML tool](https://github.com/frmichel/morph-xr2rml/), an implementation of the xR2RML mapping language for MongoDB databases. 
+ 
+ The script ```run_pipeline.sh``` available in ```Lifting-dataset``` directory is the main entry point.
 
-Note that the pipeline generation including all steps is fully executed thanks to the ```run_pipeline.sh``` script available in ```Lifting-dataset``` directory.
-
-The script ```run_pipeline.sh``` needs 4 arguments: 
+The script ```run_pipeline.sh``` needs 3 arguments: 
  
 * JSON collection name (if a collection with the same name already exists in MongoDB, it will be dropped),
-
-* Path directory to the csv files, e.g., raw-weather-data/yyyy/csv
 
 * Mapping rules file : e.g., mapping_observation_tpl.ttl
 
@@ -74,8 +72,6 @@ The script ```run_pipeline.sh``` needs 4 arguments:
 Example : 
 
 ```bash
-./run_pipeline.sh collection022021 raw-weather-data/2021/csv mapping_observation_tpl.ttl rdf-dataset-02-2021.ttl
+./run_pipeline.sh collection022021 mapping_observation_tpl.ttl rdf-dataset-02-2021.ttl
 ```
-
-Generated RDF data files can be loaded in Virtuoso as separate named graphs. Scripts to load turtle files in different RDF named graphs are provided in directory ```Lifting-dataset/virtuoso```.
 
