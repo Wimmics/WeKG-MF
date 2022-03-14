@@ -1,8 +1,8 @@
 # WeKG-MF: Weather Knowlege Graph Météo-France
 
-The Météo-France RDF Weather dataset is an RDF dataset that provides access to meteorological measurments provided by 62 Météo-France weather stations located in different regions in metropolitan France and overseas departments. The dataset incorporates measurements of several weather parameters such as wind direction and speed, air pressure, precipitations, humidity and temperature. 
+The Météo-France RDF Weather dataset is an RDF knowledge graph that provides access to meteorological measurments provided by 62 Météo-France weather stations located in different regions in metropolitan France and overseas departments. The dataset incorporates measurements of several weather parameters such as wind direction and speed, air pressure, precipitations, humidity and air temperature. These measurements are provided every three hours per day.
 
-The RDF dataset is organised in different named graphs. The weather dataset namespace is ```http://ns.inria.fr/meteo/```. 
+The WeKG-MF namespace is ```http://ns.inria.fr/meteo/```. 
 
 ## RDF data modelling 
 
