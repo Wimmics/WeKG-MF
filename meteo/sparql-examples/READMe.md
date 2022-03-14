@@ -104,11 +104,10 @@ SELECT ?date  ?stationName  ?station ?label  ((?temp_max+?temp_min)/2.0 as ?temp
       sosa:hasSimpleResult ?vt;
       sosa:resultTime ?t;
       wep:madeByStation ?station .
-      ?station rdfs:label ?stationName; dct:spatial [ wdt:P131 [rdfs:label ?label ; wdt:P2585 ?insee]].
+      ?station rdfs:label ?stationName; dct:spatial [ wdt:P131 [rdfs:label ?label ; wdt:P2585 '75']].
       BIND(xsd:date(?t) as ?date)
       FILTER(xsd:date(?t) >= xsd:date("2019-04-01"))
       FILTER(xsd:date(?t) <= xsd:date("2019-05-20"))                    
-      FILTER (str(?insee)='75')
   }
  GROUP BY ?date ?station  ?label  ?stationName
 }
@@ -135,11 +134,10 @@ select ?date ?stationID ?stationName ?region (CONCAT((avg(?v)  as ?avg), " ", "m
  sosa:hasSimpleResult  ?v;
  wep:madeByStation ?station ;
  sosa:resultTime ?t .
- ?station weo:stationID ?stationID; rdfs:label ?stationName; dct:spatial [ wdt:P131 [rdfs:label ?region; wdt:P2585 ?insee]].
+ ?station weo:stationID ?stationID; rdfs:label ?stationName; dct:spatial [ wdt:P131 [rdfs:label ?region; wdt:P2585 '76']].
  BIND(xsd:date(?t) as ?date)
  FILTER(xsd:date(?t) >= xsd:date("2019-04-01"))
  FILTER(xsd:date(?t) <= xsd:date("2019-04-30"))
- FILTER (str(?insee)='76')
 }
 GROUP BY ?stationID ?date ?region ?stationName
 ORDER BY ?date
