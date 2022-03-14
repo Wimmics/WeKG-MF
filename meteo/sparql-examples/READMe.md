@@ -1,6 +1,6 @@
 ## Competency Questions
 
-We validate and evaluate the consistency of the WeKG-MF model and its ability to address requirements and cover the domain by providing SPARQL queries to answer a set of competency questions. 
+We validate and evaluate the consistency of the WeKG-MF model and its ability to address requirements and cover the domain by providing SPARQL queries to answer a set of competency questions. We present some of them in following:
 
 ### CQ1 
 
