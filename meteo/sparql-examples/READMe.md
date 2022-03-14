@@ -114,3 +114,33 @@ SELECT ?date  ?stationName  ?station ?label  ((?temp_max+?temp_min)/2.0 as ?temp
 }
 ORDER BY ?date
 ```
+### CQ5 
+
+- For a specific french region (identified by an INSEE region code), provide average daily wind speed for each station and over a period of time.
+
+```
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wevp: <http://ns.inria.fr/meteo/vocab/weatherproperty/>
+ 
+select ?date ?stationID ?stationName ?region (CONCAT((avg(?v)  as ?avg), " ", "m/s") AS ?avg_speed_wind)  where {
+ ?obs a  weo:MeteorologicalObservation;
+ sosa:observedProperty wevp:windAverageSpeed;
+ sosa:hasSimpleResult  ?v;
+ wep:madeByStation ?station ;
+ sosa:resultTime ?t .
+ ?station weo:stationID ?stationID; rdfs:label ?stationName; dct:spatial [ wdt:P131 [rdfs:label ?region; wdt:P2585 ?insee]].
+ BIND(xsd:date(?t) as ?date)
+ FILTER(xsd:date(?t) >= xsd:date("2019-04-01"))
+ FILTER(xsd:date(?t) <= xsd:date("2019-04-30"))
+ FILTER (str(?insee)='76')
+}
+GROUP BY ?stationID ?date ?region ?stationName
+ORDER BY ?date
+```
