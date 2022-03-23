@@ -58,7 +58,7 @@ wevp:windAverageSpeed
   skos:broader <http://qudt.org/2.1/vocab/quantitykind/Speed>;
   qudt:applicableUnit <http://qudt.org/vocab/unit/M-PER-SEC> ;
   skos:prefLabel "Vitesse moyenne du vent 10mn"@fr ;
-    skos:prefLabel "Average wind speed 10mn"@en ;
+  skos:prefLabel "Average wind speed 10mn"@en ;
   wep:hasAbbreviation "ff".
 
 wevp:windAverageDirection
