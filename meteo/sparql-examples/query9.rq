@@ -1,4 +1,5 @@
 #calculate average wind speed at each station during the first week of august of 2021
+
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
@@ -15,11 +16,10 @@ sosa:observedProperty
 sosa:hasSimpleResult ?v; 
 wep:madeByStation ?station ;
 sosa:resultTime ?t .
-BIND (day(?t) AS ?jour) 
-FILTER(?t>= xsd:date("2021-08-01"))
-FILTER(?t <= xsd:date("2021-08-07"))
+BIND (xsd:date(?t) AS ?jour) 
+FILTER(?jour>= xsd:date("2021-08-01"))
+FILTER(?jour<= xsd:date("2021-08-07"))
 ?station rdfs:label ?n ; weo:stationID ?stationID
 }
 GROUP BY ?stationID ?n ?jour
 ORDER BY ?n ?jour
-
