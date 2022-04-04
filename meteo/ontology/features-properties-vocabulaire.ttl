@@ -153,7 +153,7 @@ wevp:soilMinTemperature
 
 wevp:seaLevelPressure
   a weo:WeatherProperty, qudt:QuantityKind, skos:Concept ;
-  skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0022/>;
+  skos:broadMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0015/>;
   qudt:applicableUnit <http://qudt.org/vocab/unit/PA> ;
   ssn:isPropertyOf wevf:air ;
   skos:prefLabel "Pression au niveau mer"@fr ;
