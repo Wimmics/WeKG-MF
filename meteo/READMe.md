@@ -14,7 +14,7 @@ The WeaKG-MF namespace is ```http://ns.inria.fr/meteo/```.
 
 **A new version of WeaKG is now available ! Please download RDF dumps (in Turtle syntax) from Zenodo :** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5925413.svg)](https://doi.org/10.5281/zenodo.5925413)
 
-It can also be queried through our Virtuoso SPARQL endpoint [http://weakg.i3s.unice.fr/sparql](http://weakg.i3s.unice.fr/sparql)
+It can also be queried through our Virtuoso SPARQL endpoint:   [http://weakg.i3s.unice.fr/sparql](http://weakg.i3s.unice.fr/sparql)
 
 In order to re-use the WeaKG dataset and create your local SPARQL endpoint, we recommend to use the [openLink Virtuoso Docker Image](https://hub.docker.com/r/openlink/virtuoso-closedsource-8). We provide scripts availabe in ```Lifting-dataset/virtuoso``` repository to upload the downloaded WeaKG  RDF dataset in different named graphs. Use the script ```import-weather-dataset``` as main entry point. 
 
