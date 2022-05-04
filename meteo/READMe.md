@@ -1,4 +1,4 @@
-# WeaKG-MF: Weather Knowlege Graph of Météo-France Archives
+# A Weather Knowlege Graph of Météo-France Archives
 
 The Météo-France RDF Weather dataset (WeaKG-MF) is an RDF knowledge graph that provides access to meteorological measurements provided by 62 Météo-France weather stations located in different regions in metropolitan France and overseas departments. The dataset incorporates measurements of several weather parameters such as wind direction and speed, air pressure, precipitations, humidity and air temperature. These measurements are provided every three hours per day.
 
@@ -12,7 +12,7 @@ The WeaKG-MF namespace is ```http://ns.inria.fr/meteo/```.
 
 ## Downloading and SPARQL querying 
 
-**A new version of WeaKG is now available ! Please download RDF dumps (in Turtle syntax) from Zenodo :** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5925413.svg)](https://doi.org/10.5281/zenodo.5925413)
+**A new version of WeaKG-MF is now available ! Please download RDF dumps (in Turtle syntax) from Zenodo :** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5925413.svg)](https://doi.org/10.5281/zenodo.5925413)
 
 It can also be queried through our Virtuoso SPARQL endpoint:   [http://weakg.i3s.unice.fr/sparql](http://weakg.i3s.unice.fr/sparql)
 
