@@ -1,6 +1,6 @@
 # A Weather Knowlege Graph of Météo-France Archives
 
-The Météo-France RDF Weather dataset (WeaKG-MF) is an RDF knowledge graph that provides access to meteorological measurements provided by 62 Météo-France weather stations located in different regions in metropolitan France and overseas departments. The dataset incorporates measurements of several weather parameters such as wind direction and speed, air pressure, precipitations, humidity and air temperature. These measurements are provided every three hours per day.
+The Météo-France RDF Weather dataset (WeKG-MF) is an RDF knowledge graph that provides access to meteorological measurements provided by 62 Météo-France weather stations located in different regions in metropolitan France and overseas departments. The dataset incorporates measurements of several weather parameters such as wind direction and speed, air pressure, precipitations, humidity and air temperature. These measurements are provided every three hours per day.
 
 The WeaKG-MF namespace is ```http://ns.inria.fr/meteo/```. 
 
@@ -35,7 +35,7 @@ Statistics about WeaKG-MF is provided as follows :
 
 ## WeKG-MF Pipeline Generation
 
-We provide a fully automatic pipeline that enables us the maintenance and update of the WeaKG graph with new weather data from the Météo-France organism. This pipeline allowed us to generate the WeaKG dataset and then we reuse it to update the WeaKG knowledge graph over time. The pipeline involves several steps including the preprocessing and loading data in MongoDB database as JSON collections and their transformation in RDF data. The [Morph-xR2RML tool](https://github.com/frmichel/morph-xr2rml/) allows the generation of RDF data. 
+We provide a fully automatic pipeline that enables us the maintenance and update of the WeaKG graph with new weather data from the Météo-France organism. This pipeline allowed us to generate the WeKG dataset and then we reuse it to update the WeaKG knowledge graph over time. The pipeline involves several steps including the preprocessing and loading data in MongoDB database as JSON collections and their transformation in RDF data. The [Morph-xR2RML tool](https://github.com/frmichel/morph-xr2rml/) allows the generation of RDF data. 
  
 The script ```run_pipeline.sh``` available in ```Lifting-dataset``` directory is the main entry point of the pipeline.
 
