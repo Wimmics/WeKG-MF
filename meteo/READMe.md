@@ -33,7 +33,7 @@ Statistics about WeaKG-MF is provided as follows :
 | http://ns.inria.fr/meteo/observation/2018 | 19.684.672 |
 | http://ns.inria.fr/meteo/observation/2017 | 20.539.699 |
 
-## WeaKG-MF Pipeline Generation
+## WeKG-MF Pipeline Generation
 
 We provide a fully automatic pipeline that enables us the maintenance and update of the WeaKG graph with new weather data from the Météo-France organism. This pipeline allowed us to generate the WeaKG dataset and then we reuse it to update the WeaKG knowledge graph over time. The pipeline involves several steps including the preprocessing and loading data in MongoDB database as JSON collections and their transformation in RDF data. The [Morph-xR2RML tool](https://github.com/frmichel/morph-xr2rml/) allows the generation of RDF data. 
  
