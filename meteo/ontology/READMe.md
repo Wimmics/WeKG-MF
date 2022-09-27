@@ -22,7 +22,7 @@ Furthermore, some qualitative weather properties require the use of standard enc
 Note that the model and vocabulary are intended to be adopted and extended by any meteorological data provider. 
 
 
-## Prefixes of ontologies and vocabularies used in WeaKG semantic model
+## Prefixes of ontologies and vocabularies used in WeKG semantic model
 
 | Prefix  | URI |
 | ------------- | ------------- |
