@@ -16,7 +16,7 @@ The WeKG-MF namespace is ```http://ns.inria.fr/meteo/```.
 
 It can also be queried through our Virtuoso SPARQL endpoint:   [http://weakg.i3s.unice.fr/sparql](http://weakg.i3s.unice.fr/sparql)
 
-In order to re-use the WeKG dataset and create your local SPARQL endpoint, we recommend to use the [openLink Virtuoso Docker Image]https://hub.docker.com/r/openlink/virtuoso-opensource-7). We provide scripts availabe in ```Lifting-dataset/virtuoso``` repository to upload the downloaded WeaKG RDF datasetin different named graphs. Use the script ```import-weather-dataset``` as main entry point. 
+In order to re-use the WeKG dataset and create your local SPARQL endpoint, we recommend to use the [openLink Virtuoso Docker Image](https://hub.docker.com/r/openlink/virtuoso-opensource-7). We provide scripts availabe in ```Lifting-dataset/virtuoso``` repository to upload the downloaded WeaKG RDF datasetin different named graphs. Use the script ```import-weather-dataset``` as main entry point. 
 
 Several SPARQL queries are provided in ```sparql-examples``` directory and serves as illustrative examples showing how data is retreived from the WeaKG graph. A Jupyter Notebook ```WeaKG-MFQuerying.ipynb``` demonstrates how the results of some SPARQL queries can be used to generate visualizations very useful for experts in different domains. 
 
