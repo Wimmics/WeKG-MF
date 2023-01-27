@@ -2,7 +2,7 @@
 
 The Météo-France RDF Weather dataset (WeKG-MF) is an RDF knowledge graph that provides access to meteorological measurements provided by 62 Météo-France weather stations located in different regions in metropolitan France and overseas departments. The dataset incorporates measurements of several weather parameters such as wind direction and speed, air pressure, precipitations, humidity and air temperature. These measurements are provided every three hours per day.
 
-The WeaKG-MF namespace is ```http://ns.inria.fr/meteo/```. 
+The WeKG-MF namespace is ```http://ns.inria.fr/meteo/```. 
 
 # Documentation  
 
@@ -16,9 +16,9 @@ The WeaKG-MF namespace is ```http://ns.inria.fr/meteo/```.
 
 It can also be queried through our Virtuoso SPARQL endpoint:   [http://weakg.i3s.unice.fr/sparql](http://weakg.i3s.unice.fr/sparql)
 
-In order to re-use the WeaKG dataset and create your local SPARQL endpoint, we recommend to use the [openLink Virtuoso Docker Image](https://hub.docker.com/r/openlink/virtuoso-closedsource-8). We provide scripts availabe in ```Lifting-dataset/virtuoso``` repository to upload the downloaded WeaKG  RDF dataset in different named graphs. Use the script ```import-weather-dataset``` as main entry point. 
+In order to re-use the WeKG dataset and create your local SPARQL endpoint, we recommend to use the [openLink Virtuoso Docker Image]https://hub.docker.com/r/openlink/virtuoso-opensource-7). We provide scripts availabe in ```Lifting-dataset/virtuoso``` repository to upload the downloaded WeaKG RDF datasetin different named graphs. Use the script ```import-weather-dataset``` as main entry point. 
 
-Several SPARQL queries are provided in ```sparql-examples``` directory and serves as illustrative examples showing how data may be retreived from the WeaKG graph. A Jupyter Notebook ```WeaKG-MFQuerying.ipynb``` demonstrates how the results of some SPARQL queries can be used to generate visualizations very useful for experts in different domains. 
+Several SPARQL queries are provided in ```sparql-examples``` directory and serves as illustrative examples showing how data is retreived from the WeaKG graph. A Jupyter Notebook ```WeaKG-MFQuerying.ipynb``` demonstrates how the results of some SPARQL queries can be used to generate visualizations very useful for experts in different domains. 
 
 Statistics about WeaKG-MF is provided as follows :
 
