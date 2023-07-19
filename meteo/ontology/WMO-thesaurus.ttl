@@ -152,7 +152,7 @@ skos:definition "drizzle" .
 
 <http://ns.inria.fr/meteo/vocab/wmocode/4561/6> a skos:Concept; 
 rdf:value 6;
-skos:definition "rain1" .
+skos:definition "rain" .
 
 <http://ns.inria.fr/meteo/vocab/wmocode/4561/7> a skos:Concept; 
 rdf:value 7;

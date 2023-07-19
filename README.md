@@ -1,1 +1,0 @@
-# Wimmics' production for the D2KAB ANR project 

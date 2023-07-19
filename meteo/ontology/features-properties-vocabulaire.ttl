@@ -54,8 +54,8 @@ wevf:ground
 wevp:windAverageSpeed
   a weo:WeatherProperty, qudt:QuantityKind, skos:Concept;
   ssn:isPropertyOf wevf:wind ;
-  skos:broader <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0038/> ;
-  skos:broader <http://qudt.org/2.1/vocab/quantitykind/Speed>;
+  skos:broadMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0038/> ;
+  skos:broadMatch <http://qudt.org/2.1/vocab/quantitykind/Speed>;
   qudt:applicableUnit <http://qudt.org/vocab/unit/M-PER-SEC> ;
   skos:prefLabel "Vitesse moyenne du vent 10mn"@fr ;
   wep:hasAbbreviation "ff".
@@ -63,7 +63,7 @@ wevp:windAverageSpeed
 wevp:windAverageDirection
   a weo:WeatherProperty, qudt:QuantityKind, skos:Concept;
   ssn:isPropertyOf wevf:wind ;
-  skos:broader <http://qudt.org/2.1/vocab/quantitykind/Angle>;
+  skos:broadMatch <http://qudt.org/2.1/vocab/quantitykind/Angle>;
   qudt:applicableUnit <http://qudt.org/vocab/unit/DEG> ;
   skos:prefLabel "Direction du vent moyen 10mn"@fr ;
   wep:hasAbbreviation "dd" .
@@ -114,7 +114,7 @@ wevp:minAirTemperature
   a weo:WeatherProperty, qudt:QuantityKind, skos:Concept;
   ssn:isPropertyOf wevf:air ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/K> ;
-  skos:broader <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/> ;
+  skos:broadMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/> ;
   skos:prefLabel "Température minimale sur N heures"@fr ;
   wep:hasAbbreviation "tnN".
 
@@ -122,7 +122,7 @@ wevp:maxAirTemperature
   a weo:WeatherProperty, qudt:QuantityKind, skos:Concept;
   ssn:isPropertyOf wevf:air ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/K> ;
-  skos:broader <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/> ;
+  skos:broadMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0023/> ;
   skos:prefLabel "Température maximale sur N heures"@fr ;
   wep:hasAbbreviation "txN".
 
@@ -136,7 +136,7 @@ wevp:wetBulbTemperature
 
 wevp:stationPressure
   a weo:WeatherProperty, qudt:QuantityKind, skos:Concept ;
-  skos:broader <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0015/>, 
+  skos:broadMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0015/>, 
   <http://vocab.irstea.fr/weather/resource/observableProperty/air_pressure> ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/PA> ;
   ssn:isPropertyOf wevf:air ;
@@ -147,13 +147,13 @@ wevp:soilMinTemperature
   a weo:WeatherProperty, qudt:QuantityKind, skos:Concept;
   ssn:isPropertyOf wevf:ground ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/K> ;
-  skos:broader <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0354/> ;
+  skos:broadMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0354/> ;
   skos:prefLabel "Température minimale du sol sur 12 heures"@fr ;
   wep:hasAbbreviation "tminsol".
 
 wevp:seaLevelPressure
   a weo:WeatherProperty, qudt:QuantityKind, skos:Concept ;
-  skos:exactMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0022/>;
+  skos:broadMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0015/>;
   qudt:applicableUnit <http://qudt.org/vocab/unit/PA> ;
   ssn:isPropertyOf wevf:air ;
   skos:prefLabel "Pression au niveau mer"@fr ;
@@ -162,7 +162,7 @@ wevp:seaLevelPressure
 wevp:differentialPressure
   a weo:WeatherProperty, qudt:QuantityKind, skos:Concept ;
   qudt:applicableUnit <http://qudt.org/vocab/unit/PA> ;
-  skos:broader <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0201/> ;
+  skos:broadMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0201/> ;
   ssn:isPropertyOf wevf:air ;
   skos:prefLabel "Variation de Pression en N heures"@fr ;
   wep:hasAbbreviation "tend".
@@ -170,7 +170,7 @@ wevp:differentialPressure
 wevp:precipitationAmount
   a weo:WeatherProperty, qudt:QuantityKind, skos:Concept;
   ssn:isPropertyOf wevf:precipitation ;
-  qudt:applicableUnit <http://qudt.org/vocab/unit/MilliM-PER-HR> ;
+  qudt:applicableUnit <http://qudt.org/vocab/unit/MilliM> ;
   skos:exactMatch <http://ontology.irstea.fr/weather/page/resource/observableProperty/precipitation_amount>, 
   <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0452/> ;
   skos:prefLabel "Précipitations dans les N dernières heures"@fr ;
@@ -179,7 +179,7 @@ wevp:precipitationAmount
 wevp:totalCloudCover
   a weo:WeatherProperty, qudt:QuantityKind, skos:Concept;
   ssn:isPropertyOf wevf:cloud ;
-  skos:broader <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0745/>;
+  skos:broadMatch <http://vocab.nerc.ac.uk/collection/P07/current/CFSN0745/>;
   qudt:applicableUnit <http://qudt.org/vocab/unit/PERCENT> ;
   skos:prefLabel "Nebulosité totale"@fr ;
   wep:hasAbbreviation "n".
@@ -195,7 +195,7 @@ wevp:cloudBaseAltitude
 wevp:lowCloudCover
   a weo:WeatherProperty, qudt:QuantityKind, skos:Concept;
   ssn:isPropertyOf wevf:cloud ;
-  skos:broader <http://vocab.nerc.ac.uk/collection/P07/current/HDDAAAHH/> ;
+  skos:broadMatch <http://vocab.nerc.ac.uk/collection/P07/current/HDDAAAHH/> ;
   qudt:applicableUnit <http://ns.inria.fr/meteo/vocab/unit/okta>;
   skos:prefLabel "Nebulosité des nuages de l'étage inférieur"@fr ;
   wep:hasAbbreviation "nbas".
@@ -234,3 +234,4 @@ wevp:pressureTendency
   qudt:plainTextDescription "In meteorology, an okta is a unit of measurement used to describe the amount of cloud cover at any given location such as a weather station." ;
   qudt:ucumCode "okta"^^qudt:UCUMcs ;
   skos:prefLabel "Okta"@en, "Octa"@fr .
+

@@ -10,11 +10,11 @@
 @prefix ssn: <http://www.w3.org/ns/ssn/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix weo: <http://ns.inria.fr/meteo/ontology/> .
-@prefix wep: <http://ns.inria.fr/meteo/ontology/property> .
+@prefix wep: <http://ns.inria.fr/meteo/ontology/property/> .
 
 weo:WeatherStation
   a owl:Class ;
-  rdfs:subclassof sosa:Platform, geosparql:Feature ;
+  rdfs:subClassOf sosa:Platform, geosparql:Feature ;
   rdfs:label "Meteo France Synop Weather Station" .
 
 weo:WeatherProperty

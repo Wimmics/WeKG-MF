@@ -1,4 +1,5 @@
-#calculate average temperature during the first week of February
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+#calculate average temperature during the first week of February 2021
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
