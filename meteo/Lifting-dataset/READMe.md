@@ -1,5 +1,5 @@
 ## Transforming weather reports into RDF data is fully automatic. 
 
-1. First, use the ```download.sh``` script to download last monthly weather reports available on the Website of Meteo-France. Please update the variables in ```ENV.sh``` script and specify the path directory in which downloaded weather reports will be stored.   
-2. Run the ```run_pipeline.sh``` script to transform the downloaded into RDF data compliant with the proposed semantic model. Please update environment variables in ```ENV.sh``` script depending on your path directory. Make Sure that you have a path directory for raw weather reports and another path directory for the RDF data generated.
-3. Load RDF data in a Virtuoso triple store by running the Script [virtuoso/import-weather-dataset.sh](virtuoso/import-weather-dataset.sh).     
+
+1. First, you have to update the variables in ```ÈNV.sh``` and precide where you want to store the csv/json file and the turtle file, the name of your docker container on which virtuoso runs and the name of the file containing the mapping rules for the raw-data of meteo france and the one with the mapping rule for the slices. Note that relative path for the mapping rules start from the folder ```xr2rml```
+2. Once the variable updated, simply runs ```update.sh```. It will download the oldest weather report you did'nt add to your graph yet (The date of the last report lifted is stored in ```last_update.sh```), it will convert it into rdf and lift it to your graph. The turtle file generated is store in the ```backup``` folder in ```virtuoso```

@@ -21,7 +21,7 @@ help()
 }
 
 # Default path is current directory
-path=`pwd`
+path=/dataset/turtle
 unset cleargraph
 unset graph
 
@@ -43,7 +43,7 @@ fi
 
 
 #--- Prepare isql command file
-tempfile=temp.${$}.isql-vt
+tempfile=/dataset/temp.${$}.isql
 echo -n "" > $tempfile
 
 if [ ! -z "$cleargraph" ]; then
@@ -53,7 +53,7 @@ fi
 
 echo "delete from DB.DBA.LOAD_LIST;" >> $tempfile
 while [ ! -z "$1" ]; do
-    echo "ld_dir ('${path}', '$1', '${graph}');" >> $tempfile
+    echo "ld_dir ('/dataset/turtle', '$1', '${graph}');" >> $tempfile
     shift
 done
 
@@ -61,6 +61,6 @@ echo "rdf_loader_run();"  >> $tempfile
 cat $tempfile
 
 #--- Run file against isql
-cat $tempfile | /bin/isql-vt -U dba -P dba
-
+#cat $tempfile | /bin/isql -U dba -P dbadba
+isql -H localhost -U dba -P dbadba exec="LOAD $tempfile"
 rm -f $tempfile

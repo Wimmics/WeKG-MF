@@ -38,9 +38,13 @@ def csv_to_json(dirpath, filepath):
       column_label = values[0]
       del values[0]
       df = pd.DataFrame(values, columns=column_label)
-      df.drop(df.columns[-1], axis=1, inplace=True)
-      df["dateF"] = pd.to_datetime(df["date"], infer_datetime_format=True)
-      df["dateF"] = df["dateF"].astype(str)
+      
+      if "date" in list(df.columns):
+        df.drop(df.columns[-1], axis=1, inplace=True)
+        df["dateF"] = pd.to_datetime(df["date"], infer_datetime_format=True)
+        df["dateF"] = df["dateF"].astype(str)
+      else:
+        df.drop(df.columns[0], axis=1, inplace=True)
       print("Exporting data into JSON document -------------------")
       head, tail = os.path.split(filepath)
       jsonfile = dirpath + "json/" + tail.split(".")[0] + ".json"

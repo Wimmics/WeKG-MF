@@ -34,11 +34,12 @@ if [[ -z "$collection" ]] ; then help; fi
 dirpath=$DIR
 if [[ -z "$dirpath" ]] ; then help; fi
 
+
 log "Preprocessing and Importing files into MongoDB..."
 
 cd mongo
 
-python3 preprocess.py $collection $dirpath
+python preprocess.py $collection $dirpath
 
 
 log "Generating RDF files..."
@@ -49,23 +50,35 @@ cd xr2rml
 mappingTemplate=$2
 if [[ -z "$mappingTemplate" ]] ; then help; fi
 
-rm $DATASET_DIR/*
+rm $DATASET_DIR*
 
 output=$DATASET_DIR$3
 if [[ -z "$output" ]] ; then help; fi
 
 ./run_xr2rml.sh $collection $mappingTemplate $output 
 
+if [[ "${3:0:11}" = "observation" ]] 
+then 
+graph="http://ns.inria.fr/meteo/observation/$LASTupdateY"
+else 
+graph="http://ns.inria.fr/meteo/observationslice/$LASTupdateY"
+fi
 
 log "Loading in Virtuoso Triple Store"
 
 cd ..
+
 cd virtuoso
+
 
 touch import-virtuoso$LASTupdateY$LASTupdateM.sh
 
+
 echo 'export LASTupdateY="'$LASTupdateY'"\nexport LASTupdateM="'$LASTupdateM'"' > import-virtuoso$LASTupdateY$LASTupdateM.sh
 
-echo '/database/virtuoso-import.sh  --graph "http://ns.inria.fr/meteo/observation/'$LASTupdateY'" --path /dataset *.ttl' > import-virtuoso$LASTupdateY$LASTupdateM.sh
 
-docker exec -it weatherkg-docker bash ./import-virtuoso$LASTupdateY$LASTupdateM.sh
+echo '/dataset/virtuoso-import.sh  --graph "'$graph'" --path /dataset *.ttl' > import-virtuoso$LASTupdateY$LASTupdateM.sh
+
+winpty docker exec -it $CONTAINER_DOCKER bash //dataset/import-virtuoso$LASTupdateY$LASTupdateM.sh   
+
+rm import-virtuoso$LASTupdateY$LASTupdateM.sh

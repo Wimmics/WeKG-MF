@@ -23,8 +23,7 @@ else
     LASTupdateM="01"
     fi
 fi
-    
-echo 'export LASTupdateY="'$LASTupdateY'"\nexport LASTupdateM="'$LASTupdateM'"' > last_update.sh
+printf 'export LASTupdateY="'$LASTupdateY'"\nexport LASTupdateM="'$LASTupdateM'"' > last_update.sh
 
 NEWDATE=$LASTupdateY$LASTupdateM
 wget $URL."$NEWDATE".csv.gz
@@ -37,4 +36,3 @@ mkdir -p "$DIR"csv
 mkdir -p "$DIR"json
 
 mv synop"$NEWDATE".csv "$DIR"csv/synop"$NEWDATE".csv
-

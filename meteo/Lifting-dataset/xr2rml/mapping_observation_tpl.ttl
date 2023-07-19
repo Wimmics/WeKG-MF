@@ -841,6 +841,80 @@
         ]; 
     ].
 
+<#rr3_Observation>
+    a rr:TriplesMap;
+    xrr:logicalSource [ xrr:query """db.{{collection}}.find({"rr3": {$ne: "mq"}})""" ];
+    
+    rr:subjectMap [
+        rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/rr3";
+        rr:class weo:MeteorologicalObservation;
+    ];
+    
+    # observable property
+    rr:predicateObjectMap [
+        rr:predicate sosa:observedProperty;
+        rr:objectMap [ 
+            rr:constant <http://ns.inria.fr/meteo/vocab/weatherproperty/precipitationAmount>;
+            rr:termType rr:IRI;
+        ];
+    ];
+     rr:predicateObjectMap [
+        rr:predicate sosa:hasFeatureOfInterest;
+        rr:objectMap [ 
+            rr:constant <http://ns.inria.fr/meteo/vocab/meteorologicalfeature/precipitation>;
+            rr:termType rr:IRI;
+        ];
+    ];
+
+
+    rr:predicateObjectMap [
+        rr:predicate wep:madeByStation;
+        rr:objectMap [ 
+            rr:template "http://ns.inria.fr/meteo/weatherstation/{$.numer_sta}";
+            rr:termType rr:IRI;
+        ];
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate sosa:resultTime;
+        rr:objectMap [ 
+            xrr:reference "$.dateF";
+            rr:termType rr:Literal;
+            rr:datatype xsd:dateTime;
+        ];
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate sosa:hasSimpleResult;
+        rr:objectMap [
+           xrr:reference "$.rr3";
+            rr:termType rr:Literal;
+            rr:datatype xsd:double;
+        ]; 
+];
+   rr:predicateObjectMap [
+     rr:predicate sosa:phenomenonTime;
+        rr:objectMap [
+            rr:template "obs_at_{$.date}_{$.numer_sta}/rr3_PhenomenonTime";
+            rr:termType rr:BlankNode;
+        ]; 
+    ].
+<#rr3ObservationPT>
+  a rr:TriplesMap;
+   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"rr3": {$ne: "mq"}})""" ];
+   rr:subjectMap [
+    rr:template "obs_at_{$.date}_{$.numer_sta}/rr3_PhenomenonTime";
+    rr:class weo:Interval3h ;
+    rr:termType rr:BlankNode;
+    ];
+     rr:predicateObjectMap [
+        rr:predicate time:hasEnd;
+          rr:objectMap [
+            xrr:reference "$.dateF";
+            rr:termType rr:Literal;
+            rr:datatype xsd:dateTime;
+          ];
+     ] .
 
 <#rr24_Observation>
     a rr:TriplesMap;

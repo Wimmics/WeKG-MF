@@ -1,0 +1,142 @@
+@prefix dbo:     <http://dbpedia.org/ontology/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix mo:      <http://purl.org/ontology/mo/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rml:     <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr:      <http://www.w3.org/ns/r2rml#> .
+@prefix schema:  <http://schema.org/> .
+@prefix weo:     <http://ns.inria.fr/meteo/ontology/> .
+@prefix xrr:     <http://i3s.unice.fr/xr2rml#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix qb:	<http://purl.org/linked-data/cube#> .
+@prefix wes-dimension:	<http://ns.inria.fr/meteo/observationslice/dimension#> .
+@prefix ob-slice:	<http://ns.inria.fr/meteo/observationslice/> .
+@prefix wes-measure:	<http://ns.inria.fr/meteo/observationslice/measure#> .
+@prefix wes-attribute:	<http://ns.inria.fr/meteo/observationslice/attribute#> .
+
+
+<#ObservationSlice>
+    a rr:TriplesMap;
+    xrr:logicalSource [ xrr:query """db.{{collection}}.find({})""" ];
+    
+    rr:subjectMap [
+        rr:template "http://ns.inria.fr/meteo/observationslice/{$.year}/slice_{$.stationId}";
+        rr:class qb:Slice;
+    ];
+    # Slice structure 
+    rr:predicateObjectMap [
+        rr:predicate qb:sliceStructure;
+        rr:objectMap [ 
+            rr:constant "http://ns.inria.fr/meteo/observationslice/sliceByStationAndYear" ;
+            rr:termType rr:IRI;
+        ];
+    ];
+   # Slice's year
+    rr:predicateObjectMap [
+        rr:predicate wes-dimension:year;
+        rr:objectMap [ 
+            xrr:reference "$.year";
+            rr:termType rr:Literal;
+            rr:datatype xsd:gYear;
+        ];
+    ];
+  # Slice's Station
+    rr:predicateObjectMap [
+        rr:predicate wes-dimension:station;
+        rr:objectMap [ 
+            rr:template "http://ns.inria.fr/meteo/weatherstation/{$.stationId}";
+            rr:termType rr:IRI;
+        ];
+    ];
+ # Slice'observation
+    rr:predicateObjectMap [
+        rr:predicate qb:observation;
+        rr:objectMap [ 
+            rr:template "obs_at_{$.groupDate}_{$.stationId}/";
+            rr:termType rr:BlankNode;
+        ];
+    ];
+.
+
+<#Observations>
+    a rr:TriplesMap;
+    xrr:logicalSource [ xrr:query """db.{{collection}}.find({})""" ];
+
+    rr:subjectMap [
+        rr:template "obs_at_{$.groupDate}_{$.stationId}/";
+        rr:class qb:Observation;
+        rr:termType rr:BlankNode;
+    ];
+    rr:predicateObjectMap [
+        rr:predicate qb:dataset;
+          rr:objectMap [
+            rr:template "http://ns.inria.fr/meteo/dataset-MF/{$.year}";
+            rr:termType rr:IRI;
+          ];
+    ];
+
+   rr:predicateObjectMap [
+        rr:predicate wes-attribute:observationDate;
+          rr:objectMap [
+            xrr:reference "$.groupDate";
+            rr:termType rr:Literal;
+            rr:datatype xsd:date;
+          ];
+    ];
+   rr:predicateObjectMap [
+        rr:predicate wes-measure:minDailyTemperature;
+          rr:objectMap [
+            xrr:reference "$.dailyMinTemp";
+            rr:termType rr:Literal;
+            rr:datatype xsd:double;
+          ];
+    ];
+  rr:predicateObjectMap [
+        rr:predicate wes-measure:maxDailyTemperature;
+          rr:objectMap [
+            xrr:reference "$.dailyMaxTemp";
+            rr:termType rr:Literal;
+            rr:datatype xsd:double;
+          ];
+    ];
+
+ rr:predicateObjectMap [
+        rr:predicate wes-measure:avgDailyTemperature;
+          rr:objectMap [
+            xrr:reference "$.dailyAvgTemp";
+            rr:termType rr:Literal;
+            rr:datatype xsd:double;
+          ];
+    ];
+
+rr:predicateObjectMap [
+        rr:predicate wes-measure:rainfall24h;
+          rr:objectMap [
+            xrr:reference "$.rainfall24h";
+            rr:termType rr:Literal;
+            rr:datatype xsd:double;
+          ];
+    ];
+
+rr:predicateObjectMap[
+  rr:predicate wes-measure:radiationSum;
+    rr:objectMap [
+      xrr:reference"$.radiationSum";
+      rr:termType rr:Literal;
+      rr:datatype xsd:double
+    ]
+];
+
+rr:predicateObjectMap[
+  rr:predicate wes-measure:evapotranspiration;
+    rr:objectMap [
+      xrr:reference"$.evapotranspiration";
+      rr:termType rr:Literal;
+      rr:datatype xsd:double
+    ]
+];
+.
+
