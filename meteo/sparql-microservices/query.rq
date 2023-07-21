@@ -1,0 +1,54 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX wes-measure: <http://ns.inria.fr/meteo/observationslice/measure#>
+PREFIX  wes-attribute: <http://ns.inria.fr/meteo/observationslice/attribute#>
+prefix geo2:    <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX wes-dimension: <http://ns.inria.fr/meteo/observationslice/dimension#>
+
+SELECT ?url ?stationName ?latitude ?lat1 ?longitude  ?long1  ?date ?radiationSum ?evapotranspiration ?temp_min ?temp_max ?r  WHERE 
+{
+{
+service <https://weakg.i3s.unice.fr/sparql> {
+SELECT ?station ?stationName ?latitude ?longitude ?startDate ?endDate ?date ?temp_min ?temp_max ?r  WHERE {
+VALUES ?stationName {'NICE'}
+VALUES ?startDate { "2022-07-01"}
+ VALUES ?endDate { "2022-07-30"}
+?station dct:spatial ?e ; geo2:lat ?latitude; geo2:long ?longitude; rdfs:label ?stationName .
+?s  a qb:Slice ;
+        wes-dimension:station ?station; 
+        qb:observation [
+        a qb:Observation ;
+        wes-attribute:observationDate ?date ;
+        wes-measure:minDailyTemperature ?temp_min; 
+        wes-measure:maxDailyTemperature ?temp_max; 
+        wes-measure:rainfall24h ?r ].
+FILTER (xsd:date(?date)>= xsd:date(?startDate))
+FILTER (xsd:date(?date) <= xsd:date(?endDate))
+}
+}
+}
+
+BIND(IRI(concat("https://sms.i3s.unice.fr/sparql-ms/open-meteo/getHistoricalDataByLongLat?latitude=",encode_for_uri(str(?latitude)),"&longitude=", encode_for_uri(str(?longitude)), "&start_date=",  encode_for_uri(str(?startDate)),"&end_date=", encode_for_uri(str(?endDate)))) as ?url)
+
+SERVICE SILENT ?url {
+            SELECT DISTINCT ?date ?lat1 ?long1 ?radiationSum ?evapotranspiration WHERE {
+	      ?s1 qb:observation ?observation ; geo2:lat ?lat1; geo2:long ?long1.
+                        ?observation a qb:Observation ;
+                        wes-attribute:observationDate ?time ; 
+                        wes-measure:radiationSum ?radiationSum ; 
+                        wes-measure:evapotranspiration ?evapotranspiration .
+               BIND(xsd:date(?time) as ?date)
+                   
+       }
+}
+}
+GROUP BY ?date
+ORDER BY ?date
+LIMIT 10
+
+
+
+
