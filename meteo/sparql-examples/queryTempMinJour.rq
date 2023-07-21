@@ -1,0 +1,44 @@
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
+PREFIX wevp: <http://ns.inria.fr/meteo/vocab/weatherproperty/>
+PREFIX wes: <http://ns.inria.fr/meteo/weatherstation/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+#@federate <http://weakg.i3s.unice.fr/sparql>
+
+select ?groupDate ?year ?stationID (min(?vp)- 273.15  as ?temp_min_celsius) 
+where {
+    ?obs a weo:MeteorologicalObservation;
+            sosa:observedProperty wevp:airTemperature.
+    ?obs sosa:hasSimpleResult ?vp;
+            sosa:resultTime ?date;
+            wep:madeByStation ?station .
+     ?station rdfs:label ?stationName; weo:stationID ?stationID; dct:spatial [ wdt:P131 [rdfs:label ?label ; wdt:P2585 '75']].
+
+bind (day(?date)   as ?day)
+bind (month(?date) as ?month)
+bind (year(?date)  as ?year)
+bind (if(datatype(?year/4)=xsd:integer && ((?year/100)*100 != 0 || (?year/400)*400 = 0), 1, 0) as ?bissexYear)
+
+bind (if(?day = 31 || (?day = 30 && ?month in(4, 6, 9, 11)) || (?day >= 28 && ?month = 2), if(?day = 28 && ?month = 2 && ?bissexYear = 1, ?day+1,1), ?day+1) 
+as ?newDay)
+
+bind (if(?day = 31 || (?day = 30 && ?month in(4, 6, 9, 11)) || (?day >= 28 && ?month = 2), 
+        if (?month=12, 1, ?month+1), ?month) 
+as ?newMonth)
+
+bind (if (?day=31 && ?month=12, ?year+1, ?year) as ?newYear)
+
+bind (
+    xsd:date(if (hours(?date)>=18 && hours(?date)<=24,
+        concat(?newYear, "-", if (?newMonth<10, concat("0", ?newMonth), ?newMonth), "-", 
+            if (?newDay<10, concat("0", ?newDay), ?newDay)), 
+        concat(?year, "-", if (?month<10, concat("0", ?month), ?month), "-",
+            if (?day<10, concat("0", ?day), ?day))))
+as ?groupDate)
+}
+group by ?groupDate ?stationID ?year
+order by ?groupDate

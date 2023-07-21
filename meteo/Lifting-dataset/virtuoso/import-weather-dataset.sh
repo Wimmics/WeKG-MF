@@ -9,35 +9,35 @@
 # Directory where the ttl files are stored
 
 graph="http://ns.inria.fr/meteo/ontology"
-/data/virtuoso-import.sh \
+/database/virtuoso-import.sh \
     --cleargraph \
     --graph $graph \
-    --path /metadata \
+    --path /ontology \
     weatherdataset-model.ttl
     
 graph="http://ns.inria.fr/meteo/vocab"
-/data/virtuoso-import.sh \
+/database/virtuoso-import.sh \
     --cleargraph \
     --graph $graph \
-    --path /metadata \
+    --path /ontology \
     features-properties-vocabulaire.ttl WMO-thesaurus.ttl
 
 graph="http://ns.inria.fr/meteo/weatherstation"
-/data/virtuoso-import.sh \
+/database/virtuoso-import.sh \
     --cleargraph \
     --graph $graph \
     --path /dataset \
     meteofrance-station.ttl dump-wikidata3.ttl    
 
 graph="http://ns.inria.fr/meteo/observation/2021"
-/data/virtuoso-import.sh \
+/database/virtuoso-import.sh \
     --cleargraph \
     --graph $graph \
     --path /dataset \
-    weather2021.ttl
+    weather2021.ttl obsDec-2021.ttl
 
 graph="http://ns.inria.fr/meteo/observation/2020"
-/data/virtuoso-import.sh \
+/database/virtuoso-import.sh \
     --cleargraph \
     --graph $graph \
     --path /dataset \
@@ -45,7 +45,7 @@ graph="http://ns.inria.fr/meteo/observation/2020"
 
 
 graph="http://ns.inria.fr/meteo/observation/2019"
-/data/virtuoso-import.sh \
+/database/virtuoso-import.sh \
     --cleargraph \
     --graph $graph \
     --path /dataset \

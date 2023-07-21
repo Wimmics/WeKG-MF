@@ -23,5 +23,5 @@ select distinct ?l ?item ?itemLabel where {
 }
 }
 
- {  
+ 
                 

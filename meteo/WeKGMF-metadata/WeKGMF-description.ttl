@@ -1,0 +1,254 @@
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat:       <http://www.w3.org/ns/dcat#>.
+@prefix foaf:       <http://xmlns.com/foaf/0.1/> .
+@prefix prov:       <http://www.w3.org/ns/prov#> .
+@prefix schema:		<http://schema.org/> .
+@prefix void:       <http://rdfs.org/ns/void#> .
+@prefix sd:     	<http://www.w3.org/ns/sparql-service-description#> .
+@prefix dce:        <http://purl.org/dc/elements/1.1/>.
+@prefix dct:        <http://purl.org/dc/terms/> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix time: <http://www.w3.org/2006/time#> . 
+@prefix wev: <http://ns.inria.fr/meteo/vocab/> .
+@prefix weo: <http://ns.inria.fr/meteo/ontology/> .
+# Below is a non-exhaustive template for the description of a RDF dataset and its associated endpoint.
+# This template tries to use as much of the most common vocabularies as possible to create a basic description.
+# The resources linked to this description should also be described in the Dataset when relevant.
+# Repeated information as objects of different properties will facilitate the access to the description for future users and should be kept.
+
+<http://ns.inria.fr/meteo/wekg-mf>
+    a   dcat:Dataset, void:Dataset, schema:Dataset, prov:Entity, sd:Dataset ;
+    dct:title       "WeKG-MF: A Weather Knowlege Graph of Météo-France Archives"@en,  "WeKG-MF: Graphe de Connaissances RDF a partir des archives Météo-France"@fr;
+    schema:name     "A RDF dataset of Météo-France historical weather Archives (2016-2021)" ;
+    skos:prefLabel  "WeKG-MF Knowledge Graph" ;
+    rdfs:label      "WeKG-MF Knowledge Graph" ;
+    dct:description     "" ;
+    schema:description  "The Météo-France RDF Weather dataset (WeKG-MF) is an RDF knowledge graph that provides access to meteorological measurements provided by 62 Météo-France weather stations located in different regions in metropolitan France and overseas departments. The dataset incorporates measurements of several weather parameters such as wind direction and speed, air pressure, precipitations, humidity and air temperature. These measurements are provided every three hours per day." ;
+    rdfs:comment        "The Météo-France RDF Weather dataset (WeKG-MF) is an RDF knowledge graph that provides access to meteorological measurements provided by 62 Météo-France weather stations located in different regions in metropolitan France and overseas departments. The dataset incorporates measurements of several weather parameters such as wind direction and speed, air pressure, precipitations, humidity and air temperature. These measurements are provided every three hours per day." ;
+
+    dcat:contactPoint   "nadia.yacoubi-ayadi@inria.fr" ;
+
+    dct:creator             <https://team.inria.fr/wimmics/> ; 
+    schema:author           <https://team.inria.fr/wimmics/> ;
+    dct:publisher           <https://team.inria.fr/wimmics/>, <https://ror.org/02feahw73>, <https://ror.org/02kvxyf05>, <https://ror.org/0496p8026>;
+    prov:wasAttributedTo    <https://team.inria.fr/wimmics/>, <https://ror.org/02feahw73>, <https://ror.org/02kvxyf05>, <https://ror.org/0496p8026>;
+    schema:publisher        <https://team.inria.fr/wimmics/>, <https://ror.org/02feahw73>, <https://ror.org/02kvxyf05>, <https://ror.org/0496p8026>;
+    schema:editor           <https://team.inria.fr/wimmics/> ;
+    dct:contributor         <https://orcid.org/0000-0002-6132-8718> , <https://orcid.org/0000-0001-9064-0463>, <https://orcid.org/0000-0001-5959-5561> ;
+
+    dct:licence     <http://data.loterre.fr/ark:/67375/TSO-ZKK6WW4X-W>;
+    schema:licence  <http://data.loterre.fr/ark:/67375/TSO-ZKK6WW4X-W>;
+    
+    dcat:version "1.0" ;
+    schema:version  "1.0" ;
+
+	dct:language       "en", "fr" ;
+    schema:inLanguage  "en", "fr" ;
+
+    dct:issued              "2022-02-03"^^xsd:date ;
+    prov:wasGeneratedAtTime "2022-02-03"^^xsd:date ;
+    schema:datePublished    "2022-02-03"^^xsd:date ;
+  
+
+    dct:subject     "weather", "observations", "sensor data", "Météo-France Archives", "Meteorology", "Observational Data", "feature of interest" , "observable property" ;
+    dcat:keyword    "weather", "observations", "sensor data", "Météo-France Archives", "Meteorology", "Observational Data", "feature of interest" , "observable property" ;
+    schema:keywords "weather", "observations", "sensor data", "Météo-France Archives", "Meteorology", "Observational Data", "feature of interest" , "observable property" ;
+
+    void:uriSpace           "http://ns.inria.fr/meteo/" ;
+    void:uriRegexPattern    "http:\/\/ns.inria.fr\/meteo\/*" ;
+
+    void:sparqlEndpoint <http://weakg.i3s.unice.fr/sparql> ;
+    dcat:distribution [
+        a               dcat:Distribution ;
+        dct:title       "This WeKG-MF's SPARQL endpoint" ;
+        dcat:accessURL  <http://weakg.i3s.unice.fr/sparql> ; 
+        dcat:mediaType  "application/sparql-query"
+    ] ;
+
+## revoir dataDump et dcat:Distribution
+    void:dataDump <https://zenodo.org/record/5925413#.Yqmoy2QzbvU> ;
+
+    dcat:service <http://weakg.i3s.unice.fr/sparql> ;
+
+void:vocabulary
+        sosa:, ssn:, geosparql:, geo:, time:, weo:, wev:, <http://vocab.nerc.ac.uk/collection/P07/current/> ;
+          # The NERC vocabulary Climate and Forcast Standard Names  
+sd:namedGraph 
+            <http://ns.inria.fr/meteo/weatherstation>,
+            <http://ns.inria.fr/meteo/observation/2021>,
+            <http://ns.inria.fr/meteo/observation/2020>,
+            <http://ns.inria.fr/meteo/observation/2019>,
+            <http://ns.inria.fr/meteo/observation/2018>,
+            <http://ns.inria.fr/meteo/observation/2017>,
+            <http://ns.inria.fr/meteo/observation/2016> .
+
+# --- WeKG-MF named graphs description 
+
+<http://ns.inria.fr/meteo/weatherstation> 
+    sd:name <http://ns.inria.fr/meteo/weatherstation>;
+    a sd:Graph, sd:NamedGraph, prov:Entity; 
+    prov:hadPrimarySource <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/postesSynop.json> ;
+    void:triples  "794"^^xsd:integer.
+
+<http://ns.inria.fr/meteo/observation/2021>
+    sd:name <http://ns.inria.fr/meteo/observation/2021>;
+    dct:title "Weather Data for 2021"@en, "Données Météo pour l'année 2021"@en;
+    a sd:Graph, sd:NamedGraph, prov:Entity; 
+    prov:hadPrimarySource <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202101.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202102.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202103.csv.gz>,
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202104.csv.gz> , <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202105.csv.gz>, 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202106.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202107.csv.gz> , 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202108.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202109.csv.gz> ,
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202110.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202111.csv.gz> , 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202112.csv.gz> ; 
+    void:triples  "20604775"^^xsd:integer.
+
+<http://ns.inria.fr/meteo/observation/2020>
+    sd:name <http://ns.inria.fr/meteo/observation/2020>;
+    dct:title "Weather Data for 2020"@en, "Données Météo pour l'année 2020"@en;
+    a sd:Graph, sd:NamedGraph, prov:Entity; 
+    prov:hadPrimarySource <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202001.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202002.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202003.csv.gz>,
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202004.csv.gz> , <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202005.csv.gz>, 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202006.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202007.csv.gz> , 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202008.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202009.csv.gz> ,
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202010.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202011.csv.gz> , 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.202012.csv.gz> ; 
+    void:triples  "20868650"^^xsd:integer.
+
+<http://ns.inria.fr/meteo/observation/2019>
+    sd:name <http://ns.inria.fr/meteo/observation/2019>;
+    dct:title "Weather Data for 2019"@en, "Données Météo pour l'année 2019"@en;
+    a sd:Graph, sd:NamedGraph, prov:Entity; 
+    prov:hadPrimarySource <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201901.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201902.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201903.csv.gz>,
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201904.csv.gz> , <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201905.csv.gz>, 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201906.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201907.csv.gz> , 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201908.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201909.csv.gz> ,
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201910.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201911.csv.gz> , 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201912.csv.gz> ; 
+    void:triples  "20832677"^^xsd:integer.
+
+
+<http://ns.inria.fr/meteo/observation/2018>
+    sd:name <http://ns.inria.fr/meteo/observation/2018>;
+    dct:title "Weather Data for 2018"@en, "Données Météo pour l'année 2018"@en;
+    a sd:Graph, sd:NamedGraph, prov:Entity; 
+    prov:hadPrimarySource <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201801.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201802.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201803.csv.gz>,
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201804.csv.gz> , <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201805.csv.gz>, 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201806.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201807.csv.gz> , 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201808.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201809.csv.gz> ,
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201810.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201811.csv.gz> , 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201812.csv.gz> ; 
+    void:triples  "19684672"^^xsd:integer.
+
+
+<http://ns.inria.fr/meteo/observation/2017>
+    sd:name <http://ns.inria.fr/meteo/observation/2017>;
+    dct:title "Weather Data for 2017"@en, "Données Météo pour l'année 2017"@en;
+    a sd:Graph, sd:NamedGraph, prov:Entity; 
+    prov:hadPrimarySource <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201701.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201702.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201703.csv.gz>,
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201704.csv.gz> , <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201705.csv.gz>, 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201706.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201707.csv.gz> , 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201708.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201709.csv.gz> ,
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201710.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201711.csv.gz> , 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201712.csv.gz> ; 
+    void:triples  "20539699"^^xsd:integer.
+
+<http://ns.inria.fr/meteo/observation/2016>
+    sd:name <http://ns.inria.fr/meteo/observation/2016>;
+    dct:title "Weather Data for 2016"@en, "Données Météo pour l'année 2016"@en;
+    a sd:Graph, sd:NamedGraph, prov:Entity; 
+    prov:hadPrimarySource <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201601.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201602.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201603.csv.gz>,
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201604.csv.gz> , <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201605.csv.gz>, 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201606.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201607.csv.gz> , 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201608.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201609.csv.gz> ,
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201610.csv.gz>, <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201611.csv.gz> , 
+    <https://donneespubliques.meteofrance.fr/donnees_libres/Txt/Synop/Archive/synop.201612.csv.gz> ; 
+    void:triples  "19962432"^^xsd:integer.
+
+
+<http://ns.inria.fr/meteo/ontology>
+  a owl:Ontology, rdfs:Resource ;
+  vann:preferredNamespaceUri "http://ns.inria.fr/meteo/ontology/" ;
+  vann:preferredNamespacePrefix "weo" ;
+  dct:title "WEather Ontology"@en ;
+  dct:description "The WEather Ontology provides a reusable and self-contained semantic model that describes the semantics of meteorological observations. WEO reuses and extends several classes from existing ontologies: SOSA/SSN, GeoSPARQL, QUDT, OWL-Time ontology."@en ;
+  dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+  schema:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dct:publisher <https://team.inria.fr/wimmics/>;
+  owl:versionIRI "1.0" .
+
+
+
+
+# --- SPARQL Service Description and DCAT DataService
+## inscrire weather ontology et wev sur LOV
+
+<http://weakg.i3s.unice.fr/sparql> 
+    a sd:Service, dcat:DataService, prov:Entity ;
+    dcat:servesDataset      <dataset-uri> ;
+    sd:endpoint             <http://weakg.i3s.unice.fr/sparql> ;
+    dcat:endpointUrl        <http://weakg.i3s.unice.fr/sparql> ;
+
+    #dct:creator             <Uri of creator(s) of the endpoint> , "Avoid string literals when possible" ;
+    #prov:wasAttributedTo    <Uri of creator(s) of the endpoint> , "Avoid string literals when possible" ;
+    rdfs:label           "SPARQL endpoint serving the WeKG-MF dataset";
+    dcat:servesDataset   <http://ns.inria.fr/meteo/wekg-mf>;
+    sd:availableGraphs <http://ns.inria.fr/meteo/wekg-mf> .
+ 
+
+
+# The given template can be expanded using the DCAT, PROV-O, Schema, VoID, SPARQL-SD, DCTERMS, or any other vocabulary.
+# As much as possible, every URI should have a label or a title.
+# As an example, here are some elements that can be use to expand the dataset description:
+#
+#<dataset-uri>
+#    schema:isBasedOn        <Uri of the source of the dataset, if relevant> ;
+#    prov:wasDerivedFrom     <Uri of the source of the dataset, if relevant> ;
+#    prov:wasGeneratedBy     <Uri of the process at the origin of the dataset> ;
+#
+#    void:triples        "Number of triples in the dataset"^^xsd:integer;
+#
+#    void:vocabulary <Uri(s) of the vocabularies/ontologies used in the dataset> .
+<https://ror.org/0496p8026>
+    a foaf:Organization;
+    foaf:name "University Côte d'Azur";
+    foaf:homepage <https://univ-cotedazur.fr>.
+
+<https://ror.org/02kvxyf05>
+    a foaf:Organization;
+    foaf:name "Inria";
+    foaf:homepage <https://www.inria.fr>.
+
+<https://ror.org/02feahw73>
+    a foaf:Organization;
+    foaf:name "CNRS";
+    foaf:homepage <https://www.cnrs.fr>.
+
+<https://team.inria.fr/wimmics/> a foaf:Organization; foaf:name "Wimmics research team".
+
+
+<https://orcid.org/0000-0002-6132-8718>
+    a foaf:Person;
+    foaf:name "Nadia YACOUBI AYADI";
+    schema:name "Nadia YACOUBI AYADI" .
+
+
+<https://orcid.org/0000-0001-9064-0463>
+    a foaf:Person;
+    foaf:name "Franck MICHEL";
+    schema:name "Franck MICHEL";
+    foaf:homepage <https://w3id.org/people/franckmichel>;
+    schema:sameAs <https://cv.archives-ouvertes.fr/fmichel/>, <https://www.researchgate.net/profile/Franck_Michel3>.
+
+<https://orcid.org/0000-0001-5959-5561>
+    a foaf:Person;
+    schema:name "Catherine FARON";
+    foaf:name "Catherine FARON";
+    foaf:homepage <http://www.i3s.unice.fr/~faron/>;
+    schema:sameAs <https://cv.archives-ouvertes.fr/catherine-faron-zucker>,
+        <https://www.researchgate.net/profile/Catherine_Faron-Zucker>.

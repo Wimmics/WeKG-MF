@@ -1,0 +1,136 @@
+PREFIX wes: <http://ns.inria.fr/meteo/observationslice/>
+PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
+PREFIX qb: <http://purl.org/linked-data/cube#>
+PREFIX wes-dimension: <http://ns.inria.fr/meteo/observationslice/dimension#>
+PREFIX wes-measure: <http://ns.inria.fr/meteo/observationslice/measure#>
+PREFIX wes-attribute: <http://ns.inria.fr/meteo/observationslice/attribute#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
+PREFIX wevp: <http://ns.inria.fr/meteo/vocab/weatherproperty/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+CONSTRUCT
+{ 
+?uriDataset  a qb:Dataset ; 
+        qb:slice  ?uriSlice . 
+?uriSlice  a qb:Slice;
+        qb:sliceStructure  wes:SliceByStationAndYear_key ;
+        wes-dimension:station ?station ;
+        wes-dimension:year ?year  ;
+        qb:observation  [
+            a qb:Observation ; 
+            wes-attribute:observationDate ?groupDate ; 
+            wes-measure:minDailyTemperature ?dailyTempMin ; 
+            wes-measure:maxDailyTemperature ?dailyTempMax;
+            wes-measure:rainfall24h ?rainfall24h
+            ].
+
+}
+
+WHERE {
+SELECT ?uriSlice ?uriDataset  ?year ?station ?groupDate (MIN(?tempResult2)- 273.15  as ?dailyTempMin) (MAX(?tempResult1)- 273.15  as ?dailyTempMax) (SAMPLE(?precipitation) as ?rainfall24h) WHERE {
+    VALUES ?stationName {'NICE'}
+   { ?obs a weo:MeteorologicalObservation;
+         sosa:observedProperty wevp:airTemperature;
+         sosa:hasSimpleResult ?tempResult1; sosa:resultTime ?date;
+         wep:madeByStation ?station.
+         ?station weo:stationID ?stationId ; rdfs:label ?stationName.  
+    bind (day(?date)   as ?day)
+    bind (month(?date) as ?month)
+    bind (year(?date)  as ?year)
+    #FILTER (xsd:gYear(?year) >= "2012"^^xsd:gYear && xsd:gYear(?year) <= "2022"^^xsd:gYear)
+    bind (if (datatype(?year/4)=xsd:integer && ((?year/100)*100 != 0 || (?year/400)*400 = 0) , 1, 0) as ?bissexYear)
+
+    bind (
+    if (?day = 1, 
+        if (?month in (1, 2, 4, 6, 8, 9, 11), 31, 
+        if (?month in (5, 7, 10, 12), 30, 
+        if (?bissexYear = 1, 29, 28))), 
+        ?day - 1) 
+    as ?previousDay)
+
+    bind (if (?day = 1, if (?month=1, 12, ?month - 1), ?month)   as ?previousMonth)
+
+    bind (if (?day = 1 && ?month=1, ?year - 1, ?year) as ?previousYear)
+
+    bind (xsd:date(if(hours(?date)<6 && hours(?date) >=0,
+        
+            concat(?previousYear, "-", if (?previousMonth<10, concat("0", ?previousMonth), ?previousMonth), "-", 
+                if (?previousDay<10, concat("0", ?previousDay), ?previousDay)), 
+                
+            concat(?year, "-", if (?month<10, concat("0", ?month), ?month), "-",
+                if (?day<10, concat("0", ?day), ?day))))
+    as ?groupDate)
+    
+    }
+UNION
+    {
+        ?obs a weo:MeteorologicalObservation;
+            sosa:observedProperty wevp:airTemperature.
+            ?obs sosa:hasSimpleResult ?tempResult2;
+            sosa:resultTime ?date;
+            wep:madeByStation ?station .
+            ?station weo:stationID ?stationId ; rdfs:label ?stationName .
+        BIND (day(?date)   as ?day)
+        BIND (month(?date) as ?month)
+        BIND (year(?date)  as ?year)
+        #FILTER (xsd:gYear(?year) >= "2012"^^xsd:gYear && xsd:gYear(?year) <= "2022"^^xsd:gYear)
+        BIND (if(datatype(?year/4)=xsd:integer && ((?year/100)*100 != 0 || (?year/400)*400 = 0) , 1, 0) as ?bissexYear)
+        BIND (if (?day = 31 || (?day = 30 && ?month in(4, 6, 9, 11)) || (?day >= 28 && ?month = 2), if(?day = 28 && ?month = 2 && ?bissexYear = 1, ?day+1,1), ?day+1) 
+        as ?newDay)
+
+        BIND (if (?day = 31 || (?day = 30 && ?month in(4, 6, 9, 11)) || (?day >= 28 && ?month = 2), 
+        if (?month=12, 1, ?month+1), ?month) as ?newMonth)
+
+        BIND (if (?day=31 && ?month=12, ?year+1, ?year) as ?newYear)
+
+        BIND (
+        xsd:date(if (hours(?date)>18 && hours(?date)<=24,
+                concat(?newYear, "-", if (?newMonth<10, concat("0", ?newMonth), ?newMonth), "-", 
+                    if (?newDay<10, concat("0", ?newDay), ?newDay)), 
+                concat(?year, "-", if (?month<10, concat("0", ?month), ?month), "-",
+                    if (?day<10, concat("0", ?day), ?day))))
+        as ?groupDate)
+    }    
+UNION 
+{
+?obs a weo:MeteorologicalObservation;
+        sosa:observedProperty wevp:precipitationAmount;
+        sosa:hasSimpleResult ?precipitation;
+        sosa:phenomenonTime [ a weo:Interval24h ];
+        sosa:resultTime ?datetime;
+        wep:madeByStation ?station. 
+       ?station weo:stationID ?stationId ; rdfs:label ?stationName .
+    BIND (xsd:date(SUBSTR(STR(?datetime), 1,10)) as ?date)
+    bind (day(?datetime)   as ?day)
+    bind (month(?datetime) as ?month)
+    bind (year(?datetime)  as ?year)
+    #FILTER (xsd:gYear(?year) >= "2012"^^xsd:gYear && xsd:gYear(?year) <= "2022"^^xsd:gYear  )
+    FILTER (CONTAINS (STR(?datetime), "T06:00:00" ))
+    bind (if (datatype(?year/4)=xsd:integer && ((?year/100)*100 != 0 || (?year/400)*400 = 0) , 1, 0) as ?bissexYear)
+    bind (day(?datetime)   as ?day)
+    bind (month(?datetime) as ?month)
+    bind (year(?datetime)  as ?year)
+    bind (if (?day = 1, 
+        if (?month in (1, 2, 4, 6, 8, 9, 11), 31, 
+        if (?month in (5, 7, 10, 12), 30, 
+        if (?bissexYear = 1, 29, 28))), 
+        ?day - 1) as ?previousDay)
+
+    bind (if (?day = 1, if (?month=1, 12, ?month - 1), ?month)   as ?previousMonth)
+
+    bind (if (?day = 1 && ?month=1, ?year - 1, ?year) as ?previousYear)
+
+    bind (concat(?previousYear, "-", if (?previousMonth<10, concat("0", ?previousMonth), ?previousMonth), "-", 
+                if (?previousDay<10, concat("0", ?previousDay), ?previousDay)) as ?previousDate)
+    
+   BIND(xsd:date(?previousDate) as ?groupDate)
+   FILTER (bound(?groupDate)) 
+}
+
+BIND(URI(CONCAT("http://ns.inria.fr/meteo/observationslice/", str(?year), "/slice_", str(?stationId))) as ?uriSlice  )
+BIND(URI(CONCAT("http://ns.inria.fr/meteo/dataset-MF/", str(?year))) as ?uriDataset   )
+}
+GROUP BY ?groupDate ?station ?year ?uriSlice ?uriDataset
+ORDER BY ?groupDate
+}

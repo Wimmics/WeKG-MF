@@ -1,5 +1,5 @@
 
-#Implemtation of CQ CQ3. What is the closest weather station to a specific spatial location?
+#Implemtation of CQ3. What is the closest weather station to a specific spatial location?
 prefix geo:        <http://www.w3.org/2003/01/geo/wgs84_pos#> 
 prefix weo:        <http://ns.inria.fr/meteo/ontology/> 
 prefix geosparql:  <http://www.opengis.net/ont/geosparql#> 
@@ -16,7 +16,7 @@ prefix wd:        <http://www.wikidata.org/entity/>
 
 SELECT  ?label ?lat ?long ?coordinates WHERE {
         ?x rdfs:label ?label ;
-           geosparql:hasGeometry [ geosparql:asWKT ?coordinates].
+           geosparql:hasGeometry [ geosparql:asWKT ?coordinates];
            geo:lat ?lat; geo:long ?long .
         BIND("Point(0.1413499 45.1423348)"^^geosparql:wktLiteral as ?Currentposition)
         BIND (geof:distance(?coordinates,?Currentposition , uom:metre) as ?distance)     

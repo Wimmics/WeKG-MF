@@ -14,6 +14,8 @@
 #Template file: replace placeholders
 #- {{collection}}: the MongoDB collection to query, e.g. synop_observations_2021
 
+
+# sea level pressure
 <#pmer_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ 
@@ -69,6 +71,7 @@
         ]; 
     ].
 
+# air temperatures
 <#temp_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ 
@@ -124,6 +127,7 @@
             ]; 
     ].
 
+# dew point temperature
 
 <#dewPoint_Observation>
     a rr:TriplesMap;
@@ -176,6 +180,7 @@
             ]; 
     ].
 
+# air humidity
 
 <#humidity_Observation>
     a rr:TriplesMap;
@@ -228,6 +233,7 @@
         ]; 
     ].
 
+# horizontal visibility
 
 <#hvisibility_Observation>
     a rr:TriplesMap;
@@ -281,6 +287,7 @@
         ]; 
     ].
 
+# differential pressure 3h
 
 <#tend_Observation>
     a rr:TriplesMap;
@@ -379,6 +386,8 @@
           ];
      ] .
 
+# wind average speed
+
 <#ff_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ xrr:query """db.{{collection}}.find({"ff": {$ne: "mq"}})""" ];
@@ -475,6 +484,8 @@
           ];
      ] .
 
+# wind direction 
+
 <#dd_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ xrr:query """db.{{collection}}.find({"dd": {$ne: "mq"}})""" ];
@@ -552,6 +563,7 @@
           ];
      ] .
 
+# state ground
 <#etatsol_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ 
@@ -604,6 +616,8 @@
         ]; 
 ].
 
+# cover cloud
+
 <#nebulosite_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ xrr:query """db.{{collection}}.find({"n": {$ne: "mq"}})""" ];
@@ -655,7 +669,7 @@
         ]; 
     ].
 
-
+# low cloud cover
 <#nebulositecloud1_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ xrr:query """db.{{collection}}.find({"nbas": {$ne: "mq"}})""" ];
@@ -709,7 +723,7 @@
     ].
 
 
-
+# differential pressure 24h 
 
 <#tend24_Observation>
     a rr:TriplesMap;
@@ -789,6 +803,8 @@
           ];
      ] .
 
+
+# Cloud Base Altitude
 <#hauteurbase_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ xrr:query """db.{{collection}}.find({"hbas": {$ne: "mq"}})""" ];
@@ -841,7 +857,7 @@
         ]; 
     ].
 
-
+# cumulative precipitations 24h
 <#rr24_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ xrr:query """db.{{collection}}.find({"rr24": {$ne: "mq"}})""" ];
@@ -919,6 +935,7 @@
           ];
      ] .
 
+# station pressure
 <#pressure_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ xrr:query """db.{{collection}}.find({"pres": {$ne: "mq"}})""" ];
@@ -970,326 +987,7 @@
         ]; 
     ].
 
-
-<#tn12_Observation>
-    a rr:TriplesMap;
-    xrr:logicalSource [ 
-        xrr:query """db.{{collection}}.find({"tn12": {$ne: "mq"}})""" ];
-    
-    rr:subjectMap [
-        rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/tn12";
-        rr:class weo:MeteorologicalObservation;
-    ];
-    
-    # observable property
-    rr:predicateObjectMap [
-        rr:predicate sosa:observedProperty;
-        rr:objectMap [ 
-            rr:constant <http://ns.inria.fr/meteo/vocab/weatherproperty/minAirTemperature>;
-            rr:termType rr:IRI;
-        ];
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate sosa:hasFeatureOfInterest;
-        rr:objectMap [ 
-            rr:constant <http://ns.inria.fr/meteo/vocab/meteorologicalfeature/air>;
-            rr:termType rr:IRI;
-        ];
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate wep:madeByStation;
-        rr:objectMap [ 
-            rr:template "http://ns.inria.fr/meteo/weatherstation/{$.numer_sta}";
-            rr:termType rr:IRI;
-        ];   
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate sosa:resultTime;
-        rr:objectMap [ 
-            xrr:reference "$.dateF";
-            rr:termType rr:Literal;
-            rr:datatype xsd:dateTime;
-        ];
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate sosa:hasSimpleResult;
-        rr:objectMap [
-            
-            xrr:reference "$.tn12";
-            rr:termType rr:Literal;
-            rr:datatype xsd:double;
-
-        ]; 
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sosa:phenomenonTime;
-        rr:objectMap [
-            rr:template "obs_at_{$.date}_{$.numer_sta}/tn12_PhenomenonTime";
-            rr:termType rr:BlankNode;
-        ]; 
-    ].
-
-<#tn12ObservationPT>
-  a rr:TriplesMap;
-   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"tn12": {$ne: "mq"}})""" ];
-   rr:subjectMap [
-    rr:template "obs_at_{$.date}_{$.numer_sta}/tn12_PhenomenonTime";
-    rr:class weo:Interval12h ;
-    rr:termType rr:BlankNode;
-    ];
-     rr:predicateObjectMap [
-        rr:predicate time:hasEnd;
-          rr:objectMap [
-            xrr:reference "$.dateF";
-            rr:termType rr:Literal;
-            rr:datatype xsd:dateTime;
-          ];
-     ] .
-
-
-<#tx12_Observation>
-    a rr:TriplesMap;
-    xrr:logicalSource [ 
-        xrr:query """db.{{collection}}.find({"tx12": {$ne: "mq"}})"""; 
-        xrr:format xrr:JSON;
-     ];
-    
-    rr:subjectMap [
-        rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/tx12";
-        rr:class weo:MeteorologicalObservation;
-    ];
-    
-    # observable property
-    rr:predicateObjectMap [
-        rr:predicate sosa:observedProperty;
-        rr:objectMap [ 
-            rr:constant <http://ns.inria.fr/meteo/vocab/weatherproperty/maxAirTemperature>;
-            rr:termType rr:IRI;
-        ];
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate sosa:hasFeatureOfInterest;
-        rr:objectMap [ 
-            rr:constant <http://ns.inria.fr/meteo/vocab/meteorologicalfeature/air>;
-            rr:termType rr:IRI;
-        ];
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate wep:madeByStation;
-        rr:objectMap [ 
-            rr:template "http://ns.inria.fr/meteo/weatherstation/{$.numer_sta}";
-            rr:termType rr:IRI;
-        ];   
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate sosa:resultTime;
-        rr:objectMap [ 
-            xrr:reference "$.dateF";
-            rr:termType rr:Literal;
-            rr:datatype xsd:dateTime;
-        ];
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate sosa:hasSimpleResult;
-        rr:objectMap [
-            
-            xrr:reference "$.tx12";
-            rr:termType rr:Literal;
-            rr:datatype xsd:double;
-
-        ]; 
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sosa:phenomenonTime;
-        rr:objectMap [
-            rr:template "obs_at_{$.date}_{$.numer_sta}/tx12_PhenomenonTime";
-            rr:termType rr:BlankNode;
-        ]; 
-    ].
-
-<#tx12ObservationPT>
-  a rr:TriplesMap;
-   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"tx12": {$ne: "mq"}})""" ];
-   rr:subjectMap [
-    rr:template "obs_at_{$.date}_{$.numer_sta}/tx12_PhenomenonTime";
-    rr:class weo:Interval12h ;
-    rr:termType rr:BlankNode;
-    ];
-     rr:predicateObjectMap [
-        rr:predicate time:hasEnd;
-          rr:objectMap [
-            xrr:reference "$.dateF";
-            rr:termType rr:Literal;
-            rr:datatype xsd:dateTime;
-          ];
-     ] .
-
-<#tn24_Observation>
-    a rr:TriplesMap;
-    xrr:logicalSource [ 
-        xrr:query """db.{{collection}}.find({"tn24": {$ne: "mq"}})""" ];
-    
-    rr:subjectMap [
-        rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/tn24";
-        rr:class weo:MeteorologicalObservation;
-    ];
-    
-    # observable property
-    rr:predicateObjectMap [
-        rr:predicate sosa:observedProperty;
-        rr:objectMap [ 
-            rr:constant <http://ns.inria.fr/meteo/vocab/weatherproperty/minAirTemperature>;
-            rr:termType rr:IRI;
-        ];
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate sosa:hasFeatureOfInterest;
-        rr:objectMap [ 
-            rr:constant <http://ns.inria.fr/meteo/vocab/meteorologicalfeature/air>;
-            rr:termType rr:IRI;
-        ];
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate wep:madeByStation;
-        rr:objectMap [ 
-            rr:template "http://ns.inria.fr/meteo/weatherstation/{$.numer_sta}";
-            rr:termType rr:IRI;
-        ];   
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate sosa:resultTime;
-        rr:objectMap [ 
-            xrr:reference "$.dateF";
-            rr:termType rr:Literal;
-            rr:datatype xsd:dateTime;
-        ];
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate sosa:hasSimpleResult;
-        rr:objectMap [
-            
-            xrr:reference "$.tn24";
-            rr:termType rr:Literal;
-            rr:datatype xsd:double;
-
-        ]; 
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sosa:phenomenonTime;
-        rr:objectMap [
-            rr:template "obs_at_{$.date}_{$.numer_sta}/tn24_PhenomenonTime";
-            rr:termType rr:BlankNode;
-        ]; 
-    ].
-
-<#tn24ObservationPT>
-  a rr:TriplesMap;
-   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"tn24": {$ne: "mq"}})""" ];
-   rr:subjectMap [
-    rr:template "obs_at_{$.date}_{$.numer_sta}/tn24_PhenomenonTime";
-    rr:class weo:Interval24h ;
-    rr:termType rr:BlankNode;
-    ];
-     rr:predicateObjectMap [
-        rr:predicate time:hasEnd;
-          rr:objectMap [
-            xrr:reference "$.dateF";
-            rr:termType rr:Literal;
-            rr:datatype xsd:dateTime;
-          ];
-     ] .
-
-<#tx24_Observation>
-    a rr:TriplesMap;
-    xrr:logicalSource [ 
-        xrr:query """db.{{collection}}.find({"tx24": {$ne: "mq"}})"""];
-    
-    rr:subjectMap [
-        rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/tx24";
-        rr:class weo:MeteorologicalObservation;
-    ];
-    
-    # observable property
-    rr:predicateObjectMap [
-        rr:predicate sosa:observedProperty;
-        rr:objectMap [ 
-            rr:constant <http://ns.inria.fr/meteo/vocab/weatherproperty/maxAirTemperature>;
-            rr:termType rr:IRI;
-        ];
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate sosa:hasFeatureOfInterest;
-        rr:objectMap [ 
-            rr:constant <http://ns.inria.fr/meteo/vocab/meteorologicalfeature/air>;
-            rr:termType rr:IRI;
-        ];
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate wep:madeByStation;
-        rr:objectMap [ 
-            rr:template "http://ns.inria.fr/meteo/weatherstation/{$.numer_sta}";
-            rr:termType rr:IRI;
-        ];   
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate sosa:resultTime;
-        rr:objectMap [ 
-            xrr:reference "$.dateF";
-            rr:termType rr:Literal;
-            rr:datatype xsd:dateTime;
-        ];
-    ];
-
-    rr:predicateObjectMap [
-        rr:predicate sosa:hasSimpleResult;
-        rr:objectMap [
-            
-            xrr:reference "$.tx24";
-            rr:termType rr:Literal;
-            rr:datatype xsd:double;
-
-        ]; 
-    ];
-    rr:predicateObjectMap [
-        rr:predicate sosa:phenomenonTime;
-        rr:objectMap [
-            rr:template "obs_at_{$.date}_{$.numer_sta}/tx24_PhenomenonTime";
-            rr:termType rr:BlankNode;
-        ]; 
-    ].
-
-<#tx24ObservationPT>
-  a rr:TriplesMap;
-   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"tx24": {$ne: "mq"}})""" ];
-   rr:subjectMap [
-    rr:template "obs_at_{$.date}_{$.numer_sta}/tx24_PhenomenonTime";
-    rr:class weo:Interval24h ;
-    rr:termType rr:BlankNode;
-    ];
-     rr:predicateObjectMap [
-        rr:predicate time:hasEnd;
-          rr:objectMap [
-            xrr:reference "$.dateF";
-            rr:termType rr:Literal;
-            rr:datatype xsd:dateTime;
-          ];
-     ] .
-
+# gust speed
 <#raf10_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ 
@@ -1369,7 +1067,7 @@
           ];
      ] .
 
-
+# min soil temperature 
 <#tminsol_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ 
@@ -1449,6 +1147,8 @@
           ];
      ] .
 
+# cover height 
+
 <#CoverHeight_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ xrr:query """db.{{collection}}.find({"ht_neige": {$ne: "mq"}})""" ];
@@ -1501,6 +1201,7 @@
         ]; 
     ].
 
+# pressure tendency
 <#tendency_Observation>
     a rr:TriplesMap;
     xrr:logicalSource [ 
@@ -1552,3 +1253,82 @@
             rr:termType rr:IRI;
         ]; 
 ].
+
+# cumulative precipitation 3 h 
+<#rr3_Observation>
+    a rr:TriplesMap;
+    xrr:logicalSource [ xrr:query """db.{{collection}}.find({"rr3": {$ne: "mq"}})""" ];
+    
+    rr:subjectMap [
+        rr:template "http://ns.inria.fr/meteo/observation/obs_at_{$.date}_{$.numer_sta}/rr3";
+        rr:class weo:MeteorologicalObservation;
+    ];
+    
+    # weather observable property
+    rr:predicateObjectMap [
+        rr:predicate sosa:observedProperty;
+        rr:objectMap [ 
+            rr:constant <http://ns.inria.fr/meteo/vocab/weatherproperty/precipitationAmount>;
+            rr:termType rr:IRI;
+        ];
+    ];
+    # meteorological feature of interest
+     rr:predicateObjectMap [
+        rr:predicate sosa:hasFeatureOfInterest;
+        rr:objectMap [ 
+            rr:constant <http://ns.inria.fr/meteo/vocab/meteorologicalfeature/precipitation>;
+            rr:termType rr:IRI;
+        ];
+    ];
+
+
+    rr:predicateObjectMap [
+        rr:predicate wep:madeByStation;
+        rr:objectMap [ 
+            rr:template "http://ns.inria.fr/meteo/weatherstation/{$.numer_sta}";
+            rr:termType rr:IRI;
+        ];
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate sosa:resultTime;
+        rr:objectMap [ 
+            xrr:reference "$.dateF";
+            rr:termType rr:Literal;
+            rr:datatype xsd:dateTime;
+        ];
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate sosa:hasSimpleResult;
+        rr:objectMap [
+           xrr:reference "$.rr3";
+            rr:termType rr:Literal;
+            rr:datatype xsd:double;
+        ]; 
+];
+   rr:predicateObjectMap [
+     rr:predicate sosa:phenomenonTime;
+        rr:objectMap [
+            rr:template "obs_at_{$.date}_{$.numer_sta}/rr3_PhenomenonTime";
+            rr:termType rr:BlankNode;
+        ]; 
+    ].
+
+
+<#rr3_ObservationPT>
+  a rr:TriplesMap;
+   xrr:logicalSource [ xrr:query """db.{{collection}}.find({"rr3": {$ne: "mq"}})""" ];
+   rr:subjectMap [
+    rr:template "obs_at_{$.date}_{$.numer_sta}/rr3_PhenomenonTime";
+    rr:class weo:Interval3h ;
+    rr:termType rr:BlankNode;
+    ];
+     rr:predicateObjectMap [
+        rr:predicate time:hasEnd;
+          rr:objectMap [
+            xrr:reference "$.dateF";
+            rr:termType rr:Literal;
+            rr:datatype xsd:dateTime;
+          ];
+     ] .

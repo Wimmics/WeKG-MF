@@ -1,17 +1,26 @@
-#calculate average wind speed at each station for each month
+#calculate average wind speed at each station located in Occitania region during April 2019
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX sosa: <http://www.w3.org/ns/sosa/>
 PREFIX qudt: <http://qudt.org/schema/qudt/>
 PREFIX wep: <http://ns.inria.fr/meteo/ontology/property/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX weo: <http://ns.inria.fr/meteo/ontology/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX wevp: <http://ns.inria.fr/meteo/vocab/weatherproperty/> 
 
-select ?stationID  ?n ?t  (CONCAT((avg(?v)  as ?avg), " ", "m/s") AS ?avg_speed_wind)  where {
-?station rdfs:label ?n ; weo:stationID ?stationID.
-  ?obs a  <http://ns.inria.fr/meteo/ontology/MeteorologicalObservation>; 
+select ?date  ?stationID ?region (CONCAT((avg(?v)  as ?avg), " ", "m/s") AS ?avg_speed_wind)  where {
+  ?obs a  weo:MeteorologicalObservation; 
 sosa:observedProperty
-  <http://ns.inria.fr/meteo/vocab/weatherproperty/windAverageSpeed>  ;
+  wevp:windAverageSpeed;
 sosa:hasSimpleResult  ?v; 
 wep:madeByStation ?station ;
 sosa:resultTime ?t .
+?station weo:stationID ?stationID; rdfs:label ?stationName; dct:spatial [ wdt:P131 [rdfs:label ?region; wdt:P2585 ?insee]].
+BIND(xsd:date(?t) as ?date)
+FILTER(xsd:date(?t) >= xsd:date("2019-04-01"))
+FILTER(xsd:date(?t) <= xsd:date("2019-04-30"))
+FILTER (str(?insee)='76')
 }
-GROUP BY ?stationID ?n ?t
+GROUP BY ?stationID ?date ?region
+ORDER BY ?date

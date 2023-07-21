@@ -61,6 +61,6 @@ echo "rdf_loader_run();"  >> $tempfile
 cat $tempfile
 
 #--- Run file against isql
-cat $tempfile | /bin/isql-vt -U dba -P dba
+cat $tempfile | isql -U dba -P dba
 
 rm -f $tempfile

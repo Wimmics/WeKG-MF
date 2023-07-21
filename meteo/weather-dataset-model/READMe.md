@@ -21,6 +21,7 @@ Furthermore, some qualitative weather properties require the use of standard enc
 
 Note that the model and vocabulary are intended to be adopted and extended by any meteorological data provider. 
 
+The latest version of the WeKG semantic model is published on [http://weakg.i3s.unice.fr/ontology](http://weakg.i3s.unice.fr/ontology).
 
 ## Prefixes of ontologies and vocabularies used in WeKG semantic model
 
