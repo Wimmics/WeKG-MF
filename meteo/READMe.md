@@ -6,7 +6,7 @@ The WeKG-MF namespace is ```http://ns.inria.fr/meteo/```.
 
 # Documentation  
 
-### [RDF Data Modeling](https://github.com/Wimmics/weather-kg/tree/main/meteo/ontology)
+### [RDF Data Modeling](https://github.com/Wimmics/wekg-ontology)
 
 ### [Generation Pipeline](https://github.com/Wimmics/weather-kg/tree/main/meteo/Lifting-dataset)
 
