@@ -53,5 +53,3 @@ Example :
 ./run_pipeline.sh collection022021 mapping_observation_tpl.ttl rdf-dataset-02-2021.ttl
 ```
 More informations are available in [`Lifting-dataset`](meteo/Lifting-dataset) repository.
-
-### [Generation Pipeline](https://github.com/Wimmics/weather-kg/tree/main/meteo/Lifting-dataset)
