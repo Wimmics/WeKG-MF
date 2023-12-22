@@ -4,11 +4,11 @@ The Météo-France RDF Weather dataset (WeKG-MF) is an RDF knowledge graph that 
 
 The WeKG-MF namespace is ```http://ns.inria.fr/meteo/```. 
 
-# Documentation  
 
-### [RDF Data Modeling](https://github.com/Wimmics/wekg-ontology)
+## RDF Data Modeling
 
-### [Generation Pipeline](https://github.com/Wimmics/weather-kg/tree/main/meteo/Lifting-dataset)
+See the [WeKG ontology](https://github.com/Wimmics/wekg-ontology) repository.
+
 
 ## Downloading and SPARQL querying 
 
@@ -37,7 +37,7 @@ Statistics about WeKG-MF is provided as follows :
 
 We provide a fully automatic pipeline that enables us the maintenance and update of the WeKG graph with new weather data from the Météo-France organism. This pipeline allowes to generate the WeKG dataset and update it over time. The pipeline involves several steps including the preprocessing and loading data in MongoDB database as JSON collections and their transformation in RDF data. The [Morph-xR2RML tool](https://github.com/frmichel/morph-xr2rml/) allows the generation of RDF data. 
  
-The script ```run_pipeline.sh``` available in ```Lifting-dataset``` directory is the main entry point of the pipeline.
+The script ```run_pipeline.sh``` available in [`Lifting-dataset`](meteo/Lifting-dataset) directory is the main entry point of the pipeline.
 
 The script ```run_pipeline.sh``` needs 3 arguments: 
  
@@ -52,4 +52,6 @@ Example :
 ```bash
 ./run_pipeline.sh collection022021 mapping_observation_tpl.ttl rdf-dataset-02-2021.ttl
 ```
-More informations are available in ```Lifting-dataset```repository !
+More informations are available in [`Lifting-dataset`](meteo/Lifting-dataset) repository.
+
+### [Generation Pipeline](https://github.com/Wimmics/weather-kg/tree/main/meteo/Lifting-dataset)
